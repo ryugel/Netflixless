@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B35DF442B5ECA750015E038 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF432B5ECA750015E038 /* User.swift */; };
+		7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF492B5FA83D0015E038 /* Bundle.swift */; };
+		7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF4B2B5FA93E0015E038 /* ApiError.swift */; };
+		7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */; };
+		7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */; };
+		7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */; };
+		7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */; };
+		7B5FDB042B5EC65900A4EBDE /* NetflixlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */; };
+		7B5FDB0E2B5EC65900A4EBDE /* NetflixlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */; };
+		7B5FDB102B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */; };
+		7B5FDB222B5EC88C00A4EBDE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB212B5EC88C00A4EBDE /* Model.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B5FDB002B5EC65900A4EBDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5FDAE72B5EC65500A4EBDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B5FDAEE2B5EC65500A4EBDE;
+			remoteInfo = Netflixless;
+		};
+		7B5FDB0A2B5EC65900A4EBDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5FDAE72B5EC65500A4EBDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B5FDAEE2B5EC65500A4EBDE;
+			remoteInfo = Netflixless;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B35DF432B5ECA750015E038 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7B35DF492B5FA83D0015E038 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		7B35DF4B2B5FA93E0015E038 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflixless.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessApp.swift; sourceTree = "<group>"; };
+		7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7B5FDAFF2B5EC65900A4EBDE /* NetflixlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessTests.swift; sourceTree = "<group>"; };
+		7B5FDB092B5EC65900A4EBDE /* NetflixlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessUITests.swift; sourceTree = "<group>"; };
+		7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7B5FDB212B5EC88C00A4EBDE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B5FDAEC2B5EC65500A4EBDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5FDAFC2B5EC65900A4EBDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5FDB062B5EC65900A4EBDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B5FDAE62B5EC65500A4EBDE = {
+			isa = PBXGroup;
+			children = (
+				7B5FDAF12B5EC65500A4EBDE /* Netflixless */,
+				7B5FDB022B5EC65900A4EBDE /* NetflixlessTests */,
+				7B5FDB0C2B5EC65900A4EBDE /* NetflixlessUITests */,
+				7B5FDAF02B5EC65500A4EBDE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B5FDAF02B5EC65500A4EBDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */,
+				7B5FDAFF2B5EC65900A4EBDE /* NetflixlessTests.xctest */,
+				7B5FDB092B5EC65900A4EBDE /* NetflixlessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B5FDAF12B5EC65500A4EBDE /* Netflixless */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDB1F2B5EC68A00A4EBDE /* View */,
+				7B5FDB1E2B5EC68300A4EBDE /* Model */,
+				7B5FDB1D2B5EC67A00A4EBDE /* Extension */,
+				7B5FDB1C2B5EC66B00A4EBDE /* Helper */,
+				7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */,
+				7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */,
+				7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */,
+				7B5FDAF82B5EC65800A4EBDE /* Preview Content */,
+			);
+			path = Netflixless;
+			sourceTree = "<group>";
+		};
+		7B5FDAF82B5EC65800A4EBDE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7B5FDB022B5EC65900A4EBDE /* NetflixlessTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */,
+			);
+			path = NetflixlessTests;
+			sourceTree = "<group>";
+		};
+		7B5FDB0C2B5EC65900A4EBDE /* NetflixlessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */,
+				7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */,
+			);
+			path = NetflixlessUITests;
+			sourceTree = "<group>";
+		};
+		7B5FDB1C2B5EC66B00A4EBDE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7B5FDB1D2B5EC67A00A4EBDE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7B35DF492B5FA83D0015E038 /* Bundle.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7B5FDB1E2B5EC68300A4EBDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDB212B5EC88C00A4EBDE /* Model.swift */,
+				7B35DF432B5ECA750015E038 /* User.swift */,
+				7B35DF4B2B5FA93E0015E038 /* ApiError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B5FDB1F2B5EC68A00A4EBDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B5FDB202B5EC69000A4EBDE /* Component */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B5FDB202B5EC69000A4EBDE /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B5FDAEE2B5EC65500A4EBDE /* Netflixless */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5FDB132B5EC65900A4EBDE /* Build configuration list for PBXNativeTarget "Netflixless" */;
+			buildPhases = (
+				7B5FDAEB2B5EC65500A4EBDE /* Sources */,
+				7B5FDAEC2B5EC65500A4EBDE /* Frameworks */,
+				7B5FDAED2B5EC65500A4EBDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Netflixless;
+			productName = Netflixless;
+			productReference = 7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B5FDAFE2B5EC65900A4EBDE /* NetflixlessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5FDB162B5EC65900A4EBDE /* Build configuration list for PBXNativeTarget "NetflixlessTests" */;
+			buildPhases = (
+				7B5FDAFB2B5EC65900A4EBDE /* Sources */,
+				7B5FDAFC2B5EC65900A4EBDE /* Frameworks */,
+				7B5FDAFD2B5EC65900A4EBDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B5FDB012B5EC65900A4EBDE /* PBXTargetDependency */,
+			);
+			name = NetflixlessTests;
+			productName = NetflixlessTests;
+			productReference = 7B5FDAFF2B5EC65900A4EBDE /* NetflixlessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B5FDB082B5EC65900A4EBDE /* NetflixlessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5FDB192B5EC65900A4EBDE /* Build configuration list for PBXNativeTarget "NetflixlessUITests" */;
+			buildPhases = (
+				7B5FDB052B5EC65900A4EBDE /* Sources */,
+				7B5FDB062B5EC65900A4EBDE /* Frameworks */,
+				7B5FDB072B5EC65900A4EBDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B5FDB0B2B5EC65900A4EBDE /* PBXTargetDependency */,
+			);
+			name = NetflixlessUITests;
+			productName = NetflixlessUITests;
+			productReference = 7B5FDB092B5EC65900A4EBDE /* NetflixlessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B5FDAE72B5EC65500A4EBDE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					7B5FDAEE2B5EC65500A4EBDE = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					7B5FDAFE2B5EC65900A4EBDE = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 7B5FDAEE2B5EC65500A4EBDE;
+					};
+					7B5FDB082B5EC65900A4EBDE = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 7B5FDAEE2B5EC65500A4EBDE;
+					};
+				};
+			};
+			buildConfigurationList = 7B5FDAEA2B5EC65500A4EBDE /* Build configuration list for PBXProject "Netflixless" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B5FDAE62B5EC65500A4EBDE;
+			productRefGroup = 7B5FDAF02B5EC65500A4EBDE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B5FDAEE2B5EC65500A4EBDE /* Netflixless */,
+				7B5FDAFE2B5EC65900A4EBDE /* NetflixlessTests */,
+				7B5FDB082B5EC65900A4EBDE /* NetflixlessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B5FDAED2B5EC65500A4EBDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */,
+				7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5FDAFD2B5EC65900A4EBDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5FDB072B5EC65900A4EBDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B5FDAEB2B5EC65500A4EBDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B35DF442B5ECA750015E038 /* User.swift in Sources */,
+				7B5FDB222B5EC88C00A4EBDE /* Model.swift in Sources */,
+				7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */,
+				7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */,
+				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
+				7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5FDAFB2B5EC65900A4EBDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5FDB042B5EC65900A4EBDE /* NetflixlessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5FDB052B5EC65900A4EBDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5FDB102B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift in Sources */,
+				7B5FDB0E2B5EC65900A4EBDE /* NetflixlessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B5FDB012B5EC65900A4EBDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B5FDAEE2B5EC65500A4EBDE /* Netflixless */;
+			targetProxy = 7B5FDB002B5EC65900A4EBDE /* PBXContainerItemProxy */;
+		};
+		7B5FDB0B2B5EC65900A4EBDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B5FDAEE2B5EC65500A4EBDE /* Netflixless */;
+			targetProxy = 7B5FDB0A2B5EC65900A4EBDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7B5FDB112B5EC65900A4EBDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B5FDB122B5EC65900A4EBDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B5FDB142B5EC65900A4EBDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
+				DEVELOPMENT_TEAM = Y542NXVNVY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.Netflixless;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B5FDB152B5EC65900A4EBDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
+				DEVELOPMENT_TEAM = Y542NXVNVY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.Netflixless;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B5FDB172B5EC65900A4EBDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y542NXVNVY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.NetflixlessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Netflixless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Netflixless";
+			};
+			name = Debug;
+		};
+		7B5FDB182B5EC65900A4EBDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y542NXVNVY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.NetflixlessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Netflixless.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Netflixless";
+			};
+			name = Release;
+		};
+		7B5FDB1A2B5EC65900A4EBDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y542NXVNVY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.NetflixlessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Netflixless;
+			};
+			name = Debug;
+		};
+		7B5FDB1B2B5EC65900A4EBDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y542NXVNVY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.NetflixlessUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Netflixless;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B5FDAEA2B5EC65500A4EBDE /* Build configuration list for PBXProject "Netflixless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5FDB112B5EC65900A4EBDE /* Debug */,
+				7B5FDB122B5EC65900A4EBDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5FDB132B5EC65900A4EBDE /* Build configuration list for PBXNativeTarget "Netflixless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5FDB142B5EC65900A4EBDE /* Debug */,
+				7B5FDB152B5EC65900A4EBDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5FDB162B5EC65900A4EBDE /* Build configuration list for PBXNativeTarget "NetflixlessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5FDB172B5EC65900A4EBDE /* Debug */,
+				7B5FDB182B5EC65900A4EBDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5FDB192B5EC65900A4EBDE /* Build configuration list for PBXNativeTarget "NetflixlessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5FDB1A2B5EC65900A4EBDE /* Debug */,
+				7B5FDB1B2B5EC65900A4EBDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B5FDAE72B5EC65500A4EBDE /* Project object */;
+}
