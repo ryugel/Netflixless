@@ -19,17 +19,18 @@ struct Trendings: Codable {
     }
 }
 
-struct Movie: Codable {
+struct Movie: Codable, Hashable, Identifiable {
     let adult: Bool
     let backdropPath: String
     let id: Int
-    let title, originalLanguage, originalTitle, overview: String
+    let title: String?
+    let originalLanguage, originalTitle, overview: String?
     let posterPath: String
     let mediaType: MediaType
     let genreIDS: [Int]
     let popularity: Double
-    let releaseDate: String
-    let video: Bool
+    let releaseDate: String?
+    let video: Bool?
     let voteAverage: Double
     let voteCount: Int
     
@@ -49,6 +50,8 @@ struct Movie: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
+   
+    
     var imageUrl: String {
         return "https://image.tmdb.org/t/p/original"
     }
@@ -56,4 +59,5 @@ struct Movie: Codable {
 
 enum MediaType: String, Codable {
     case movie = "movie"
+    case tv = "tv"
 }
