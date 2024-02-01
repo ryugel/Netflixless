@@ -9,28 +9,33 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading,spacing: 0) {
             StartShape()
             EndShape()
         }
-        .background(Color(.black))
+        .background(Color(#colorLiteral(red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, alpha: 0.8470588235)))
     }
 }
 
 struct StartShape: View {
     var body: some View{
-        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+        Rectangle()
             .fill(
-                LinearGradient(colors: [Color.blue,Color.black], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color.blue,Color(#colorLiteral(red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, alpha: 0.8470588235))], startPoint: .top, endPoint: .bottom)
             )
             .frame(width: .infinity, height: 450)
             .overlay(
-                VStack(alignment: .leading) {
-                    Text("For You")
-                        .foregroundStyle(Color.white)
-                        .font(.headline)
-                        .padding(.leading, 20)
-                    
+                VStack(alignment: .center) {
+                    HStack {
+                        Text("For You")
+                            .foregroundStyle(Color.white)
+                            .font(.title2.bold())
+                            .padding(.leading, 20)
+                        Rectangle()
+                            .fill(Color.black.opacity(0))
+                            .frame(width: .infinity,height: .infinity)
+                            
+                    }
                     RecommendedEntertainment()
                         
                         
@@ -42,6 +47,9 @@ struct StartShape: View {
 }
 
 struct RecommendedEntertainment: View {
+    
+    @State private var imageData: Data?
+    
     var body: some View {
         
         RoundedRectangle(cornerRadius: 25)
@@ -49,23 +57,39 @@ struct RecommendedEntertainment: View {
             .frame(width: 400,height: 400)
             .overlay(
                 VStack() {
-                    Image(systemName: "slowmo")
-                        .resizable()
-                        .foregroundColor(Color.gray)
-                        .frame(width: 200,height: 200)
+                    if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                    } else {
+                        Image(systemName: "slowmo")
+                            .resizable()
+                            .foregroundColor(Color.gray)
+                            .frame(width: 200,height: 200)
+                    }
                 }
             )
-        
-        
+    }
+    
+    func loadRecomendedImg() {
+            
+            guard let url = URL(string: "https://image.tmdb.org/t/p/w500/" ) else { return }
+
+            URLSession.shared.dataTask(with: url) { (data, _, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.imageData = data
+                    }
+                }
+            }.resume()
+    
     }
 }
 
 struct EndShape: View {
     var body: some View {
         Rectangle()
-            .fill(
-                Color(.black)
-            )
+            .fill(Color.black.opacity(0.3))
             .frame(width: .infinity, height: .infinity)
     }
 }

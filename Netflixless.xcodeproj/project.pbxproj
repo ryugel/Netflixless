@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B532FFC2B6BE15D000E23BA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B532FFB2B6BE15D000E23BA /* MainView.swift */; };
+		2B532FFE2B6BE2CD000E23BA /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */; };
+		2B5330002B6BE4B2000E23BA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */; };
 		2BD768A12B66F21600ACB3CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD768A02B66F21600ACB3CF /* HomeView.swift */; };
 		7B35DF442B5ECA750015E038 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF432B5ECA750015E038 /* User.swift */; };
 		7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF492B5FA83D0015E038 /* Bundle.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B532FFB2B6BE15D000E23BA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = Netflixless/Assets.xcassets/MainView.swift; sourceTree = SOURCE_ROOT; };
+		2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteView.swift; path = Netflixless/Assets.xcassets/FavoriteView.swift; sourceTree = SOURCE_ROOT; };
+		2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Netflixless/Assets.xcassets/ProfileView.swift; sourceTree = SOURCE_ROOT; };
 		2BD768A02B66F21600ACB3CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
 		7B35DF432B5ECA750015E038 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B35DF492B5FA83D0015E038 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 			children = (
 				7B5FDB202B5EC69000A4EBDE /* Component */,
 				2BD768A02B66F21600ACB3CF /* HomeView.swift */,
+				2B532FFB2B6BE15D000E23BA /* MainView.swift */,
+				2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */,
+				2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,11 +297,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B35DF442B5ECA750015E038 /* User.swift in Sources */,
+				2B532FFC2B6BE15D000E23BA /* MainView.swift in Sources */,
+				2B5330002B6BE4B2000E23BA /* ProfileView.swift in Sources */,
 				2BD768A12B66F21600ACB3CF /* HomeView.swift in Sources */,
 				7B5FDB222B5EC88C00A4EBDE /* Model.swift in Sources */,
 				7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */,
 				7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */,
 				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
+				2B532FFE2B6BE2CD000E23BA /* FavoriteView.swift in Sources */,
 				7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
