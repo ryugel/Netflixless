@@ -12,9 +12,10 @@ struct TopRatedCard: View {
     let result: Result
     var body: some View {
         VStack {
-            KFImage(URL(string: "\(result.imageUrl)\(result.posterPath)"))
+            KFImage(URL(string: result.imageUrl + (result.posterPath ?? "")))
                 .resizable()
                 .frame(width: 180, height: 195)
+               
         }
     }
 }

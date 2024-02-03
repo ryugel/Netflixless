@@ -22,7 +22,8 @@ class TopRatedViewModel: ObservableObject {
       }
 
       private var url: URL {
-          let urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)"
+    let urlString = "https://api.themoviedb.org/3/discover/tv?api_key=\(apiKey)&language=en-US&page=1&include_adult=false"
+
           guard let url = URL(string: urlString) else {
               fatalError("Invalid URL: \(urlString)")
           }

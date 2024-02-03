@@ -24,14 +24,14 @@ struct TopRated: Codable {
 // MARK: - Result
 struct Result: Codable, Hashable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
     let originCountry: [String]?
     let originalLanguage: OriginalLanguage?
     let originalName, overview: String?
     let popularity: Double
-    let posterPath: String
+    let posterPath: String?
     let firstAirDate: String?
     let name: String?
     let voteAverage: Double
@@ -64,4 +64,7 @@ enum OriginalLanguage: String, Codable {
     case ko = "ko"
     case nl = "nl"
     case fr = "fr"
+    case de = "de"
+    case af = "af"
+    case es = "es"
 }
