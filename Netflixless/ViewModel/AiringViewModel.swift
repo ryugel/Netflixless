@@ -1,15 +1,15 @@
 //
-//  TrendingsViewModel.swift
+//  AiringViewModel.swift
 //  Netflixless
 //
-//  Created by Augustin Diabira on 31/01/2024.
+//  Created by Augustin Diabira on 03/02/2024.
 //
 
 import Foundation
 import Combine
 
-class TrendingsViewModel: ObservableObject {
-    @Published var movies:[Movie] = []
+class AiringViewModel: ObservableObject {
+    @Published var airings:[OnAir] = []
     private var cancellables: Set<AnyCancellable> = []
     
     private var apiKey: String {
@@ -20,17 +20,18 @@ class TrendingsViewModel: ObservableObject {
     }
     
     private var url: URL {
-        let urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)"
+        let urlString = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)&language=en-US&page=1"
+        
         guard let url = URL(string: urlString) else {
             fatalError("Invalid URL: \(urlString)")
         }
         return url
     }
     
-    func fetchTrends() {
+    func fetchAiringShows() {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: Trendings.self, decoder: JSONDecoder())
+            .decode(type: Airing.self, decoder: JSONDecoder())
             .map(\.results)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -41,8 +42,8 @@ class TrendingsViewModel: ObservableObject {
                 case .failure(let error):
                     print("Error: \(error)")
                 }
-            }, receiveValue: { [weak self] movies in
-                self?.movies = movies
+            }, receiveValue: { [weak self] onAir in
+                self?.airings = onAir
             })
             .store(in: &cancellables)
     }

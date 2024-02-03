@@ -17,6 +17,9 @@ struct Trendings: Codable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
+    
+    static var MOCK_Trendings:Trendings = Bundle.main.decode(file: "Trendings.json")
+    static var trend = MOCK_Trendings.results.first!
 }
 
 struct Movie: Codable, Hashable, Identifiable {

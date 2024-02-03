@@ -1,0 +1,434 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/4MCKNAc6AbWjEsM2h9Xc29owo4z.jpg",
+            "id": 866398,
+            "title": "The Beekeeper",
+            "original_language": "en",
+            "original_title": "The Beekeeper",
+            "overview": "One man’s campaign for vengeance takes on national stakes after he is revealed to be a former operative of a powerful and clandestine organization known as Beekeepers.",
+            "poster_path": "/A7EByudX0eOzlkQ2FIbogzyazm2.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                28,
+                53,
+                18
+            ],
+            "popularity": 647.361,
+            "release_date": "2024-01-10",
+            "video": false,
+            "vote_average": 7.331,
+            "vote_count": 284
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nWLaQghS2v9jKGXFsl6M5y1UG3U.jpg",
+            "id": 263109,
+            "title": "Shaun the Sheep Movie",
+            "original_language": "en",
+            "original_title": "Shaun the Sheep Movie",
+            "overview": "When Shaun decides to take the day off and have some fun, he gets a little more action than he bargained for. A mix up with the Farmer, a caravan and a very steep hill lead them all to the Big City and it's up to Shaun and the flock to return everyone safely to the green grass of home.",
+            "poster_path": "/dhVYlfMNc2bfXPB83LLL00I4l9n.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                10751,
+                16,
+                35,
+                12
+            ],
+            "popularity": 47.624,
+            "release_date": "2015-02-05",
+            "video": false,
+            "vote_average": 6.989,
+            "vote_count": 1302
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/jXJxMcVoEuXzym3vFnjqDW4ifo6.jpg",
+            "id": 572802,
+            "title": "Aquaman and the Lost Kingdom",
+            "original_language": "en",
+            "original_title": "Aquaman and the Lost Kingdom",
+            "overview": "Black Manta, still driven by the need to avenge his father's death and wielding the power of the mythic Black Trident, will stop at nothing to take Aquaman down once and for all. To defeat him, Aquaman must turn to his imprisoned brother Orm, the former King of Atlantis, to forge an unlikely alliance in order to save the world from irreversible destruction.",
+            "poster_path": "/7lTnXOy0iNtBAdRP3TZvaKJ77F6.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                28,
+                12,
+                14
+            ],
+            "popularity": 5841.384,
+            "release_date": "2023-12-20",
+            "video": false,
+            "vote_average": 6.995,
+            "vote_count": 1174
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/ckAwjXyW7LQEbvjdbzJGEJNSfWl.jpg",
+            "id": 374252,
+            "title": "Shaun the Sheep: The Farmer's Llamas",
+            "original_language": "en",
+            "original_title": "Shaun the Sheep: The Farmer's Llamas",
+            "overview": "Shaun bluffs his dimwitted farmer master into bidding for three llamas at a county fair. Once they arrive, however, they cause such chaotic destructive mayhem that Shaun has to carefully remove them – high-speed chases, careful rooftop scrambles and dangerous falls ensue.",
+            "poster_path": "/a3wjyadC2l3ehoqHjKlk5w89ErM.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                10770,
+                10751,
+                16,
+                35
+            ],
+            "popularity": 15.889,
+            "release_date": "2015-11-13",
+            "video": false,
+            "vote_average": 6.656,
+            "vote_count": 61
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/yOm993lsJyPmBodlYjgpPwBjXP9.jpg",
+            "id": 787699,
+            "title": "Wonka",
+            "original_language": "en",
+            "original_title": "Wonka",
+            "overview": "Willy Wonka – chock-full of ideas and determined to change the world one delectable bite at a time – is proof that the best things in life begin with a dream, and if you’re lucky enough to meet Willy Wonka, anything is possible.",
+            "poster_path": "/qhb1qOilapbapxWQn9jtRCMwXJF.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                35,
+                10751,
+                14
+            ],
+            "popularity": 2333.391,
+            "release_date": "2023-12-06",
+            "video": false,
+            "vote_average": 7.244,
+            "vote_count": 1668
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1jJOYBCG9lrpANhnoDR815zkf2W.jpg",
+            "id": 785545,
+            "title": "Shaun the Sheep: The Flight Before Christmas",
+            "original_language": "en",
+            "original_title": "Shaun the Sheep: The Flight Before Christmas",
+            "overview": "Shaun's seasonal excitement turns to dismay when a farmhouse raid to get bigger stockings for the flock inadvertently leads to Timmy going missing. Can Shaun get Timmy back before he becomes someone else’s present?",
+            "poster_path": "/1eh6Yv6bAU2ghHxP1zgUlMfaOR3.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                16,
+                35,
+                10751
+            ],
+            "popularity": 27.945,
+            "release_date": "2021-12-03",
+            "video": false,
+            "vote_average": 7.024,
+            "vote_count": 125
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/pWsD91G2R1Da3AKM3ymr3UoIfRb.jpg",
+            "id": 933131,
+            "title": "Badland Hunters",
+            "original_language": "ko",
+            "original_title": "황야",
+            "overview": "After a deadly earthquake turns Seoul into a lawless badland, a fearless huntsman springs into action to rescue a teenager abducted by a mad doctor.",
+            "poster_path": "/zVMyvNowgbsBAL6O6esWfRpAcOb.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                28,
+                878,
+                18
+            ],
+            "popularity": 443.734,
+            "release_date": "2024-01-26",
+            "video": false,
+            "vote_average": 6.826,
+            "vote_count": 89
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/mY3CRicUMaX3Btxv8yspud75UJu.jpg",
+            "id": 848538,
+            "title": "Argylle",
+            "original_language": "en",
+            "original_title": "Argylle",
+            "overview": "When the plots of reclusive author Elly Conway's fictional espionage novels begin to mirror the covert actions of a real-life spy organization, quiet evenings at home become a thing of the past. Accompanied by her cat Alfie and Aiden, a cat-allergic spy, Elly races across the world to stay one step ahead of the killers as the line between Conway's fictional world and her real one begins to blur.",
+            "poster_path": "/siduVKgOnABO4WH4lOwPQwaGwJp.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                35,
+                28,
+                80
+            ],
+            "popularity": 195.447,
+            "release_date": "2024-01-31",
+            "video": false,
+            "vote_average": 7.65,
+            "vote_count": 10
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nI8uQAU8KFXYIIRz6jdL0pmC3eL.jpg",
+            "id": 103540,
+            "name": "Percy Jackson and the Olympians",
+            "original_language": "en",
+            "original_name": "Percy Jackson and the Olympians",
+            "overview": "Percy Jackson is on a dangerous quest. Outrunning monsters and outwitting gods, he must journey across America to return Zeus' master bolt and stop an all-out war. With the help of his quest mates Annabeth and Grover, Percy's journey will lead him closer to the answers he seeks: how to fit into a world where he feels out of place, and find out who he's destined to be.",
+            "poster_path": "/upmXGc1QovmPBU0mQJR2re6ruKd.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                10759,
+                10765,
+                18,
+                10751
+            ],
+            "popularity": 659.342,
+            "first_air_date": "2023-12-19",
+            "vote_average": 7.5,
+            "vote_count": 239,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/menEyCOdkjXqwpJy3cwOH8kfZrj.jpg",
+            "id": 46518,
+            "name": "Masters of the Air",
+            "original_language": "en",
+            "original_name": "Masters of the Air",
+            "overview": "During World War II, airmen risk their lives with the 100th Bomb Group, a brotherhood forged by courage, loss, and triumph.",
+            "poster_path": "/rSAmgcoA74371rplbqM27yVsd3y.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                10768,
+                18
+            ],
+            "popularity": 727.798,
+            "first_air_date": "2024-01-25",
+            "vote_average": 8.029,
+            "vote_count": 35,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/bQS43HSLZzMjZkcHJz4fGc7fNdz.jpg",
+            "id": 792307,
+            "title": "Poor Things",
+            "original_language": "en",
+            "original_title": "Poor Things",
+            "overview": "Brought back to life by an unorthodox scientist, a young woman runs off with a debauched lawyer on a whirlwind adventure across the continents. Free from the prejudices of her times, she grows steadfast in her purpose to stand for equality and liberation.",
+            "poster_path": "/kCGlIMHnOm8JPXq3rXM6c5wMxcT.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                878,
+                10749,
+                35
+            ],
+            "popularity": 494.869,
+            "release_date": "2023-12-07",
+            "video": false,
+            "vote_average": 8.2,
+            "vote_count": 640
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nj06Yo0yVzI7jx6novjyGOyNQKC.jpg",
+            "id": 137893,
+            "name": "Griselda",
+            "original_language": "en",
+            "original_name": "Griselda",
+            "overview": "Chronicles the life of Griselda Blanco, who created one of the most profitable cartels in history. A devoted mother, Blanco’s lethal blend of charm and unsuspecting savagery helped her expertly navigate between family and business leading her to become widely known as the “Black Widow”.",
+            "poster_path": "/nhEtK1lJKb3kqBtDBDXynGr3hJL.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18,
+                80
+            ],
+            "popularity": 1149.614,
+            "first_air_date": "2024-01-25",
+            "vote_average": 7.886,
+            "vote_count": 70,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/ehumsuIBbgAe1hg343oszCLrAfI.jpg",
+            "id": 1022796,
+            "title": "Wish",
+            "original_language": "en",
+            "original_title": "Wish",
+            "overview": "Asha, a sharp-witted idealist, makes a wish so powerful that it is answered by a cosmic force – a little ball of boundless energy called Star. Together, Asha and Star confront a most formidable foe - the ruler of Rosas, King Magnifico - to save her community and prove that when the will of one courageous human connects with the magic of the stars, wondrous things can happen.",
+            "poster_path": "/AcoVfiv1rrWOmAdpnAMnM56ki19.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                16,
+                10751,
+                14,
+                12
+            ],
+            "popularity": 1662.711,
+            "release_date": "2023-11-13",
+            "video": false,
+            "vote_average": 6.64,
+            "vote_count": 541
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/meyhnvssZOPPjud4F1CjOb4snET.jpg",
+            "id": 940551,
+            "title": "Migration",
+            "original_language": "en",
+            "original_title": "Migration",
+            "overview": "After a migrating duck family alights on their pond with thrilling tales of far-flung places, the Mallard family embarks on a family road trip, from New England, to New York City, to tropical Jamaica.",
+            "poster_path": "/ldfCF9RhR40mppkzmftxapaHeTo.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                16,
+                12,
+                35,
+                10751,
+                28
+            ],
+            "popularity": 1486.31,
+            "release_date": "2023-12-06",
+            "video": false,
+            "vote_average": 7.846,
+            "vote_count": 396
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/siA2d4PNn4JVFZAwfIYx4pnKCaK.jpg",
+            "id": 46648,
+            "name": "True Detective",
+            "original_language": "en",
+            "original_name": "True Detective",
+            "overview": "An American anthology police detective series utilizing multiple timelines in which investigations seem to unearth personal and professional secrets of those involved, both within or outside the law.",
+            "poster_path": "/cuV2O5ZyDLHSOWzg3nLVljp1ubw.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 989.813,
+            "first_air_date": "2014-01-12",
+            "vote_average": 8.3,
+            "vote_count": 2987,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+            "id": 872585,
+            "title": "Oppenheimer",
+            "original_language": "en",
+            "original_title": "Oppenheimer",
+            "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
+            "poster_path": "/ptpr0kGAckfQkJeJIt8st5dglvd.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                18,
+                36
+            ],
+            "popularity": 463.169,
+            "release_date": "2023-07-19",
+            "video": false,
+            "vote_average": 8.1,
+            "vote_count": 6466
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/dT1bXXEd7cfuVsB7CMvOKYiRZWl.jpg",
+            "id": 1007826,
+            "title": "The Underdoggs",
+            "original_language": "en",
+            "original_title": "The Underdoggs",
+            "overview": "Jaycen 'Two Js' Jennings is a washed-up former pro football star who has hit rock bottom. When sentenced to community service coaching the Underdoggs, an unruly pee-wee football team in his hometown, he sees it mostly as an opportunity to rebuild his public image. But in the process, he may just turn his life around and rediscover his love of the game.",
+            "poster_path": "/wj1VRcVsh39nkxLkZP8tuGd96tc.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                35
+            ],
+            "popularity": 187.135,
+            "release_date": "2024-01-25",
+            "video": false,
+            "vote_average": 6.471,
+            "vote_count": 17
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/fGe1ej335XbqN1j9teoDpofpbLX.jpg",
+            "id": 915935,
+            "title": "Anatomy of a Fall",
+            "original_language": "fr",
+            "original_title": "Anatomie d'une chute",
+            "overview": "A woman is suspected of her husband’s murder, and their blind son faces a moral dilemma as the sole witness.",
+            "poster_path": "/kQs6keheMwCxJxrzV83VUwFtHkB.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                18,
+                9648,
+                80
+            ],
+            "popularity": 174.136,
+            "release_date": "2023-08-13",
+            "video": false,
+            "vote_average": 7.8,
+            "vote_count": 802
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/gg4zZoTggZmpAQ32qIrP5dtnkEZ.jpg",
+            "id": 891699,
+            "title": "Silent Night",
+            "original_language": "en",
+            "original_title": "Silent Night",
+            "overview": "A tormented father witnesses his young son die when caught in a gang's crossfire on Christmas Eve. While recovering from a wound that costs him his voice, he makes vengeance his life's mission and embarks on a punishing training regimen in order to avenge his son's death.",
+            "poster_path": "/nJCP1ZNTPKlZ7S0Kv3gbmuraAT4.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                28,
+                12,
+                53
+            ],
+            "popularity": 293.759,
+            "release_date": "2023-11-30",
+            "video": false,
+            "vote_average": 6.176,
+            "vote_count": 364
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nHf61UzkfFno5X1ofIhugCPus2R.jpg",
+            "id": 346698,
+            "title": "Barbie",
+            "original_language": "en",
+            "original_title": "Barbie",
+            "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+            "poster_path": "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                35,
+                12,
+                14
+            ],
+            "popularity": 334.145,
+            "release_date": "2023-07-19",
+            "video": false,
+            "vote_average": 7.1,
+            "vote_count": 7159
+        }
+    ],
+    "total_pages": 1000,
+    "total_results": 20000
+}

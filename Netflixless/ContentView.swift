@@ -9,22 +9,55 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var vm = TrendingsViewModel()
-    @State private var searchText = ""
+    @StateObject var en = TopRatedViewModel()
+    @StateObject var dm = PopularViewModel()
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(searchText.isEmpty ? vm.movies : vm.movies.filter {
-                    return $0.title?.lowercased().contains(searchText.lowercased()) ?? false
-                }){movie in
-                    Text(movie.title ?? "this movie's title is not in our DB! Apologize")
+        ScrollView {
+            OnTheAir()
+            VStack(alignment: .leading) {
+                Text("Popular")
+                    .bold()
+                    .font(.headline)
+                    .padding(.leading)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack {
+                        ForEach(dm.shows, id: \.self){top in
+                            PopularCard(show: top)
+                        }
+                    }
                 }
-                
-            } .onAppear{
-                // When the View appears I'm fetching data from API.
-                vm.fetchTrends()
+                Text("Top rated")
+                    .bold()
+                    .font(.headline)
+                    .padding(.leading)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack {
+                        ForEach(en.topRated, id: \.self){top in
+                            TopRatedCard(result: top)
+                        }
+                    }
+                }
+                Text("Trendings")
+                    .bold()
+                    .font(.headline)
+                    .padding(.leading)
+                trending
             }
-            .navigationTitle("Trendings")
-            .searchable(text: $searchText)
+             .onAppear{
+                vm.fetchTrends()
+                 en.fetchShows()
+                 dm.fetchShows()
+            }
+        }
+    }
+    
+    var trending: some View {
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(vm.movies){trend in
+                    TrendingsCard(trend: trend)                   
+                }
+            }
         }
     }
 }

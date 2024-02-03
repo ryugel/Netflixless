@@ -1,15 +1,15 @@
 //
-//  TrendingsViewModel.swift
+//  PopularViewModel.swift
 //  Netflixless
 //
-//  Created by Augustin Diabira on 31/01/2024.
+//  Created by Augustin Diabira on 02/02/2024.
 //
 
 import Foundation
 import Combine
 
-class TrendingsViewModel: ObservableObject {
-    @Published var movies:[Movie] = []
+class TopRatedViewModel: ObservableObject {
+    @Published var topRated:[Result] = []
     private var cancellables: Set<AnyCancellable> = []
     
     private var apiKey: String {
@@ -20,17 +20,18 @@ class TrendingsViewModel: ObservableObject {
     }
     
     private var url: URL {
-        let urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)"
+        let urlString = "https://api.themoviedb.org/3/discover/tv?api_key=\(apiKey)&language=en-US&page=1&include_adult=false"
+        
         guard let url = URL(string: urlString) else {
             fatalError("Invalid URL: \(urlString)")
         }
         return url
     }
     
-    func fetchTrends() {
+    func fetchShows() {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: Trendings.self, decoder: JSONDecoder())
+            .decode(type: TopRated.self, decoder: JSONDecoder())
             .map(\.results)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -41,10 +42,11 @@ class TrendingsViewModel: ObservableObject {
                 case .failure(let error):
                     print("Error: \(error)")
                 }
-            }, receiveValue: { [weak self] movies in
-                self?.movies = movies
+            }, receiveValue: { [weak self] topRated in
+                self?.topRated = topRated
             })
             .store(in: &cancellables)
     }
     
 }
+
