@@ -2,14 +2,14 @@
 //  PopularViewModel.swift
 //  Netflixless
 //
-//  Created by Augustin Diabira on 02/02/2024.
+//  Created by Augustin Diabira on 03/02/2024.
 //
 
 import Foundation
 import Combine
 
-class TopRatedViewModel: ObservableObject {
-    @Published var topRated:[Result] = []
+class PopularViewModel: ObservableObject {
+    @Published var shows:[Show] = []
     private var cancellables: Set<AnyCancellable> = []
     
     private var apiKey: String {
@@ -20,7 +20,7 @@ class TopRatedViewModel: ObservableObject {
     }
     
     private var url: URL {
-        let urlString = "https://api.themoviedb.org/3/discover/tv?api_key=\(apiKey)&language=en-US&page=1&include_adult=false"
+        let urlString = "https://api.themoviedb.org/3/discover/movie?api_key=10543e6ec0309e58b715386d5aec25d5&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
         
         guard let url = URL(string: urlString) else {
             fatalError("Invalid URL: \(urlString)")
@@ -31,7 +31,7 @@ class TopRatedViewModel: ObservableObject {
     func fetchShows() {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: TopRated.self, decoder: JSONDecoder())
+            .decode(type: Popular.self, decoder: JSONDecoder())
             .map(\.results)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -42,11 +42,10 @@ class TopRatedViewModel: ObservableObject {
                 case .failure(let error):
                     print("Error: \(error)")
                 }
-            }, receiveValue: { [weak self] topRated in
-                self?.topRated = topRated
+            }, receiveValue: { [weak self] show in
+                self?.shows = show
             })
             .store(in: &cancellables)
     }
     
 }
-

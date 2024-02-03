@@ -1,15 +1,17 @@
 //
-//  Popular.swift
+//  Airing.swift
 //  Netflixless
 //
-//  Created by Augustin Diabira on 02/02/2024.
+//  Created by Augustin Diabira on 03/02/2024.
 //
 
 import Foundation
 
-struct Popular: Codable {
+
+
+struct Airing: Codable {
     let page: Int
-    let results: [Show]
+    let results: [OnAir]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -17,11 +19,9 @@ struct Popular: Codable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
-    static var MOCK_Popular: Popular = Bundle.main.decode(file: "Popular.json")
-    static var popularShow = MOCK_Popular.results.first!
 }
 
-struct Show: Codable, Hashable {
+struct OnAir: Codable, Hashable {
     let adult: Bool
     let backdropPath: String?
     let genreIDS: [Int]
@@ -29,8 +29,7 @@ struct Show: Codable, Hashable {
     let originCountry: [String]?
     let originalLanguage, originalName, overview: String?
     let popularity: Double
-    let posterPath: String?
-    let firstAirDate, name: String?
+    let posterPath, firstAirDate, name: String?
     let voteAverage: Double
     let voteCount: Int
 
@@ -54,3 +53,4 @@ struct Show: Codable, Hashable {
         return "https://image.tmdb.org/t/p/original"
     }
 }
+

@@ -13,19 +13,19 @@ class TrendingsViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     private var apiKey: String {
-          guard let apiKey = ProcessInfo.processInfo.environment["MOVIEDB_API_KEY"] else {
-              fatalError("API key not set. Please set the MOVIEDB_API_KEY environment variable.")
-          }
-          return apiKey
-      }
-
-      private var url: URL {
-          let urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)"
-          guard let url = URL(string: urlString) else {
-              fatalError("Invalid URL: \(urlString)")
-          }
-          return url
-      }
+        guard let apiKey = ProcessInfo.processInfo.environment["MOVIEDB_API_KEY"] else {
+            fatalError("API key not set. Please set the MOVIEDB_API_KEY environment variable.")
+        }
+        return apiKey
+    }
+    
+    private var url: URL {
+        let urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)"
+        guard let url = URL(string: urlString) else {
+            fatalError("Invalid URL: \(urlString)")
+        }
+        return url
+    }
     
     func fetchTrends() {
         URLSession.shared.dataTaskPublisher(for: url)

@@ -25,8 +25,6 @@ struct User: Identifiable {
     var isAdult: Bool {
         return age >= 18
     }
-    
-    static let user = User(id: UUID(), username: "Tay", password: "nei,lxz,p", lastName: "Von Degurechaff", firstName: "Taylor", birthdate: birthday(from: "31-12-2002") ?? Date())
 }
 
 func birthday(from dateString: String) -> Date? {
