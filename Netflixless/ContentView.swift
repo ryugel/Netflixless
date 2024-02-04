@@ -12,41 +12,49 @@ struct ContentView: View {
     @StateObject var en = TopRatedViewModel()
     @StateObject var dm = PopularViewModel()
     var body: some View {
-        ScrollView {
-            OnTheAir()
-            VStack(alignment: .leading) {
-                Text("Popular")
-                    .bold()
-                    .font(.headline)
-                    .padding(.leading)
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack {
-                        ForEach(dm.shows, id: \.self){top in
-                            PopularCard(show: top)
+        NavigationView {
+            ScrollView {
+                OnTheAir()
+                
+                VStack(alignment: .leading) {
+                    Text("Popular")
+                        .bold()
+                        .font(.headline)
+                        .padding(.leading)
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack {
+                            ForEach(dm.shows, id: \.self){top in
+                                PopularCard(show: top)
+                            }
                         }
                     }
-                }
-                Text("Top rated")
-                    .bold()
-                    .font(.headline)
-                    .padding(.leading)
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack {
-                        ForEach(en.topRated, id: \.self){top in
-                            TopRatedCard(result: top)
+                    Text("Top rated")
+                        .bold()
+                        .font(.headline)
+                        .padding(.leading)
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack {
+                            ForEach(en.topRated, id: \.self){top in
+                                TopRatedCard(result: top)
+                            }
                         }
                     }
-                }
-                Text("Trendings")
-                    .bold()
-                    .font(.headline)
-                    .padding(.leading)
-                trending
-            }
-             .onAppear{
+                    Text("Trendings")
+                        .bold()
+                        .font(.headline)
+                        .padding(.leading)
+                    trending
+                } }
+            .navigationBarItems(leading:
+                           Text("Netflixless")
+                               .font(.largeTitle).bold()
+                               .foregroundColor(Color.color1) 
+                               .padding(.leading, 13)
+                       )
+            .onAppear{
                 vm.fetchTrends()
-                 en.fetchShows()
-                 dm.fetchShows()
+                en.fetchShows()
+                dm.fetchShows()
             }
         }
     }
@@ -55,7 +63,7 @@ struct ContentView: View {
         return ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(vm.movies){trend in
-                    TrendingsCard(trend: trend)                   
+                    TrendingsCard(trend: trend)
                 }
             }
         }
