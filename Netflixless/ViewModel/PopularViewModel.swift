@@ -20,7 +20,7 @@ class PopularViewModel: ObservableObject {
     }
     
     private var url: URL {
-        let urlString = "https://api.themoviedb.org/3/discover/movie?api_key=10543e6ec0309e58b715386d5aec25d5&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
+        let urlString = "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
         
         guard let url = URL(string: urlString) else {
             fatalError("Invalid URL: \(urlString)")
