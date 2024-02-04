@@ -1,33 +1,21 @@
 //
-//  InscriptionView.swift
+//  ConnectionView.swift
 //  Netflixless
 //
-//  Created by Gilberto Pires da Silva Filho on 02/02/2024.
+//  Created by Gilberto Pires da Silva Filho on 04/02/2024.
 //
 
 import SwiftUI
 
-struct InscriptionView: View {
+struct ConnectionView: View {
     var body: some View {
         ZStack {
             Color(red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, opacity: 0.8470588235)
-
+            
             VStack {
-                Text("Inscription")
+                Text("Connexion")
                     .foregroundColor(Color.white)
                     .font(.bold(.largeTitle)())
-                TextField("Nom", text: .constant(""))
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                    .foregroundColor(Color.black)
-                TextField("Prénom", text: .constant(""))
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                    .foregroundColor(Color.black)
                 TextField("Mail", text: .constant(""))
                     .padding()
                     .background(Color.white)
@@ -40,16 +28,10 @@ struct InscriptionView: View {
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                     .foregroundColor(Color.black)
-                TextField("Date de naissance", text: .constant(""))
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                    .foregroundColor(Color.black)
                 Button(action: {
                     // action
                 }) {
-                    Text("S'inscrire")
+                    Text("Se connecter")
                         .foregroundColor(Color.white)
                         .font(.bold(.title)())
                         .padding()
@@ -64,5 +46,5 @@ struct InscriptionView: View {
 }
 
 #Preview {
-    InscriptionView()
+    ConnectionView()
 }
