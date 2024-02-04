@@ -13,6 +13,7 @@
 		2BD768A12B66F21600ACB3CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD768A02B66F21600ACB3CF /* HomeView.swift */; };
 		366539E92B6D104D0040B98A /* TrendingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366539E82B6D104D0040B98A /* TrendingsViewModel.swift */; };
 		366539EB2B6D11BA0040B98A /* InscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366539EA2B6D11BA0040B98A /* InscriptionView.swift */; };
+		3694D9DD2B70382000891AE2 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3694D9DC2B70382000891AE2 /* ConnectionView.swift */; };
 		7B35DF442B5ECA750015E038 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF432B5ECA750015E038 /* User.swift */; };
 		7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF492B5FA83D0015E038 /* Bundle.swift */; };
 		7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF4B2B5FA93E0015E038 /* ApiError.swift */; };
@@ -47,6 +48,7 @@
 		2BD768A02B66F21600ACB3CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
 		366539E82B6D104D0040B98A /* TrendingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingsViewModel.swift; sourceTree = "<group>"; };
 		366539EA2B6D11BA0040B98A /* InscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InscriptionView.swift; path = Netflixless/Assets.xcassets/InscriptionView.swift; sourceTree = SOURCE_ROOT; };
+		3694D9DC2B70382000891AE2 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectionView.swift; path = Netflixless/Assets.xcassets/ConnectionView.swift; sourceTree = SOURCE_ROOT; };
 		7B35DF432B5ECA750015E038 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B35DF492B5FA83D0015E038 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7B35DF4B2B5FA93E0015E038 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */,
 				2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */,
 				366539EA2B6D11BA0040B98A /* InscriptionView.swift */,
+				3694D9DC2B70382000891AE2 /* ConnectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */,
 				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
 				2B532FFE2B6BE2CD000E23BA /* FavoriteView.swift in Sources */,
+				3694D9DD2B70382000891AE2 /* ConnectionView.swift in Sources */,
 				7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
