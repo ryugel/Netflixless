@@ -7,11 +7,12 @@
 
 import Foundation
 
+// MARK: - Trendings
 struct Trendings: Codable {
     let page: Int
     let results: [Movie]
     let totalPages, totalResults: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case page, results
         case totalPages = "total_pages"
@@ -19,13 +20,15 @@ struct Trendings: Codable {
     }
 }
 
-struct Movie: Codable, Hashable, Identifiable {
+// MARK: - Result
+struct Movie: Codable,Hashable {
     let adult: Bool
     let backdropPath: String
     let id: Int
     let title: String?
-    let originalLanguage, originalTitle, overview: String?
-    let posterPath: String
+    let originalLanguage: OriginalLanguage
+    let originalTitle: String?
+    let overview, posterPath: String
     let mediaType: MediaType
     let genreIDS: [Int]
     let popularity: Double
@@ -33,7 +36,9 @@ struct Movie: Codable, Hashable, Identifiable {
     let video: Bool?
     let voteAverage: Double
     let voteCount: Int
-    
+    let name, originalName, firstAirDate: String?
+    let originCountry: [String]?
+
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
@@ -49,15 +54,21 @@ struct Movie: Codable, Hashable, Identifiable {
         case video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
-    }
-   
-    
-    var imageUrl: String {
-        return "https://image.tmdb.org/t/p/original"
+        case name
+        case originalName = "original_name"
+        case firstAirDate = "first_air_date"
+        case originCountry = "origin_country"
     }
 }
 
 enum MediaType: String, Codable {
     case movie = "movie"
     case tv = "tv"
+}
+
+enum OriginalLanguage: String, Codable {
+    case en = "en"
+    case ja = "ja"
+    case ko = "ko"
+    case nl = "nl"
 }

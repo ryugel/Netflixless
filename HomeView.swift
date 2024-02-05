@@ -8,89 +8,73 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     var body: some View {
         VStack(alignment: .leading,spacing: 0) {
             StartShape()
             EndShape()
         }
-        .background(Color(#colorLiteral(red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, alpha: 0.8470588235)))
+        .background(LinearGradient(colors: [Color.blue,Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom).ignoresSafeArea(.all))
+        
     }
 }
 
 struct StartShape: View {
+    @StateObject var movieModel = MovieModel()
+    let randomTrendingMovie = Int.random(in: 0..<2)
     var body: some View{
         Rectangle()
             .fill(
-                LinearGradient(colors: [Color.blue,Color(#colorLiteral(red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, alpha: 0.8470588235))], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color.blue,Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom)
             )
             .frame(width: .infinity, height: 450)
             .overlay(
                 VStack(alignment: .center) {
                     HStack {
-                        Text("For You")
+                        Text("NetflixLess")
                             .foregroundStyle(Color.white)
-                            .font(.title2.bold())
+                            .font(.title.bold())
                             .padding(.leading, 20)
                         Rectangle()
                             .fill(Color.black.opacity(0))
                             .frame(width: .infinity,height: .infinity)
                             
                     }
-                    RecommendedEntertainment()
-                        
-                        
-                }
-            )
-        
-            
-    }
-}
-
-struct RecommendedEntertainment: View {
-    
-    @State private var imageData: Data?
-    
-    var body: some View {
-        
-        RoundedRectangle(cornerRadius: 25)
-            .fill(Color.black.opacity(0.2))
-            .frame(width: 400,height: 400)
-            .overlay(
-                VStack() {
-                    if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFit()
+                    if movieModel.trendingMovies.indices.contains(randomTrendingMovie) {
+                        let movie = movieModel.trendingMovies[randomTrendingMovie]
+                        let path = movie.posterPath
+                        RecommendedTrendingView(imgPath: path)
                     } else {
-                        Image(systemName: "slowmo")
-                            .resizable()
-                            .foregroundColor(Color.gray)
-                            .frame(width: 200,height: 200)
+                        RecommendedTrendingView(imgPath: "")
                     }
+                    
+                        
                 }
             )
-    }
-    
-    func loadRecomendedImg() {
+            .onAppear {
+                movieModel.fetchTrendingMovies()
+            }
+        
             
-            guard let url = URL(string: "https://image.tmdb.org/t/p/w500/" ) else { return }
-
-            URLSession.shared.dataTask(with: url) { (data, _, error) in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.imageData = data
-                    }
-                }
-            }.resume()
-    
     }
 }
+
+
 
 struct EndShape: View {
     var body: some View {
         Rectangle()
-            .fill(Color.black.opacity(0.3))
+            .fill(Color.black.opacity(0.7))
             .frame(width: .infinity, height: .infinity)
+            .overlay(
+                ZStack(alignment: .leading) {
+                    ScrollView(.horizontal) {
+                        HStack{
+                            
+                        }
+                    }
+                }
+            )
     }
 }
 

@@ -16,10 +16,14 @@ struct MainView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
+            SearchView()
+                .tabItem() {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
             FavoriteView()
                 .tabItem() {
                     Image(systemName: "star.fill")
-                        .foregroundColor(Color.white)
                     Text("Favorites")
                 }
             ProfileView()

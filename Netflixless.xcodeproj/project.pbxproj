@@ -10,12 +10,17 @@
 		2B532FFC2B6BE15D000E23BA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B532FFB2B6BE15D000E23BA /* MainView.swift */; };
 		2B532FFE2B6BE2CD000E23BA /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */; };
 		2B5330002B6BE4B2000E23BA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */; };
+		2B5330042B6BF178000E23BA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5330032B6BF178000E23BA /* SearchView.swift */; };
+		2B7C55892B6E7BF3004E313C /* TrendingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C55882B6E7BF3004E313C /* TrendingsViewModel.swift */; };
+		2B7C558B2B6E7DD1004E313C /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C558A2B6E7DD1004E313C /* MovieCardView.swift */; };
+		2B8AD3622B70386E00A6E446 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AD3612B70386E00A6E446 /* MovieModel.swift */; };
 		2BD768A12B66F21600ACB3CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD768A02B66F21600ACB3CF /* HomeView.swift */; };
+		2BDAE1172B7146E1007A774B /* RecommendedTrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE1162B7146E0007A774B /* RecommendedTrendingView.swift */; };
+		2BDAE11B2B714ED8007A774B /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE11A2B714ED8007A774B /* ImageModel.swift */; };
 		7B35DF442B5ECA750015E038 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF432B5ECA750015E038 /* User.swift */; };
 		7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF492B5FA83D0015E038 /* Bundle.swift */; };
 		7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF4B2B5FA93E0015E038 /* ApiError.swift */; };
 		7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */; };
-		7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */; };
 		7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */; };
 		7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */; };
 		7B5FDB222B5EC88C00A4EBDE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB212B5EC88C00A4EBDE /* Model.swift */; };
@@ -42,13 +47,18 @@
 		2B532FFB2B6BE15D000E23BA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = Netflixless/Assets.xcassets/MainView.swift; sourceTree = SOURCE_ROOT; };
 		2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteView.swift; path = Netflixless/Assets.xcassets/FavoriteView.swift; sourceTree = SOURCE_ROOT; };
 		2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Netflixless/Assets.xcassets/ProfileView.swift; sourceTree = SOURCE_ROOT; };
+		2B5330032B6BF178000E23BA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = Netflixless/Assets.xcassets/SearchView.swift; sourceTree = SOURCE_ROOT; };
+		2B7C55882B6E7BF3004E313C /* TrendingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingsViewModel.swift; sourceTree = "<group>"; };
+		2B7C558A2B6E7DD1004E313C /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
+		2B8AD3612B70386E00A6E446 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		2BD768A02B66F21600ACB3CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
+		2BDAE1162B7146E0007A774B /* RecommendedTrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrendingView.swift; sourceTree = "<group>"; };
+		2BDAE11A2B714ED8007A774B /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		7B35DF432B5ECA750015E038 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B35DF492B5FA83D0015E038 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7B35DF4B2B5FA93E0015E038 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflixless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessApp.swift; sourceTree = "<group>"; };
-		7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B5FDAFF2B5EC65900A4EBDE /* NetflixlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B8AD3602B7036EB00A6E446 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B8AD3612B70386E00A6E446 /* MovieModel.swift */,
+				2BDAE11A2B714ED8007A774B /* ImageModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7B5FDAE62B5EC65500A4EBDE = {
 			isa = PBXGroup;
 			children = (
@@ -102,12 +121,12 @@
 		7B5FDAF12B5EC65500A4EBDE /* Netflixless */ = {
 			isa = PBXGroup;
 			children = (
+				2B8AD3602B7036EB00A6E446 /* ViewModel */,
 				7B5FDB1F2B5EC68A00A4EBDE /* View */,
 				7B5FDB1E2B5EC68300A4EBDE /* Model */,
 				7B5FDB1D2B5EC67A00A4EBDE /* Extension */,
 				7B5FDB1C2B5EC66B00A4EBDE /* Helper */,
 				7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */,
-				7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */,
 				7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */,
 				7B5FDAF82B5EC65800A4EBDE /* Preview Content */,
 			);
@@ -155,6 +174,8 @@
 				2B532FFB2B6BE15D000E23BA /* MainView.swift */,
 				2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */,
 				2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */,
+				2B5330032B6BF178000E23BA /* SearchView.swift */,
+				2B7C55882B6E7BF3004E313C /* TrendingsViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +183,8 @@
 		7B5FDB202B5EC69000A4EBDE /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2B7C558A2B6E7DD1004E313C /* MovieCardView.swift */,
+				2BDAE1162B7146E0007A774B /* RecommendedTrendingView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -296,16 +319,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7C55892B6E7BF3004E313C /* TrendingsViewModel.swift in Sources */,
+				2B5330042B6BF178000E23BA /* SearchView.swift in Sources */,
 				7B35DF442B5ECA750015E038 /* User.swift in Sources */,
 				2B532FFC2B6BE15D000E23BA /* MainView.swift in Sources */,
 				2B5330002B6BE4B2000E23BA /* ProfileView.swift in Sources */,
 				2BD768A12B66F21600ACB3CF /* HomeView.swift in Sources */,
 				7B5FDB222B5EC88C00A4EBDE /* Model.swift in Sources */,
-				7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */,
+				2BDAE1172B7146E1007A774B /* RecommendedTrendingView.swift in Sources */,
+				2B7C558B2B6E7DD1004E313C /* MovieCardView.swift in Sources */,
+				2B8AD3622B70386E00A6E446 /* MovieModel.swift in Sources */,
 				7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */,
 				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
 				2B532FFE2B6BE2CD000E23BA /* FavoriteView.swift in Sources */,
 				7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */,
+				2BDAE11B2B714ED8007A774B /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,14 +494,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
-				DEVELOPMENT_TEAM = Y542NXVNVY;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,14 +524,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
-				DEVELOPMENT_TEAM = Y542NXVNVY;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
