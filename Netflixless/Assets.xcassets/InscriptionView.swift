@@ -12,7 +12,7 @@ struct InscriptionView: View {
     @State private var firstName: String = ""
     @State private var mail: String = ""
     @State private var password: String = ""
-    @State private var birthdate: Date = Date()
+    @State private var birthday: Date = Date()
 
     private var inscription = Login_LogoutViewModel()
 
@@ -58,7 +58,7 @@ struct InscriptionView: View {
                     .padding(.bottom, 20)
                     .foregroundColor(Color.black)
                 DatePicker(
-                    "Date de naissance", selection: $birthdate, in: ...earliestDate,
+                    "Date de naissance", selection: $birthday, in: ...earliestDate,
                     displayedComponents: .date
                 )
                     .padding()
@@ -67,11 +67,12 @@ struct InscriptionView: View {
                     .padding(.bottom, 20)
                     .foregroundColor(Color.black)
                 Button(action: {
-                self.inscription.inscrire(
-                    lastName: self.lastName,
-                    firstName: self.firstName,
-                    mail: self.mail,
-                    password: self.password)
+                    self.inscription.inscrire(
+                        lastName: self.lastName,
+                        firstName: self.firstName,
+                        mail: self.mail,
+                        password: self.password,
+                        birthday: self.birthday)
                 }) {
                 Text("S'inscrire")
                     .foregroundColor(Color.white)
@@ -82,11 +83,12 @@ struct InscriptionView: View {
                     .cornerRadius(10.0)
                 }
             }.padding(20)
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
         }
         .background(
-        Color(
-            #colorLiteral(
-            red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, alpha: 0.8470588235)))
+        Color(#colorLiteral(red: 0.1784488559, green: 0.1784488559, blue: 0.1784488559, alpha: 0.8470588235)))
     }
 }
 
