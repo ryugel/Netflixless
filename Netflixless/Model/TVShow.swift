@@ -1,16 +1,15 @@
 //
-//  Model.swift
+//  TVShow.swift
 //  Netflixless
 //
-//  Created by Augustin Diabira on 22/01/2024.
+//  Created by Gil Rodrigues on 08/02/2024.
 //
 
 import Foundation
 
-// MARK: - Trendings
-struct Trendings: Codable {
+struct TrendingsResult: Codable {
     let page: Int
-    let results: [Movie]
+    let results: [TVShow]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -20,55 +19,45 @@ struct Trendings: Codable {
     }
 }
 
-// MARK: - Result
-struct Movie: Codable,Hashable {
+
+struct TVShow: Codable {
     let adult: Bool
     let backdropPath: String
     let id: Int
-    let title: String?
+    let name: String
     let originalLanguage: OriginalLanguage
-    let originalTitle: String?
-    let overview, posterPath: String
-    let mediaType: MediaType
+    let originalName, overview, posterPath: String
+    let mediaType: MediaType?
     let genreIDS: [Int]
     let popularity: Double
-    let releaseDate: String?
-    let video: Bool?
+    let firstAirDate: String?
     let voteAverage: Double
     let voteCount: Int
-    let name, originalName, firstAirDate: String?
-    let originCountry: [String]?
+    let originCountry: [OriginCountry]
 
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
-        case id, title
+        case id, name
         case originalLanguage = "original_language"
-        case originalTitle = "original_title"
+        case originalName = "original_name"
         case overview
         case posterPath = "poster_path"
         case mediaType = "media_type"
         case genreIDS = "genre_ids"
         case popularity
-        case releaseDate = "release_date"
-        case video
+        case firstAirDate = "first_air_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
-        case name
-        case originalName = "original_name"
-        case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
     }
 }
 
-enum MediaType: String, Codable {
-    case movie = "movie"
-    case tv = "tv"
+
+enum OriginCountry: String, Codable {
+    case gb = "GB"
+    case jp = "JP"
+    case kr = "KR"
+    case us = "US"
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case ja = "ja"
-    case ko = "ko"
-    case nl = "nl"
-}

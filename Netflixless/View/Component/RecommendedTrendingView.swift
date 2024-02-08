@@ -20,8 +20,9 @@ struct RecommendedTrendingView: View {
                     if let imageData = imageModel.data, let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 400, height: 400)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 350, height: 350)
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
                             .opacity(0.9)
                     } else {
                         if #available(iOS 17.0, *) {
@@ -42,8 +43,12 @@ struct RecommendedTrendingView: View {
                                     imageModel.fetchNormalImage(imgPath: imgPath)
                                 }
                         }
+                        
+                        
                     }
+                    
                 }
+                
             )
             .onAppear {
                 imageModel.fetchNormalImage(imgPath: imgPath)

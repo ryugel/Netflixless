@@ -27,7 +27,7 @@ class ImageModel: ObservableObject {
             return url
         }else {
             let urlString = smallImageUrl + imgPath
-            guard let url = URL(string: urlString + imgPath) else {
+            guard let url = URL(string: urlString) else {
                 fatalError("Invalid IMG URL")
             }
             return url
