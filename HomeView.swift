@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     var body: some View {
+        NavigationView {
             ScrollView(.vertical) {
                 VStack(spacing: 0) {
                     RecommendedTrendingMovie()
@@ -21,6 +22,7 @@ struct HomeView: View {
             }
             .background(LinearGradient(colors: [Color.blue, Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom).ignoresSafeArea(.all))
         }
+    }
 }
 
 

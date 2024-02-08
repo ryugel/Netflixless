@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct MediaDetailsView: View {
+    @State private var imageModel: ImageModel = ImageModel()
+    let media: any Media
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView(.vertical) {
+                Rectangle()
+                    .frame(width: .infinity,height: .infinity)
+            }
+        }
     }
 }
 
 #Preview {
-    MediaDetailsView()
+    MediaDetailsView(media: Movie(
+        adult: false,
+        backdropPath: "/exampleBackdropPath.jpg",
+        id: 123,
+        title: "Transformers : The last knight",
+        originalLanguage: .en,
+        originalTitle: "Example Original Title",
+        overview: "This is an example movie overview.",
+        posterPath: "/2RcBuU8cdxFxCJibbiYCGNLApfz.jpg",
+        mediaType: .movie,
+        genreIDS: [1, 2, 3],
+        popularity: 7.5,
+        releaseDate: "2022-01-01",
+        video: true,
+        voteAverage: 8.0,
+        voteCount: 100,
+        name: nil,
+        originalName: nil,
+        firstAirDate: nil,
+        originCountry: nil
+    ))
 }

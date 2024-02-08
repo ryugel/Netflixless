@@ -12,45 +12,47 @@ struct MediaCardView: View {
     @StateObject var imageModel = ImageModel()
 
     var body: some View {
-        Rectangle()
-            .frame(width: 100, height: 150)
-            .overlay(
-                ZStack {
-                    if let imageData = imageModel.data, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-
-                    } else {
-                        if #available(iOS 17.0, *) {
-                            Image(systemName: "video")
+        NavigationLink(destination: MediaDetailsView(media: media)) {
+            Rectangle()
+                .frame(width: 100, height: 150)
+                .overlay(
+                    ZStack {
+                        if let imageData = imageModel.data, let uiImage = UIImage(data: imageData) {
+                            Image(uiImage: uiImage)
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .symbolEffect(.variableColor, options: .repeating)
-                                .onAppear {
-                                    imageModel.fetchSmallImage(imgPath: media.posterPath)
-                                }
+                                .aspectRatio(contentMode: .fill)
+                            
                         } else {
-                            Image(systemName: "video")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 200, height: 200)
-                                .onAppear {
-                                    imageModel.fetchSmallImage(imgPath: media.posterPath)
-                                }
+                            if #available(iOS 17.0, *) {
+                                Image(systemName: "video")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .symbolEffect(.variableColor, options: .repeating)
+                                    .onAppear {
+                                        imageModel.fetchSmallImage(imgPath: media.posterPath)
+                                    }
+                            } else {
+                                Image(systemName: "video")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 200, height: 200)
+                                    .onAppear {
+                                        imageModel.fetchSmallImage(imgPath: media.posterPath)
+                                    }
+                            }
                         }
                     }
-                }
-            )
-            .background(Color.black.opacity(0.3))
-            .overlay(
-                VStack {
-                    Text(media.shortTitle)
-                        .font(.headline.bold())
-                        .foregroundStyle(Color.white.opacity(0.5))
-                        .background(Color.black.opacity(0))
-                }
-            )
+                )
+                .background(Color.black.opacity(0.3))
+                .overlay(
+                    VStack {
+                        Text(media.shortTitle)
+                            .font(.headline.bold())
+                            .foregroundStyle(Color.white.opacity(0.5))
+                            .background(Color.black.opacity(0))
+                    }
+                )
+        }
     }
 }
 
