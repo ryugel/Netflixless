@@ -10,7 +10,9 @@ import Foundation
 class TVShowModel: ObservableObject {
     
     @Published var trendingTvShows: TrendingsResult = TrendingsResult(page: 0, results: [], totalPages: 0, totalResults: 0)
-    
+    @Published var popularTvShows: TrendingsResult = TrendingsResult(page: 0, results: [], totalPages: 0, totalResults: 0)
+    @Published var onTheAirTvShows: TrendingsResult = TrendingsResult(page: 0, results: [], totalPages: 0, totalResults: 0)
+    @Published var topRatedTvShows: TrendingsResult = TrendingsResult(page: 0, results: [], totalPages: 0, totalResults: 0)
  
     private var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["MOVIEDB_API_KEY"] else {
@@ -65,7 +67,61 @@ class TVShowModel: ObservableObject {
                     self?.trendingTvShows = trending
                 }
             } catch {
-                print("error request 1")
+                print("error trending show: \(error)")
+            }
+        }
+        request.resume()
+    }
+    
+    func fetchPopularTvShows() {
+        let request = URLSession.shared.dataTask(with: popularUrl) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let popular = try JSONDecoder().decode(TrendingsResult.self, from: data)
+                DispatchQueue.main.async {
+                    self?.popularTvShows = popular
+                }
+            } catch {
+                print("error request popular show: \(error)")
+            }
+        }
+        request.resume()
+    }
+    
+    func fetchCurrentlyPlayingTvShows() {
+        let request = URLSession.shared.dataTask(with: currentlyPlayingUrl) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let currentlyPlaying = try JSONDecoder().decode(TrendingsResult.self, from: data)
+                DispatchQueue.main.async {
+                    self?.onTheAirTvShows = currentlyPlaying
+                }
+            } catch {
+                print("error request currently show: \(error)")
+            }
+        }
+        request.resume()
+    }
+    
+    func fetchTopRatedTvShows() {
+        let request = URLSession.shared.dataTask(with: topRatedUrl) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let topRated = try JSONDecoder().decode(TrendingsResult.self, from: data)
+                DispatchQueue.main.async {
+                    self?.topRatedTvShows = topRated
+                }
+            } catch {
+                print("error top rated show: \(error)")
             }
         }
         request.resume()

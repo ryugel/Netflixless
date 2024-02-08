@@ -7,40 +7,19 @@
 
 import SwiftUI
 
-struct MovieCardView: View {
-    let movie: Movie
+struct MediaCardView: View {
+    let media: any Media
     @StateObject var imageModel = ImageModel()
-    
-    
-    
-    var shortTitle: String {
-            if let title = movie.title, !title.isEmpty {
-                if title.count > 17 {
-                    return String(title.prefix(17)) + "..."
-                } else {
-                    return title
-                }
-            } else if let name = movie.name, !name.isEmpty {
-                if name.count > 17 {
-                    return String(name.prefix(17)) + "..."
-                } else {
-                    return name
-                }
-            } else {
-                return "..."
-            }
-        }
-    
+
     var body: some View {
         Rectangle()
-            .frame(width: 100,height: 150)
+            .frame(width: 100, height: 150)
             .overlay(
                 ZStack {
                     if let imageData = imageModel.data, let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            
 
                     } else {
                         if #available(iOS 17.0, *) {
@@ -49,7 +28,7 @@ struct MovieCardView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .symbolEffect(.variableColor, options: .repeating)
                                 .onAppear {
-                                    imageModel.fetchSmallImage(imgPath: movie.posterPath)
+                                    imageModel.fetchSmallImage(imgPath: media.posterPath)
                                 }
                         } else {
                             Image(systemName: "video")
@@ -57,7 +36,7 @@ struct MovieCardView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 200, height: 200)
                                 .onAppear {
-                                    imageModel.fetchSmallImage(imgPath: movie.posterPath)
+                                    imageModel.fetchSmallImage(imgPath: media.posterPath)
                                 }
                         }
                     }
@@ -65,21 +44,19 @@ struct MovieCardView: View {
             )
             .background(Color.black.opacity(0.3))
             .overlay(
-                            VStack {
-                                Text(shortTitle)
-                                    .font(.headline.bold())
-                                    .foregroundStyle(Color.white.opacity(0.5))
-                                    .background(Color.black.opacity(0))
-                            }
-                        )
-        
+                VStack {
+                    Text(media.shortTitle)
+                        .font(.headline.bold())
+                        .foregroundStyle(Color.white.opacity(0.5))
+                        .background(Color.black.opacity(0))
+                }
+            )
     }
-    
 }
 
 #Preview {
     
-    MovieCardView(movie: Movie(
+    MediaCardView(media: Movie(
         adult: false,
         backdropPath: "/exampleBackdropPath.jpg",
         id: 123,

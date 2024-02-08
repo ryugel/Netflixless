@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  Model.swift
 //  Netflixless
 //
 //  Created by Augustin Diabira on 22/01/2024.
@@ -38,7 +38,7 @@ struct Dates: Codable {
 }
 
 // MARK: - Result
-struct Movie: Codable,Hashable,Identifiable {
+struct Movie: Media, Codable,Hashable,Identifiable {
     let adult: Bool
     let backdropPath: String
     let id: Int
@@ -189,4 +189,5 @@ enum OriginalLanguage: String, Codable {
     case yi = "yi"
     case yo = "yo"
     case zu = "zu"
+    
 }
