@@ -13,7 +13,7 @@ class YoutubeViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["YOUTUBE_API_KEY"] else {
-            fatalError("API key not set. Please set the MOVIEDB_API_KEY environment variable.")
+            fatalError("API key not set. Please set the YOUTUBE_API_KEY environment variable.")
         }
         return apiKey
     }
