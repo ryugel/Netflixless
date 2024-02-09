@@ -69,4 +69,5 @@ enum OriginalLanguage: String, Codable {
     case es = "es"
     case pt = "pt"
     case zh = "zh"
+    case cs = "cs"
 }
