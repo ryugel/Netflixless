@@ -20,7 +20,7 @@ struct HomeView: View {
                         .background(Color.black)
                 }
             }
-            .background(LinearGradient(colors: [Color.blue, Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom).ignoresSafeArea(.all))
+            .background(LinearGradient(colors: [Color.blue, Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom))
         }
     }
 }
@@ -53,9 +53,30 @@ struct RecommendedTrendingMovie: View {
                     if movieModel.trendingMovies.results.indices.contains(randomTrendingMovie) {
                         let movie = movieModel.trendingMovies.results[randomTrendingMovie]
                         let path = movie.posterPath
-                        RecommendedTrendingView(imgPath: path)
+                        RecommendedTrendingView(imgPath: path,media: movie)
                     } else {
-                        RecommendedTrendingView(imgPath: "")
+                        
+                        RecommendedTrendingView(imgPath: "", media: Movie(
+                            adult: false,
+                            backdropPath: "/exampleBackdropPath.jpg",
+                            id: 123,
+                            title: "Transformers : The last knight",
+                            originalLanguage: .en,
+                            originalTitle: "Example Original Title",
+                            overview: "This is an example movie overview.",
+                            posterPath: "/2RcBuU8cdxFxCJibbiYCGNLApfz.jpg",
+                            mediaType: .movie,
+                            genreIDS: [1, 2, 3],
+                            popularity: 7.5,
+                            releaseDate: "2022-01-01",
+                            video: true,
+                            voteAverage: 8.0,
+                            voteCount: 100,
+                            name: nil,
+                            originalName: nil,
+                            firstAirDate: nil,
+                            originCountry: nil
+                        ))
                     }
                 }
             )
@@ -86,7 +107,9 @@ struct MovieListsContainer: View {
                 HStack {
                     ForEach(movieModel.upcomingMovies.results) { movie in
                         MediaCardView(media: movie)
+                            .padding(.trailing, 10)
                     }
+                    
                 }
             }
             
@@ -96,7 +119,7 @@ struct MovieListsContainer: View {
                 .padding(.top, 10)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
+                HStack() {
                     ForEach(movieModel.popularMovies.results) { movie in
                         MediaCardView(media: movie)
                     }
@@ -125,7 +148,6 @@ struct MovieListsContainer: View {
             movieModel.fetchUpcomingMovies()
             movieModel.fetchPopularMovies()
             movieModel.fetchCurrentlyPlayingMovies()
-            print(movieModel.movies)
         }
     }
 }

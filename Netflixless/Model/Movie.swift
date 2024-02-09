@@ -38,9 +38,9 @@ struct Dates: Codable {
 }
 
 // MARK: - Result
-struct Movie: Media, Codable,Hashable,Identifiable {
+ struct Movie: Media, Codable,Hashable,Identifiable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let id: Int
     let title: String?
     let originalLanguage: OriginalLanguage
@@ -55,6 +55,7 @@ struct Movie: Media, Codable,Hashable,Identifiable {
     let voteCount: Int
     let name, originalName, firstAirDate: String?
     let originCountry: [String]?
+     
 
     enum CodingKeys: String, CodingKey {
         case adult
