@@ -57,9 +57,12 @@ struct MediaDetailsView: View {
                         Text(media.title?.uppercased() ?? media.name?.uppercased() ?? "")
                             .font(.title.bold())
                             .foregroundStyle(Color.white)
-                            .padding(.bottom , 10)
+                            .padding(.bottom, 10)
+                            .fixedSize(horizontal: false, vertical: true)
                             .lineLimit(nil)
                             .multilineTextAlignment(.center)
+                            .padding(.top, -80)
+
                         HStack {
                             ForEach(genreModel.mediaGenres, id: \.self) { genre in
                                 Text(genre)
@@ -68,27 +71,7 @@ struct MediaDetailsView: View {
                             }
                         }
                     }
-                    .onAppear {
-                        switch media.mediaType {
-                            case .movie:
-                                genreModel.fetchMovieGenres()
-                            print(genreModel.movieGenres.genres)
-                                break
-                            case .tv:
-                                genreModel.fetchTvGenres()
-                                break
-                            case .none:
-                                genreModel.fetchMovieGenres()
-                                genreModel.fetchTvGenres()
-                                break
-                        }
-                    }
-                    .onReceive(genreModel.$movieGenres) { genres in
-                        genreModel.getGenresForMovie(genresIds: media.genreIDS)
-                    }
-                    .onReceive(genreModel.$tvGenres) { genres in
-                        genreModel.getGenresForTv(genresIds: media.genreIDS)
-                    }
+              
                 }
             }
             .edgesIgnoringSafeArea(.top)
@@ -104,26 +87,7 @@ struct MediaDetailsView: View {
                 imageModel.fetchSmallImage(imgPath: media.posterPath)
             }
             
-            if let type = media.mediaType {
-                switch type {
-                case .movie:
-                    print("a")
-                    genreModel.fetchMovieGenres()
-                    break
-                case .tv:
-                    print("b")
-                    genreModel.fetchTvGenres()
-                    break
-                }
-            }
-            
-            print("details genresids : \(media.genreIDS)" )
-        }
-        .onReceive(genreModel.$movieGenres) { genres in
-            genreModel.getGenresForMovie(genresIds: media.genreIDS)
-        }
-        .onReceive(genreModel.$tvGenres) { genres in
-            genreModel.getGenresForTv(genresIds: media.genreIDS)
+            genreModel.getGenresForMedia(genresIds: media.genreIDS)
         }
     }
 }
@@ -132,7 +96,7 @@ struct MediaDetailsView: View {
         adult: false,
         backdropPath: "/5vDuLrjJXFS9PTF7Q1xzobmYKR9.jpg",
         id: 123,
-        title: "Star wars",
+        title: "Star wars ADAZdazlfdhzefoihezofzeoiefheziofhiozfh",
         originalLanguage: .en,
         originalTitle: "Example Original Title",
         overview: "This is an example movie overview.",
