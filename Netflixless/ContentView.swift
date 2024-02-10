@@ -11,6 +11,7 @@ struct ContentView: View {
     @StateObject var vm = TrendingsViewModel()
     @StateObject var en = TopRatedViewModel()
     @StateObject var dm = PopularViewModel()
+    @StateObject var ko = UpcomingViewModel()
     var body: some View {
         NavigationView {
             ScrollView {
@@ -39,6 +40,17 @@ struct ContentView: View {
                             }
                         }
                     }
+                    Text("Upcoming")
+                        .bold()
+                        .font(.headline)
+                        .padding(.leading)
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack {
+                            ForEach(ko.upcomings, id: \.self){upcoming in
+                                UpcomingCard(upcomingShow: upcoming)
+                            }
+                        }
+                    }
                     Text("Trendings")
                         .bold()
                         .font(.headline)
@@ -55,6 +67,7 @@ struct ContentView: View {
                 vm.fetchTrends()
                 en.fetchShows()
                 dm.fetchShows()
+                ko.fetchUpcomingShows()
             }
         }
     }

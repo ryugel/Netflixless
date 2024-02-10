@@ -29,6 +29,9 @@
 		7B17EDD82B76B7A900D159A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDD72B76B7A900D159A4 /* User.swift */; };
 		7B17EDDA2B76B7B300D159A4 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDD92B76B7B300D159A4 /* ApiError.swift */; };
 		7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7B17EDDC2B76B82500D159A4 /* Kingfisher */; };
+		7B17EDDF2B76BE3B00D159A4 /* Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDDE2B76BE3B00D159A4 /* Upcoming.swift */; };
+		7B17EDE12B779BFB00D159A4 /* UpcomingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE02B779BFB00D159A4 /* UpcomingViewModel.swift */; };
+		7B17EDE32B779D1000D159A4 /* UpcomingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE22B779D1000D159A4 /* UpcomingCard.swift */; };
 		7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF492B5FA83D0015E038 /* Bundle.swift */; };
 		7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */; };
 		7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF42B5EC65500A4EBDE /* ContentView.swift */; };
@@ -78,6 +81,9 @@
 		7B17EDCC2B76B76A00D159A4 /* Airing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airing.swift; sourceTree = "<group>"; };
 		7B17EDD72B76B7A900D159A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B17EDD92B76B7B300D159A4 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		7B17EDDE2B76BE3B00D159A4 /* Upcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming.swift; sourceTree = "<group>"; };
+		7B17EDE02B779BFB00D159A4 /* UpcomingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewModel.swift; sourceTree = "<group>"; };
+		7B17EDE22B779D1000D159A4 /* UpcomingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCard.swift; sourceTree = "<group>"; };
 		7B35DF492B5FA83D0015E038 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflixless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessApp.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 				7B17EDAB2B76B72300D159A4 /* TrendingsViewModel.swift */,
 				7B17EDAC2B76B72300D159A4 /* YoutubeViewModel.swift */,
 				7B17EDAD2B76B72300D159A4 /* AiringViewModel.swift */,
+				7B17EDE02B779BFB00D159A4 /* UpcomingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 				7B17EDB72B76B74C00D159A4 /* TrendingsCard.swift */,
 				7B17EDB82B76B74C00D159A4 /* SearchBar.swift */,
 				7B17EDB92B76B74C00D159A4 /* TopRatedCard.swift */,
+				7B17EDE22B779D1000D159A4 /* UpcomingCard.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 				7B17EDCC2B76B76A00D159A4 /* Airing.swift */,
 				7B17EDD72B76B7A900D159A4 /* User.swift */,
 				7B17EDD92B76B7B300D159A4 /* ApiError.swift */,
+				7B17EDDE2B76BE3B00D159A4 /* Upcoming.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,17 +393,20 @@
 			files = (
 				7B17EDBD2B76B74D00D159A4 /* TrendingsCard.swift in Sources */,
 				7B17EDD52B76B76A00D159A4 /* TopRated.swift in Sources */,
+				7B17EDE12B779BFB00D159A4 /* UpcomingViewModel.swift in Sources */,
 				7B17EDBC2B76B74D00D159A4 /* PopularCard.swift in Sources */,
 				7B17EDBE2B76B74D00D159A4 /* SearchBar.swift in Sources */,
 				7B17EDAE2B76B72400D159A4 /* PopularViewModel.swift in Sources */,
 				7B17EDAF2B76B72400D159A4 /* TopRatedViewModel.swift in Sources */,
 				7B17EDD42B76B76A00D159A4 /* Trendings.swift in Sources */,
 				7B17EDB22B76B72400D159A4 /* AiringViewModel.swift in Sources */,
+				7B17EDE32B779D1000D159A4 /* UpcomingCard.swift in Sources */,
 				7B17EDC02B76B74D00D159A4 /* YoutubeView.swift in Sources */,
 				7B17EDB02B76B72400D159A4 /* TrendingsViewModel.swift in Sources */,
 				7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */,
 				7B17EDBF2B76B74D00D159A4 /* TopRatedCard.swift in Sources */,
 				7B17EDB12B76B72400D159A4 /* YoutubeViewModel.swift in Sources */,
+				7B17EDDF2B76BE3B00D159A4 /* Upcoming.swift in Sources */,
 				7B17EDBB2B76B74D00D159A4 /* AiringView.swift in Sources */,
 				7B17EDDA2B76B7B300D159A4 /* ApiError.swift in Sources */,
 				7B17EDD62B76B76A00D159A4 /* Airing.swift in Sources */,

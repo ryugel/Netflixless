@@ -14,7 +14,7 @@ class TopRatedViewModel: ObservableObject {
     
     private var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["MOVIEDB_API_KEY"] else {
-            fatalError("API key not set. Please set the MOVIEDB_API_KEY environment variable.")
+            return "API key not set. Please set the MOVIEDB_API_KEY environment variable."
         }
         return apiKey
     }
