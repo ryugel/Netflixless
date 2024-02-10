@@ -74,15 +74,15 @@ enum TMDBURL {
         var urlString:String
         switch self {
         case .trending:
-            urlString =  "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)"
+            urlString =  "https://api.themoviedb.org/3/trending/movie/week?api_key=\(apiKey)"
         case .topRated:
-            urlString = "https://api.themoviedb.org/3/discover/tv?api_key=\(apiKey)&language=en-US&page=1&include_adult=false"
+            urlString = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)"
         case .popular:
-            urlString =          "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
+            urlString =          "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)"
         case .upcoming:
-            urlString = "https://api.themoviedb.org/3/movie/upcoming?api_key=\(apiKey)&language=en-US&page=1"
+            urlString = "https://api.themoviedb.org/3/movie/upcoming?api_key=\(apiKey)"
         case .airing:
-             urlString = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)&language=en-US&page=1"
+             urlString = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)"
         }
         return URL(string: urlString)
     }

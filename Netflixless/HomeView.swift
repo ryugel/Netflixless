@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomeView:View {
-    @StateObject var vm = TMDBViewModel()
-    var body: some View {
+    @StateObject private var vm = TMDBViewModel()
+     var body: some View {
         NavigationView {
             ScrollView {
                 AiringView()

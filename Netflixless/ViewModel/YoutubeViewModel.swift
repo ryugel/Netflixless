@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class YoutubeViewModel: ObservableObject {
-    @Published var trailers:[YouTubeItem] = []
+    @Published  var trailers:[YouTubeItem] = []
     private var cancellables: Set<AnyCancellable> = []
     private var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["YOUTUBE_API_KEY"] else {

@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct YoutubeView: View {
-    @StateObject var vm = YoutubeViewModel()
+    @StateObject private var vm = YoutubeViewModel()
     let show: TMDB
     var body: some View {
         VStack {

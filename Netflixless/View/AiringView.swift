@@ -10,7 +10,7 @@ import Kingfisher
 
 
 struct AiringView: View {
-    @StateObject var vm = TMDBViewModel()
+    @StateObject private var vm = TMDBViewModel()
     var body: some View {
         VStack {
             VStack(spacing: 10) {
