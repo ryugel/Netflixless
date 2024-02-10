@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @StateObject var vm = TrendingsViewModel()
-    @StateObject var en = TopRatedViewModel()
-    @StateObject var dm = PopularViewModel()
-    @StateObject var ko = UpcomingViewModel()
+struct HomeView:View {
+    @StateObject var vm = TMDBViewModel()
     var body: some View {
         NavigationView {
             ScrollView {
                 OnTheAir()
-                
                 VStack(alignment: .leading) {
                     Text("Popular")
                         .bold()
@@ -24,8 +20,8 @@ struct ContentView: View {
                         .padding(.leading)
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack {
-                            ForEach(dm.shows, id: \.self){top in
-                                PopularCard(show: top)
+                            ForEach(vm.popular, id: \.self){top in
+                                TMDBCard(tmdb: top)
                             }
                         }
                     }
@@ -35,8 +31,8 @@ struct ContentView: View {
                         .padding(.leading)
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack {
-                            ForEach(en.topRated, id: \.self){top in
-                                TopRatedCard(result: top)
+                            ForEach(vm.topRated, id: \.self){top in
+                                TMDBCard(tmdb: top)
                             }
                         }
                     }
@@ -46,8 +42,8 @@ struct ContentView: View {
                         .padding(.leading)
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack {
-                            ForEach(ko.upcomings, id: \.self){upcoming in
-                                UpcomingCard(upcomingShow: upcoming)
+                            ForEach(vm.upcoming, id: \.self){upcoming in
+                               TMDBCard(tmdb: upcoming)
                             }
                         }
                     }
@@ -55,28 +51,27 @@ struct ContentView: View {
                         .bold()
                         .font(.headline)
                         .padding(.leading)
-                    trending
+                   trending
                 } }
             .navigationBarItems(leading:
-                           Text("Netflixless")
-                               .font(.largeTitle).bold()
-                               .foregroundColor(Color.color1) 
-                               .padding(.leading, 13)
-                       )
+                                    Text("Netflixless")
+                .font(.largeTitle).bold()
+                .foregroundColor(Color.color1)
+                .padding(.leading, 13)
+            )
             .onAppear{
-                vm.fetchTrends()
-                en.fetchShows()
-                dm.fetchShows()
-                ko.fetchUpcomingShows()
+                vm.fetchTMDBData(tmdbUrl: .popular)
+                vm.fetchTMDBData(tmdbUrl: .topRated)
+                vm.fetchTMDBData(tmdbUrl: .upcoming)
+                vm.fetchTMDBData(tmdbUrl: .trending)
             }
         }
     }
-    
     var trending: some View {
         return ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(vm.movies){trend in
-                    TrendingsCard(trend: trend)
+                ForEach(vm.trendings){trend in
+                    TMDBCard(tmdb: trend)
                 }
             }
         }
@@ -84,5 +79,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
