@@ -13,7 +13,12 @@ protocol Media: Identifiable, Hashable, Codable {
     var posterPath: String { get }
     var mediaType: MediaType? { get }
     var backdropPath: String? {get}
-    var genreIDS: [Int] { get } 
+    var genreIDS: [Int]? { get } 
+    var overview: String {get}
+    var releaseDate: String? { get }
+    var firstAirDate: String? { get }
+    var runtime: Int? {get}
+    
 }
 
 

@@ -11,9 +11,13 @@ struct Genres: Codable {
     let genres: [Genre]
 }
 
-struct Genre: Codable {
+struct Genre: Codable,Equatable,Hashable {
     let id: Int
     let name: String
+    
+    static func == (lhs: Genre, rhs: Genre) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
 }
 
 extension Genres: Sequence {

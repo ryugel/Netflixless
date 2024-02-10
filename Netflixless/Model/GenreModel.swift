@@ -51,7 +51,7 @@ class GenreModel: ObservableObject {
                 }
             }
 
-            print("Movie Media genres after filtering: \(mediaGenres)")
+            
         }
 
 }

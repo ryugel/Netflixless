@@ -22,6 +22,7 @@ struct HomeView: View {
             }
             .background(LinearGradient(colors: [Color.blue, Color.black.opacity(0.7)], startPoint: .top, endPoint: .bottom))
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -56,7 +57,7 @@ struct RecommendedTrendingMovie: View {
                         RecommendedTrendingView(imgPath: path,media: movie)
                     } else {
                         
-                        RecommendedTrendingView(imgPath: "", media: Movie(
+                        RecommendedTrendingView(imgPath: "",media: Movie(
                             adult: false,
                             backdropPath: "/exampleBackdropPath.jpg",
                             id: 123,
@@ -75,7 +76,19 @@ struct RecommendedTrendingMovie: View {
                             name: nil,
                             originalName: nil,
                             firstAirDate: nil,
-                            originCountry: nil
+                            originCountry: nil,
+                            belongsToCollection: nil,
+                            budget: nil,
+                            genres: nil,
+                            homepage: nil,
+                            imdbID: nil,
+                            productionCompanies: nil,
+                            productionCountries: nil,
+                            revenue: nil,
+                            runtime: nil,
+                            spokenLanguages: nil,
+                            status: nil,
+                            tagline: nil
                         ))
                     }
                 }

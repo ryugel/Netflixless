@@ -54,7 +54,7 @@ struct MediaCardView: View {
                 )
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)) 
                 .onAppear {
-                    print("genres : \(media.genreIDS)")
+                    print("genres : \(media.genreIDS ?? [1])")
                 }
         }
     }
@@ -81,6 +81,18 @@ struct MediaCardView: View {
         name: nil,
         originalName: nil,
         firstAirDate: nil,
-        originCountry: nil
+        originCountry: nil,
+        belongsToCollection: nil,
+        budget: nil,
+        genres: nil,
+        homepage: nil,
+        imdbID: nil,
+        productionCompanies: nil,
+        productionCountries: nil,
+        revenue: nil,
+        runtime: nil,
+        spokenLanguages: nil,
+        status: nil,
+        tagline: nil
     ))
 }

@@ -21,6 +21,8 @@ struct TrendingsResult: Codable {
 
 
 struct TVShow: Media, Codable, Hashable, Identifiable {
+    
+    
     var title: String?
     var name: String?
     let adult: Bool
@@ -29,13 +31,17 @@ struct TVShow: Media, Codable, Hashable, Identifiable {
     let originalLanguage: OriginalLanguage
     let originalName, overview, posterPath: String
     let mediaType: MediaType?
-    let genreIDS: [Int]
+    let genreIDS: [Int]?
     let popularity: Double
     let firstAirDate: String?
     let voteAverage: Double
     let voteCount: Int
     let originCountry: [OriginCountry]
-
+    var releaseDate: String? {
+            return firstAirDate
+        }
+    var runtime: Int?
+    
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"

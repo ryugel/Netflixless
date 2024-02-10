@@ -1,6 +1,39 @@
 import Foundation
 
 class MovieModel: ObservableObject {
+    @Published var movie: Movie = Movie(
+        adult: false,
+        backdropPath: nil,
+        id: 123,
+        title: nil,
+        originalLanguage: .en,
+        originalTitle: nil,
+        overview: "This is an example movie overview.",
+        posterPath: "/2RcBuU8cdxFxCJibbiYCGNLApfz.jpg",
+        mediaType: .movie,
+        genreIDS: [1, 2, 3],
+        popularity: 7.5,
+        releaseDate: "2022-01-01",
+        video: true,
+        voteAverage: 8.0,
+        voteCount: 100,
+        name: nil,
+        originalName: nil,
+        firstAirDate: nil,
+        originCountry: nil,
+        belongsToCollection: nil,
+        budget: nil,
+        genres: nil,
+        homepage: nil,
+        imdbID: nil,
+        productionCompanies: nil,
+        productionCountries: nil,
+        revenue: nil,
+        runtime: nil,
+        spokenLanguages: nil,
+        status: nil,
+        tagline: nil
+    )
     @Published var movies: [Movie] = []
     @Published var trendingMovies: Trendings = Trendings(page: 0, results: [], totalPages: 0, totalResults: 0)
     @Published var popularMovies: Trendings = Trendings(page: 0, results: [], totalPages: 0, totalResults: 0)
@@ -121,4 +154,31 @@ class MovieModel: ObservableObject {
         }
         request.resume()
     }
+    
+    func createMovieDetailsByIdUrl(movieId: Int) -> URL {
+        let urlString = "https://api.themoviedb.org/3/movie/\(movieId)?api_key=\(apiKey)"
+        guard let url = URL(string: urlString) else {
+            fatalError("Invalid URL")
+        }
+        return url
+    }
+    
+    func fetchMovieDetailsById(movieId: Int) {
+        let request = URLSession.shared.dataTask(with: createMovieDetailsByIdUrl(movieId: movieId)) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let movie = try JSONDecoder().decode(Movie.self, from: data)
+                DispatchQueue.main.async {
+                    self?.movie = movie
+                }
+            } catch {
+                print("error request movie \(error)")
+            }
+        }
+        request.resume()
+    }
 }
+

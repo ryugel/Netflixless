@@ -10,6 +10,8 @@ import SwiftUI
 struct MediaDetailsView: View {
     @StateObject private var imageModel: ImageModel = ImageModel()
     @StateObject private var genreModel: GenreModel = GenreModel()
+    @StateObject private var movieModel: MovieModel = MovieModel()
+    @State private var isFavorite: Bool = false
     let media: any Media
     
     var body: some View {
@@ -37,7 +39,7 @@ struct MediaDetailsView: View {
                                         if let path = media.backdropPath, !path.isEmpty {
                                             imageModel.fetchSmallImage(imgPath: path)
                                         }else {
-                                            imageModel.fetchSmallImage(imgPath: media.posterPath)
+                                            imageModel.fetchSmallImage(imgPath: movieModel.movie.posterPath)
                                         }
                                     }
                             } else {
@@ -49,7 +51,7 @@ struct MediaDetailsView: View {
                                         if let path = media.backdropPath, !path.isEmpty {
                                             imageModel.fetchSmallImage(imgPath: path)
                                         }else {
-                                            imageModel.fetchSmallImage(imgPath: media.posterPath)
+                                            imageModel.fetchSmallImage(imgPath: movieModel.movie.posterPath)
                                         }
                                     }
                             }
@@ -61,7 +63,7 @@ struct MediaDetailsView: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .lineLimit(nil)
                             .multilineTextAlignment(.center)
-                            .padding(.top, -80)
+                            .padding(.top, -85)
 
                         HStack {
                             ForEach(genreModel.mediaGenres, id: \.self) { genre in
@@ -70,6 +72,42 @@ struct MediaDetailsView: View {
                                     .foregroundStyle(Color.white.opacity(0.5))
                             }
                         }
+                        
+                        Button(action: {
+                            isFavorite.toggle()
+                        }) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: geometry.size.width - 100,height: 44)
+                                .foregroundColor(isFavorite ? Color.gray : Color.red)
+                                .overlay(
+                                    Text(isFavorite ? "Remove from Favourites" : "Add to Favourites")
+                                        .font(.subheadline)
+                                        .foregroundColor(.white)
+                                )
+                            }
+                            .padding(.top, 20)
+                            .padding(.bottom, 20)
+                        HStack {
+                            Text("Release Date : \(media.releaseDate ?? media.firstAirDate ?? "N/A") ")
+                                .foregroundStyle(Color.white)
+                                .font(.subheadline.italic())
+                            if (media.mediaType?.rawValue == "movie") {
+                                
+                            }else if (media.mediaType?.rawValue == "tv") {
+                                
+                            }else {
+                                
+                            }
+                            
+                        }
+                        Text("Overview: \n\n\(media.overview)")
+                            .font(.callout)
+                            .foregroundStyle(Color.white)
+                            .padding(.top,20)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.center)
+                        
                     }
               
                 }
@@ -78,7 +116,9 @@ struct MediaDetailsView: View {
             .background(
                 LinearGradient(colors: [Color.gray.opacity(0.3),Color.black], startPoint: UnitPoint.top, endPoint: .bottom)
             )
-            
+            .onAppear {
+                genreModel.getGenresForMedia(genresIds: movieModel.movie.genreIDS ?? [1])
+            }
         }
         .onAppear {
             if let path = media.backdropPath, !path.isEmpty {
@@ -87,22 +127,24 @@ struct MediaDetailsView: View {
                 imageModel.fetchSmallImage(imgPath: media.posterPath)
             }
             
-            genreModel.getGenresForMedia(genresIds: media.genreIDS)
+            genreModel.getGenresForMedia(genresIds: media.genreIDS ?? [1])
+            movieModel.fetchMovieDetailsById(movieId: media.id as! Int)
+            
         }
     }
 }
 #Preview {
     MediaDetailsView(media: Movie(
         adult: false,
-        backdropPath: "/5vDuLrjJXFS9PTF7Q1xzobmYKR9.jpg",
+        backdropPath: "/exampleBackdropPath.jpg",
         id: 123,
-        title: "Star wars ADAZdazlfdhzefoihezofzeoiefheziofhiozfh",
+        title: "Transformers : The last knight",
         originalLanguage: .en,
         originalTitle: "Example Original Title",
         overview: "This is an example movie overview.",
         posterPath: "/2RcBuU8cdxFxCJibbiYCGNLApfz.jpg",
         mediaType: .movie,
-        genreIDS: [12, 28, 878],
+        genreIDS: [1, 2, 3],
         popularity: 7.5,
         releaseDate: "2022-01-01",
         video: true,
@@ -111,6 +153,18 @@ struct MediaDetailsView: View {
         name: nil,
         originalName: nil,
         firstAirDate: nil,
-        originCountry: nil
+        originCountry: nil,
+        belongsToCollection: nil,
+        budget: nil,
+        genres: nil,
+        homepage: nil,
+        imdbID: nil,
+        productionCompanies: nil,
+        productionCountries: nil,
+        revenue: nil,
+        runtime: nil,
+        spokenLanguages: nil,
+        status: nil,
+        tagline: nil
     ))
 }

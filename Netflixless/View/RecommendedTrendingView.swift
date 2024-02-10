@@ -79,6 +79,18 @@ struct RecommendedTrendingView: View {
         name: nil,
         originalName: nil,
         firstAirDate: nil,
-        originCountry: nil
+        originCountry: nil,
+        belongsToCollection: nil,
+        budget: nil,
+        genres: nil,
+        homepage: nil,
+        imdbID: nil,
+        productionCompanies: nil,
+        productionCountries: nil,
+        revenue: nil,
+        runtime: nil,
+        spokenLanguages: nil,
+        status: nil,
+        tagline: nil
     ))
 }
