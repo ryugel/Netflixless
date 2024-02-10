@@ -24,7 +24,6 @@ class YoutubeViewModel: ObservableObject {
             return
         }
         
-        print("there")
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: YouTubeData.self, decoder: JSONDecoder())

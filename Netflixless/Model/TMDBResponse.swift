@@ -25,7 +25,7 @@ struct TMDB: Codable, Hashable, Identifiable {
     let genreIDS: [Int]
     let id: Int
     let originCountry: [String]?
-    let originalLanguage: OriginalLanguage?
+    let originalLanguage: String?
     let originalName, overview: String?
     let popularity: Double
     let posterPath: String?
@@ -54,18 +54,4 @@ struct TMDB: Codable, Hashable, Identifiable {
     }
 }
 
-enum OriginalLanguage: String, Codable {
-    case ca = "ca"
-    case en = "en"
-    case ja = "ja"
-    case ko = "ko"
-    case nl = "nl"
-    case fr = "fr"
-    case de = "de"
-    case af = "af"
-    case es = "es"
-    case pt = "pt"
-    case zh = "zh"
-    case cs = "cs"
-    case hi = "hi"
-}
+

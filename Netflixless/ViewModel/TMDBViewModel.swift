@@ -13,6 +13,7 @@ class TMDBViewModel: ObservableObject {
     @Published var topRated:[TMDB] = []
     @Published var popular:[TMDB] = []
     @Published var upcoming:[TMDB] = []
+    @Published var airing:[TMDB] = []
     private var cancellables:Set<AnyCancellable> = []
     
   
@@ -47,6 +48,8 @@ class TMDBViewModel: ObservableObject {
                     self?.popular = tmdb
                 case .upcoming:
                     self?.upcoming = tmdb
+                case .airing:
+                    self?.airing = tmdb
                 }
             })
             .store(in: &cancellables)
@@ -58,6 +61,7 @@ enum TMDBURL {
     case topRated
     case popular
     case upcoming
+    case airing
     
     private var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["MOVIEDB_API_KEY"] else {
@@ -77,6 +81,8 @@ enum TMDBURL {
             urlString =          "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
         case .upcoming:
             urlString = "https://api.themoviedb.org/3/movie/upcoming?api_key=\(apiKey)&language=en-US&page=1"
+        case .airing:
+             urlString = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)&language=en-US&page=1"
         }
         return URL(string: urlString)
     }

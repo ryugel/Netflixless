@@ -10,7 +10,7 @@ import WebKit
 
 struct YoutubeView: View {
     @StateObject var vm = YoutubeViewModel()
-    let show: OnAir
+    let show: TMDB
     var body: some View {
         VStack {
             VStack {

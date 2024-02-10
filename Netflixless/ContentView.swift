@@ -12,7 +12,7 @@ struct HomeView:View {
     var body: some View {
         NavigationView {
             ScrollView {
-                OnTheAir()
+                AiringView()
                 VStack(alignment: .leading) {
                     Text("Popular")
                         .bold()

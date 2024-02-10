@@ -9,9 +9,8 @@ import SwiftUI
 import Kingfisher
 
 
-struct OnTheAir: View {
-    @State var searchText: String = ""
-    @StateObject var vm = AiringViewModel()
+struct AiringView: View {
+    @StateObject var vm = TMDBViewModel()
     var body: some View {
         VStack {
             VStack(spacing: 10) {
@@ -27,16 +26,16 @@ struct OnTheAir: View {
                     
                     ScrollView(.horizontal) {
                         HStack(spacing: 5) {
-                            ForEach(vm.airings, id:\.self) { show in
+                            ForEach(vm.airing, id:\.self) { airing in
                                 GeometryReader { proxy in
                                     let cardSize = proxy.size
                                     
                                     let minX = min((proxy.frame(in: .scrollView).minX - 30) * 1.4, size.width * 1.4)
                                     
                                     NavigationLink {
-                                        YoutubeView(show: show)
+                                        YoutubeView(show: airing)
                                     } label: {
-                                        KFImage(URL(string: show.imageUrl + (show.posterPath ?? "")))
+                                        KFImage(URL(string: airing.imageUrl + (airing.posterPath ?? "")))
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .offset(x: -minX)
@@ -73,14 +72,14 @@ struct OnTheAir: View {
         }
         .scrollIndicators(.hidden)
         .onAppear{
-            vm.fetchAiringShows()
+            vm.fetchTMDBData(tmdbUrl: .airing)
         }
         
     }
 }
 
 #Preview {
-    OnTheAir()
+    AiringView()
 }
 
 
