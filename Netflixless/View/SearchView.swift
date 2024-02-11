@@ -19,7 +19,12 @@ struct SearchView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
                         ForEach(viewModel.searchedMovies) { movie in
-                            MovieItemView(movie: movie)
+                            NavigationLink {
+                                TMDBDetailView(show: movie)
+                            } label: {
+                                MovieItemView(movie: movie)
+                            }
+
                         }
                     }
                     .padding()
@@ -39,7 +44,7 @@ struct MovieItemView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: movie.imageUrl + (movie.posterPath ?? ""))) { phase in
+            AsyncImage(url: URL(string: movie.imageUrl + (movie.posterPath ?? movie.backdropPath ?? ""))) { phase in
                 switch phase {
                 case .success(let image):
                     image
@@ -48,9 +53,9 @@ struct MovieItemView: View {
                         .frame(width: 100, height: 150)
                         .cornerRadius(10)
                 case .failure:
-                    Image(systemName: "interrogation.mark")
+                    Image(systemName: "questionmark")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 100, height: 150)
                         .cornerRadius(10)
                 case .empty:

@@ -12,7 +12,12 @@ struct UpcomingView: View {
     var body: some View {
         VStack{
             Divider()
+            
             ScrollView {
+                Text("Upcoming")
+                    .bold()
+                    .font(.title)
+                    .padding(.leading)
                 ForEach(vm.upcoming){upcoming in
                     UpcomingRow(tmdb: upcoming)
                 }
