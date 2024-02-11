@@ -61,10 +61,10 @@ struct TMDBDetailView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarTitle(show.name ?? "", displayMode: .inline)
+            .navigationBarTitle((show.originalTitle ?? show.name) ?? "", displayMode: .inline)
         }
         .onAppear {
-            vm.fetchTrailer(query: "\(show.name ?? "") trailer")
+            vm.fetchTrailer(query: "\(show.originalTitle ?? show.name ?? show.originalName ?? "") trailer")
         }
     }
 }

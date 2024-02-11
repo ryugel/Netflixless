@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 
 		7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */; };
-		7B5FDAF52B5EC65500A4EBDE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF42B5EC65500A4EBDE /* HomeView.swift */; };
+		7B5FDAF52B5EC65500A4EBDE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF42B5EC65500A4EBDE /* Home.swift */; };
 		7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */; };
 		7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */; };
 
@@ -35,7 +35,7 @@
 
 		7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflixless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessApp.swift; sourceTree = "<group>"; };
-		7B5FDAF42B5EC65500A4EBDE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7B5FDAF42B5EC65500A4EBDE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B5FDAFF2B5EC65900A4EBDE /* NetflixlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +74,7 @@
 			children = (
 				7B17EDAC2B76B72300D159A4 /* YoutubeViewModel.swift */,
 				7B17EDE62B77A2E400D159A4 /* TMDBViewModel.swift */,
+				7B34C3D62B79150C006185EB /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -84,6 +85,10 @@
 				7B17EDB42B76B74C00D159A4 /* AiringView.swift */,
 				7B17EDB52B76B74C00D159A4 /* Component */,
 				7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */,
+				7B34C3D42B790225006185EB /* FavoritesView.swift */,
+				7B34C3D82B7917C6006185EB /* SearchView.swift */,
+				7B34C3DA2B793C6B006185EB /* UpcomingView.swift */,
+				7B34C3DC2B793C7C006185EB /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			children = (
 				7B17EDB82B76B74C00D159A4 /* SearchBar.swift */,
 				7B17EDE82B77C77000D159A4 /* TMDBCard.swift */,
+				7BC191E62B794484008AC4C1 /* UpcomingRow.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -132,7 +138,7 @@
 				7B17EDB32B76B74C00D159A4 /* View */,
 				7B17EDA82B76B72300D159A4 /* ViewModel */,
 				7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */,
-				7B5FDAF42B5EC65500A4EBDE /* HomeView.swift */,
+				7B5FDAF42B5EC65500A4EBDE /* Home.swift */,
 				7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */,
 				7B5FDAF82B5EC65800A4EBDE /* Preview Content */,
 			);
@@ -447,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
-				DEVELOPMENT_TEAM = Y542NXVNVY;
+				DEVELOPMENT_TEAM = AQY5KU7ZSP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -477,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
-				DEVELOPMENT_TEAM = Y542NXVNVY;
+				DEVELOPMENT_TEAM = AQY5KU7ZSP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -36,7 +36,6 @@ class YoutubeViewModel: ObservableObject {
                     break
                 case .failure(let failure):
                     print("Failure: \(failure)")
-                    
                 }
             }, receiveValue: { [weak self] item in
                 if let firstTrailer = item.first {
