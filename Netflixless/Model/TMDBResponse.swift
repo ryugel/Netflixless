@@ -1,15 +1,15 @@
 //
-//  Popular.swift
+//  TMDBMovie.swift
 //  Netflixless
 //
-//  Created by Augustin Diabira on 02/02/2024.
+//  Created by Augustin Diabira on 10/02/2024.
 //
 
 import Foundation
 
-struct Popular: Codable {
+struct TMDBMResponse: Codable {
     let page: Int
-    let results: [Show]
+    let results: [TMDB]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -17,20 +17,20 @@ struct Popular: Codable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
-    static var MOCK_Popular: Popular = Bundle.main.decode(file: "Popular.json")
-    static var popularShow = MOCK_Popular.results.first!
 }
 
-struct Show: Codable, Hashable {
+struct TMDB: Codable, Hashable, Identifiable {
     let adult: Bool
     let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
     let originCountry: [String]?
-    let originalLanguage, originalName, overview: String?
+    let originalLanguage: String?
+    let originalName, overview: String?
     let popularity: Double
     let posterPath: String?
-    let firstAirDate, name: String?
+    let firstAirDate: String?
+    let name: String?
     let voteAverage: Double
     let voteCount: Int
 
@@ -49,8 +49,9 @@ struct Show: Codable, Hashable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
-    
     var imageUrl: String {
         return "https://image.tmdb.org/t/p/original"
     }
 }
+
+

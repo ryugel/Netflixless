@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 class YoutubeViewModel: ObservableObject {
-    @Published var trailers:[YouTubeItem] = []
+    @Published  var trailers:[YouTubeItem] = []
     private var cancellables: Set<AnyCancellable> = []
     private var apiKey: String {
         guard let apiKey = ProcessInfo.processInfo.environment["YOUTUBE_API_KEY"] else {
-            fatalError("API key not set. Please set the MOVIEDB_API_KEY environment variable.")
+            return "API key not set. Please set the Youtube_API_KEY environment variable."
         }
         return apiKey
     }
@@ -24,7 +24,6 @@ class YoutubeViewModel: ObservableObject {
             return
         }
         
-        print("there")
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: YouTubeData.self, decoder: JSONDecoder())

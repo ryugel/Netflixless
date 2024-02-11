@@ -8,7 +8,7 @@
 import Foundation
 
 struct YouTubeData: Codable {
-    let kind, etag, nextPageToken, regionCode: String
+    let kind, etag, nextPageToken, regionCode: String?
     let pageInfo: YouTubePageInfo
     let items: [YouTubeItem]
 }
