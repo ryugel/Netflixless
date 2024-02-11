@@ -10,7 +10,7 @@
 		7B17EDB12B76B72400D159A4 /* YoutubeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDAC2B76B72300D159A4 /* YoutubeViewModel.swift */; };
 		7B17EDBB2B76B74D00D159A4 /* AiringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDB42B76B74C00D159A4 /* AiringView.swift */; };
 		7B17EDBE2B76B74D00D159A4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDB82B76B74C00D159A4 /* SearchBar.swift */; };
-		7B17EDC02B76B74D00D159A4 /* YoutubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDBA2B76B74C00D159A4 /* YoutubeView.swift */; };
+		7B17EDC02B76B74D00D159A4 /* TMDBDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */; };
 		7B17EDD22B76B76A00D159A4 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDC82B76B76A00D159A4 /* Youtube.swift */; };
 		7B17EDD82B76B7A900D159A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDD72B76B7A900D159A4 /* User.swift */; };
 		7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7B17EDDC2B76B82500D159A4 /* Kingfisher */; };
@@ -47,7 +47,7 @@
 		7B17EDAC2B76B72300D159A4 /* YoutubeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewModel.swift; sourceTree = "<group>"; };
 		7B17EDB42B76B74C00D159A4 /* AiringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AiringView.swift; sourceTree = "<group>"; };
 		7B17EDB82B76B74C00D159A4 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		7B17EDBA2B76B74C00D159A4 /* YoutubeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeView.swift; sourceTree = "<group>"; };
+		7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBDetailView.swift; sourceTree = "<group>"; };
 		7B17EDC82B76B76A00D159A4 /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		7B17EDD72B76B7A900D159A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B17EDE42B77A00700D159A4 /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			children = (
 				7B17EDB42B76B74C00D159A4 /* AiringView.swift */,
 				7B17EDB52B76B74C00D159A4 /* Component */,
-				7B17EDBA2B76B74C00D159A4 /* YoutubeView.swift */,
+				7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			files = (
 				7B17EDBE2B76B74D00D159A4 /* SearchBar.swift in Sources */,
 				7B17EDE72B77A2E400D159A4 /* TMDBViewModel.swift in Sources */,
-				7B17EDC02B76B74D00D159A4 /* YoutubeView.swift in Sources */,
+				7B17EDC02B76B74D00D159A4 /* TMDBDetailView.swift in Sources */,
 				7B17EDE92B77C77000D159A4 /* TMDBCard.swift in Sources */,
 				7B5FDAF52B5EC65500A4EBDE /* HomeView.swift in Sources */,
 				7B17EDE52B77A00700D159A4 /* TMDBResponse.swift in Sources */,

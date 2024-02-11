@@ -33,7 +33,7 @@ struct AiringView: View {
                                     let minX = min((proxy.frame(in: .scrollView).minX - 30) * 1.4, size.width * 1.4)
                                     
                                     NavigationLink {
-                                        YoutubeView(show: airing)
+                                        TMDBDetailView(show: airing)
                                     } label: {
                                         KFImage(URL(string: airing.imageUrl + (airing.posterPath ?? "")))
                                             .resizable()

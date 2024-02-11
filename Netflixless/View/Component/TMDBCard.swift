@@ -11,10 +11,15 @@ import Kingfisher
 struct TMDBCard: View {
     let tmdb: TMDB
     var body: some View {
-        VStack {
-            KFImage(URL(string: tmdb.imageUrl + (tmdb.posterPath ?? "")))
-                .resizable()
-                .frame(width: 80, height: 95)
+        NavigationLink {
+            TMDBDetailView(show: tmdb)
+        } label: {
+            VStack {
+                KFImage(URL(string: tmdb.imageUrl + (tmdb.posterPath ?? "")))
+                    .resizable()
+                    .frame(width: 80, height: 95)
+            }
         }
+
     }
 }
