@@ -11,7 +11,7 @@ import SwiftUI
 struct NetflixlessApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            Home()
                 .preferredColorScheme(.dark)
         }
     }

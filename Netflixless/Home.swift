@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct HomeView:View {
+struct Home:View {
     @StateObject private var vm = TMDBViewModel()
-     var body: some View {
-        NavigationView {
+    var body: some View {
+        VStack {
             ScrollView {
                 AiringView()
                 VStack(alignment: .leading) {
@@ -43,7 +43,7 @@ struct HomeView:View {
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack {
                             ForEach(vm.upcoming, id: \.self){upcoming in
-                               TMDBCard(tmdb: upcoming)
+                                TMDBCard(tmdb: upcoming)
                             }
                         }
                     }
@@ -51,15 +51,11 @@ struct HomeView:View {
                         .bold()
                         .font(.headline)
                         .padding(.leading)
-                   trending
+                    trending
                 } }
-            .navigationBarItems(leading:
-                                    Text("Netflixless")
-                .font(.largeTitle).bold()
-                .foregroundColor(Color.color1)
-                .padding(.leading, 13)
-            )
-            .onAppear{
+           
+            .scrollIndicators(.hidden)
+            .task{
                 vm.fetchTMDBData(tmdbUrl: .popular)
                 vm.fetchTMDBData(tmdbUrl: .topRated)
                 vm.fetchTMDBData(tmdbUrl: .upcoming)
@@ -79,5 +75,5 @@ struct HomeView:View {
 }
 
 #Preview {
-    HomeView()
+    Home()
 }

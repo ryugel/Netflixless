@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @State var txt = ""
+    @Binding var txt :String
     var body: some View {
         HStack(spacing: 15){
             
@@ -19,11 +19,8 @@ struct SearchBar: View {
             TextField("Search For Movies,Shows", text: $txt)
             
         }.padding()
-            .background(Color.gray)
-        
+            .background(Color.black)
+        Spacer()
     }
 }
 
-#Preview {
-    SearchBar()
-}
