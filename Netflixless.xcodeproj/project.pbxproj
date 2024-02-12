@@ -29,7 +29,14 @@
 		7B5FDB042B5EC65900A4EBDE /* NetflixlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */; };
 		7B5FDB0E2B5EC65900A4EBDE /* NetflixlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */; };
 		7B5FDB102B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */; };
+		7B90C37D2B7A9DF6005ECFE3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */; };
+		7B90C37F2B7AD446005ECFE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37E2B7AD446005ECFE3 /* MainView.swift */; };
 		7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC191E62B794484008AC4C1 /* UpcomingRow.swift */; };
+		7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */; };
+		7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */; };
+		7BC191EF2B7A9946008AC4C1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EE2B7A9946008AC4C1 /* FirebaseFirestore */; };
+		7BC191F12B7A9951008AC4C1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191F02B7A9951008AC4C1 /* FirebaseFirestoreSwift */; };
+		7BC191F32B7A99AF008AC4C1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191F22B7A99AF008AC4C1 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +81,10 @@
 		7B5FDB092B5EC65900A4EBDE /* NetflixlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessUITests.swift; sourceTree = "<group>"; };
 		7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7B90C37E2B7AD446005ECFE3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7BC191E62B794484008AC4C1 /* UpcomingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingRow.swift; sourceTree = "<group>"; };
+		7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */,
+				7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */,
+				7BC191EF2B7A9946008AC4C1 /* FirebaseFirestore in Frameworks */,
+				7BC191F32B7A99AF008AC4C1 /* FirebaseStorage in Frameworks */,
+				7BC191F12B7A9951008AC4C1 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +137,8 @@
 				7B34C3D82B7917C6006185EB /* SearchView.swift */,
 				7B34C3DA2B793C6B006185EB /* UpcomingView.swift */,
 				7B34C3DC2B793C7C006185EB /* HomeView.swift */,
+				7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */,
+				7B90C37E2B7AD446005ECFE3 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +170,7 @@
 				7B5FDB022B5EC65900A4EBDE /* NetflixlessTests */,
 				7B5FDB0C2B5EC65900A4EBDE /* NetflixlessUITests */,
 				7B5FDAF02B5EC65500A4EBDE /* Products */,
+				7BC191ED2B7A9946008AC4C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +187,7 @@
 		7B5FDAF12B5EC65500A4EBDE /* Netflixless */ = {
 			isa = PBXGroup;
 			children = (
+				7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */,
 				7B17EDC12B76B76A00D159A4 /* Model */,
 				7B17EDB32B76B74C00D159A4 /* View */,
 				7B17EDA82B76B72300D159A4 /* ViewModel */,
@@ -206,6 +224,13 @@
 			path = NetflixlessUITests;
 			sourceTree = "<group>";
 		};
+		7BC191ED2B7A9946008AC4C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +249,10 @@
 			name = Netflixless;
 			packageProductDependencies = (
 				7B17EDDC2B76B82500D159A4 /* Kingfisher */,
+				7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */,
+				7BC191EE2B7A9946008AC4C1 /* FirebaseFirestore */,
+				7BC191F02B7A9951008AC4C1 /* FirebaseFirestoreSwift */,
+				7BC191F22B7A99AF008AC4C1 /* FirebaseStorage */,
 			);
 			productName = Netflixless;
 			productReference = 7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */;
@@ -299,6 +328,7 @@
 			mainGroup = 7B5FDAE62B5EC65500A4EBDE;
 			packageReferences = (
 				7B17EDDB2B76B82500D159A4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 7B5FDAF02B5EC65500A4EBDE /* Products */;
 			projectDirPath = "";
@@ -318,6 +348,7 @@
 			files = (
 				7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */,
 				7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */,
+				7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +378,7 @@
 				7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */,
 				7B34C3DB2B793C6B006185EB /* UpcomingView.swift in Sources */,
 				7B17EDC02B76B74D00D159A4 /* TMDBDetailView.swift in Sources */,
+				7B90C37F2B7AD446005ECFE3 /* MainView.swift in Sources */,
 				7B17EDE92B77C77000D159A4 /* TMDBCard.swift in Sources */,
 				7B5FDAF52B5EC65500A4EBDE /* Home.swift in Sources */,
 				7B34C3D72B79150C006185EB /* SearchViewModel.swift in Sources */,
@@ -354,6 +386,7 @@
 				7B17EDB12B76B72400D159A4 /* YoutubeViewModel.swift in Sources */,
 				7B17EDBB2B76B74D00D159A4 /* AiringView.swift in Sources */,
 				7B34C3DD2B793C7C006185EB /* HomeView.swift in Sources */,
+				7B90C37D2B7A9DF6005ECFE3 /* LoginView.swift in Sources */,
 				7B34C3D52B790225006185EB /* FavoritesView.swift in Sources */,
 				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
 				7B34C3D92B7917C6006185EB /* SearchView.swift in Sources */,
@@ -700,6 +733,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.21.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -707,6 +748,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B17EDDB2B76B82500D159A4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7BC191EE2B7A9946008AC4C1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7BC191F02B7A9951008AC4C1 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		7BC191F22B7A99AF008AC4C1 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

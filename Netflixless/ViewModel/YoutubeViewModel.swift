@@ -32,7 +32,6 @@ class YoutubeViewModel: ObservableObject {
             .sink (receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("done downloading youtube")
                     break
                 case .failure(let failure):
                     print("Failure: \(failure)")
@@ -40,7 +39,6 @@ class YoutubeViewModel: ObservableObject {
             }, receiveValue: { [weak self] item in
                 if let firstTrailer = item.first {
                                    self?.trailers = [firstTrailer]
-                                   print("First trailer retrieved:", firstTrailer)
                                } else {
                                    print("No trailers found.")
                                }

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct NetflixlessApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            MainView()
                 .preferredColorScheme(.dark)
         }
     }
