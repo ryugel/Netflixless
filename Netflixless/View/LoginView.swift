@@ -107,7 +107,6 @@ struct ContentView: View {
             }catch {
                 await displayErrorMsg(error)
             }
-           
         }
     }
     func displayErrorMsg(_ error: Error) async {
