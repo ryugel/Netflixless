@@ -18,7 +18,7 @@ struct User: Identifiable, Codable {
     var pictureURL:URL
     var password:String
     
-    var favorites: [TMDB]?
+    var favorites: [TMDB]? = []
     
     enum CodingKeys: CodingKey {
     case id

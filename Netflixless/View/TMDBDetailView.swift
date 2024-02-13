@@ -10,8 +10,8 @@ import WebKit
 
 struct TMDBDetailView: View {
     @StateObject private var vm = YoutubeViewModel()
-    let show: TMDB
-    
+    var show: TMDB
+    @State var user:User?
     @State private var isFavorited = false
     
     var body: some View {
@@ -50,9 +50,13 @@ struct TMDBDetailView: View {
                     
                     Button(action: {
                         isFavorited.toggle()
+                        if show.isFaved(isFavorited) {
+                            user?.favorites = addToFavorites(item: show)
+                            print(user?.favorites)
+                        }
                     }) {
-                        Image(systemName: isFavorited ? "heart.fill" : "heart")
-                            .foregroundColor(isFavorited ? .red : .gray)
+                        Image(systemName: show.isFaved(isFavorited) ? "heart.fill" : "heart")
+                            .foregroundColor(show.isFaved(isFavorited) ? .red : .gray)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
@@ -67,6 +71,10 @@ struct TMDBDetailView: View {
             vm.fetchTrailer(query: "\(show.originalTitle ?? show.name ?? show.originalName ?? "") trailer")
         }
     }
+    func addToFavorites(item: TMDB) -> [TMDB]? {
+        user?.favorites?.append(item)
+        return user?.favorites
+       }
 }
 
 struct TrailerView: View {
@@ -91,3 +99,4 @@ struct WebView: UIViewRepresentable {
     
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 }
+

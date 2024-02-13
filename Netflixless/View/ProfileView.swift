@@ -8,9 +8,14 @@
 import SwiftUI
 import Kingfisher
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseFirestore
 
 struct ProfileView: View {
     @State  var myProfile: User
+    @State var showError = false
+    @State var errorMsg = ""
+    @State var isLoading = false
     
     @AppStorage("is_logged") var isLogged = false
     var body: some View {
@@ -38,21 +43,49 @@ struct ProfileView: View {
                 ProfileOptionButton(title: "App Settings", action: {
                   
                 })
-                ProfileOptionButton(title: "Notifications", action: {
-                    
+                ProfileOptionButton(title: "Delete Account", action: {
+                    deleteAccount()
                 })
                 ProfileOptionButton(title: "Log out", action: {
                    logOut()
                 })
             }
         }
+        .overlay{
+            LoadingView(showing: $isLoading)
+        }
         .padding()
         .preferredColorScheme(.dark)
+        .alert(errorMsg, isPresented: $showError){
+            
+        }
     }
     
     func logOut(){
         try? Auth.auth().signOut()
         isLogged = false
+    }
+    func deleteAccount(){
+        isLoading = true
+        Task {
+            do {
+                guard let userID = Auth.auth().currentUser?.uid else { return }
+                let reference = Storage.storage().reference().child("Profile_Images").child(userID)
+                try await reference.delete()
+                try await Firestore.firestore().collection("Users").document(userID).delete()
+                try await Auth.auth().currentUser?.delete()
+                isLogged = false
+            }catch {
+                await displayErrorMsg(error)
+            }
+        }
+    }
+    func displayErrorMsg(_ error: Error)async {
+        await MainActor.run(body: {
+            errorMsg = error.localizedDescription
+            showError.toggle()
+            isLoading = false
+        })
     }
 }
 

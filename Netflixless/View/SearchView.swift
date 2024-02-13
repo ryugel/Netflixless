@@ -10,7 +10,7 @@ import Kingfisher
 
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
-    
+    @State var user:User
     var body: some View {
         VStack {
             
@@ -21,7 +21,7 @@ struct SearchView: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
                         ForEach(viewModel.searchedMovies) { movie in
                             NavigationLink {
-                                TMDBDetailView(show: movie)
+                                TMDBDetailView(show: movie, user: user)
                             } label: {
                                 MovieItemView(movie: movie)
                             }
@@ -31,7 +31,6 @@ struct SearchView: View {
                     .padding()
                 }
             }
-            
         }
         .navigationBarItems(leading:  SearchBar(txt: $viewModel.searchText))
         .onAppear {
@@ -53,6 +52,4 @@ struct MovieItemView: View {
         }
     }
 }
-#Preview {
-    SearchView()
-}
+

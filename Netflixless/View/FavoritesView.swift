@@ -10,7 +10,6 @@ import SwiftUI
 struct FavoritesView: View {
     var body: some View {
         VStack {
-          
             ContentUnavailableView("No Favorites", systemImage: "heart.slash", description: Text("You have no favorites shows or movies yet. Feel free to add some."))
         }
 

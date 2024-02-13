@@ -41,7 +41,8 @@ struct HomeView: View {
                     .padding(.leading, 13)
                 Spacer()
                 NavigationLink {
-                    SearchView()
+                    myProfile.map{ SearchView(user: $0)}
+
                 } label: {
                     Image(systemName: "magnifyingglass")
                         .font(.body)
@@ -53,7 +54,7 @@ struct HomeView: View {
                     KFImage(myProfile?.pictureURL)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 45, height: 45)
+                        .frame(width: 35, height: 35)
                         .clipShape(Rectangle())
                         .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
                 }

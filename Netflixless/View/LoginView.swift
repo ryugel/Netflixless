@@ -133,7 +133,7 @@ struct SignView: View {
     @State var userName: String = ""
     @State var password: String = ""
     @State var password2: String = ""
-    @State var ProfilePic:Data?
+    @State var ProfilePic:Data? 
     @State var showImagePicker = false
     @State var photoItem:PhotosPickerItem?
     @State var showError = false
@@ -234,7 +234,7 @@ struct SignView: View {
         }).isAllowed(condition())
     }
     func condition() -> Bool {
-        userName == "" || email == "" || password == "" || password != password2 || password.count != 8
+        userName == "" || email == "" || password == "" || password != password2 || password.count <= 8
     }
     func registerAccount(){
         isLoading = true

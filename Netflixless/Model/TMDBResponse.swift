@@ -9,7 +9,7 @@ import Foundation
 
 struct TMDBMResponse: Codable {
     let page: Int
-    let results: [TMDB]
+    var results: [TMDB]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,11 @@ struct TMDB: Codable, Hashable, Identifiable {
     let name: String?
     let voteAverage: Double
     let voteCount: Int
-
+    
+    func isFaved(_ isFavorite:Bool) -> Bool {
+         return isFavorite ? true:false
+    }
+    
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
