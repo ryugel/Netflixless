@@ -72,7 +72,7 @@ struct ContentView: View {
                         .font(.subheadline)
                 }
                     
-                Button(action: { }) {
+                Button(action: {resetPassword() }) {
                     Text("Forgot your password ?")
                         .font(.subheadline)
                     .foregroundStyle(.gray)
@@ -100,6 +100,16 @@ struct ContentView: View {
             }
         }
     }
+    func resetPassword() {
+        Task {
+            do {
+                try await Auth.auth().sendPasswordReset(withEmail: email)
+            }catch {
+                await displayErrorMsg(error)
+            }
+           
+        }
+    }
     func displayErrorMsg(_ error: Error) async {
         await MainActor.run(body: {
             errorMsg = error.localizedDescription
@@ -117,6 +127,7 @@ struct ContentView: View {
             isLogged = true
         }
     }
+    
 }
 struct SignView: View {
     @State var email: String = ""
