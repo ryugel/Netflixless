@@ -32,7 +32,7 @@
 		7B90C37D2B7A9DF6005ECFE3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */; };
 		7B90C37F2B7AD446005ECFE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37E2B7AD446005ECFE3 /* MainView.swift */; };
 		7B90C3812B7AF353005ECFE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3802B7AF353005ECFE3 /* ProfileView.swift */; };
-		7B90C3832B7B725E005ECFE3 /* Hidden.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B90C3822B7B725E005ECFE3 /* Hidden.json */; };
+		7B90C3872B7B76F0005ECFE3 /* Secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B90C3862B7B76F0005ECFE3 /* Secrets.json */; };
 		7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC191E62B794484008AC4C1 /* UpcomingRow.swift */; };
 		7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */; };
 		7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */; };
@@ -86,7 +86,7 @@
 		7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7B90C37E2B7AD446005ECFE3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7B90C3802B7AF353005ECFE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		7B90C3822B7B725E005ECFE3 /* Hidden.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Hidden.json; sourceTree = "<group>"; };
+		7B90C3862B7B76F0005ECFE3 /* Secrets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Secrets.json; sourceTree = "<group>"; };
 		7BC191E62B794484008AC4C1 /* UpcomingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingRow.swift; sourceTree = "<group>"; };
 		7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,7 +200,7 @@
 				7B5FDAF42B5EC65500A4EBDE /* Home.swift */,
 				7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */,
 				7B5FDAF82B5EC65800A4EBDE /* Preview Content */,
-				7B90C3822B7B725E005ECFE3 /* Hidden.json */,
+				7B90C3862B7B76F0005ECFE3 /* Secrets.json */,
 			);
 			path = Netflixless;
 			sourceTree = "<group>";
@@ -356,9 +356,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */,
+				7B90C3872B7B76F0005ECFE3 /* Secrets.json in Resources */,
 				7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */,
 				7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */,
-				7B90C3832B7B725E005ECFE3 /* Hidden.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
