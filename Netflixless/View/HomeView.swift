@@ -31,7 +31,6 @@ struct HomeView: View {
             } .task {
                 do {
                     await getUser()
-                    print(myProfile?.username)
                 }
             }
             .navigationBarItems(leading:
@@ -48,15 +47,17 @@ struct HomeView: View {
                         .font(.body)
                         .foregroundColor(.white)
                 }
-                
-                ZStack {
+                NavigationLink {
+                    myProfile.map { ProfileView(myProfile: $0) }
+                } label: {
                     KFImage(myProfile?.pictureURL)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 45, height: 45)
-                    
-                    
                 }
+
+               
+                
                 
             }
                                 

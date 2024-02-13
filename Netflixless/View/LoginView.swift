@@ -127,7 +127,7 @@ struct ContentView: View {
             isLogged = true
         }
     }
-    
+        
 }
 struct SignView: View {
     @State var email: String = ""
