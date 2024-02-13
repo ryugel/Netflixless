@@ -52,8 +52,10 @@ struct HomeView: View {
                 } label: {
                     KFImage(myProfile?.pictureURL)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 45, height: 45)
+                        .clipShape(Rectangle())
+                        .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
                 }
 
                
