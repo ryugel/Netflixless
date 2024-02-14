@@ -42,7 +42,7 @@ struct HomeView: View {
                 Spacer()
                 NavigationLink {
                     myProfile.map{ SearchView(user: $0)}
-
+                    
                 } label: {
                     Image(systemName: "magnifyingglass")
                         .font(.body)
@@ -53,17 +53,18 @@ struct HomeView: View {
                 } label: {
                     KFImage(myProfile?.pictureURL)
                         .resizable()
+                        .placeholder({ _ in
+                            Image(.netflixUser)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 35, height: 35)
+                        })
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 35, height: 35)
                         .clipShape(Rectangle())
                         .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
                 }
-
-               
-                
-                
             }
-                                
             )
         }
     }

@@ -46,6 +46,12 @@ struct MovieItemView: View {
         VStack {
             KFImage(URL(string: movie.imageUrl + (movie.posterPath ?? movie.backdropPath ?? "")))
                 .resizable()
+                .placeholder({
+                    Image(.placeholder)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 150)
+                        .cornerRadius(10)
+                })
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 150)
                 .cornerRadius(10)

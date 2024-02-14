@@ -33,6 +33,8 @@
 		7B90C37F2B7AD446005ECFE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37E2B7AD446005ECFE3 /* MainView.swift */; };
 		7B90C3812B7AF353005ECFE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3802B7AF353005ECFE3 /* ProfileView.swift */; };
 		7B90C3892B7B782E005ECFE3 /* Lost.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B90C3882B7B782E005ECFE3 /* Lost.json */; };
+		7B90C38B2B7CB479005ECFE3 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C38A2B7CB479005ECFE3 /* Favorites.swift */; };
+		7B90C38F2B7CC331005ECFE3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */; };
 		7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC191E62B794484008AC4C1 /* UpcomingRow.swift */; };
 		7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */; };
 		7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */; };
@@ -87,6 +89,7 @@
 		7B90C37E2B7AD446005ECFE3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7B90C3802B7AF353005ECFE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		7B90C3882B7B782E005ECFE3 /* Lost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Lost.json; sourceTree = "<group>"; };
+		7B90C38A2B7CB479005ECFE3 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		7BC191E62B794484008AC4C1 /* UpcomingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingRow.swift; sourceTree = "<group>"; };
 		7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B90C38F2B7CC331005ECFE3 /* FirebaseDatabase in Frameworks */,
 				7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */,
 				7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */,
 				7BC191EF2B7A9946008AC4C1 /* FirebaseFirestore in Frameworks */,
@@ -164,6 +168,7 @@
 				7B17EDC82B76B76A00D159A4 /* Youtube.swift */,
 				7B17EDD72B76B7A900D159A4 /* User.swift */,
 				7B17EDE42B77A00700D159A4 /* TMDBResponse.swift */,
+				7B90C38A2B7CB479005ECFE3 /* Favorites.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				7BC191EE2B7A9946008AC4C1 /* FirebaseFirestore */,
 				7BC191F02B7A9951008AC4C1 /* FirebaseFirestoreSwift */,
 				7BC191F22B7A99AF008AC4C1 /* FirebaseStorage */,
+				7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */,
 			);
 			productName = Netflixless;
 			productReference = 7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */;
@@ -401,6 +407,7 @@
 				7B34C3D52B790225006185EB /* FavoritesView.swift in Sources */,
 				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
 				7B34C3D92B7917C6006185EB /* SearchView.swift in Sources */,
+				7B90C38B2B7CB479005ECFE3 /* Favorites.swift in Sources */,
 				7B17EDD22B76B76A00D159A4 /* Youtube.swift in Sources */,
 				7B17EDD82B76B7A900D159A4 /* User.swift in Sources */,
 			);
@@ -759,6 +766,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B17EDDB2B76B82500D159A4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 		7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
