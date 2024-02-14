@@ -56,9 +56,7 @@ struct ProfileView: View {
         }
         .padding()
         .preferredColorScheme(.dark)
-        .alert(errorMsg, isPresented: $showError){
-            
-        }
+        .alert(errorMsg, isPresented: $showError){}
     }
     
     func logOut(){
@@ -96,7 +94,7 @@ struct ProfileOptionButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .foregroundColor(.white)
+                .foregroundColor(title.contains("Delete") ? .red:.white)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(.ultraThinMaterial)  
