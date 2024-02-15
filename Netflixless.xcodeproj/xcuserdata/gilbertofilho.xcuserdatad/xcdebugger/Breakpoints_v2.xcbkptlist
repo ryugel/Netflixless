@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FB65775D-6D2D-4FAC-81FB-B9CAB64A6860"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7999221-4716-46B0-A2B6-4E758618914B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Netflixless/ViewModel/Login_LogoutViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "Login_LogoutViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - e57902cbfbf127b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Netflixless.Login_LogoutViewModel.inscriptionReussie : Swift.Bool"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/Netflixless/ViewModel/Login_LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - 6d58928d27b6afe6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.inscriptionReussie.getter : Swift.Bool"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/Netflixless/ViewModel/Login_LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - d499a863ac4b8c46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.inscriptionReussie.setter : Swift.Bool"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/Netflixless/ViewModel/Login_LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - 7a7b0ce6e0708371"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.inscriptionReussie.modify : Swift.Bool"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/Netflixless/ViewModel/Login_LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - e5950ddcf0dede6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.inscriptionReussie.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - e571271a8926d925"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.$inscriptionReussie.getter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/Netflixless/ViewModel/Login_LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - 20b6dc64535e5f58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.$inscriptionReussie.setter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - 6a6fbf05e54d789"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.$inscriptionReussie.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "E7999221-4716-46B0-A2B6-4E758618914B - 131f4547275c512"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflixless.Login_LogoutViewModel.$inscriptionReussie.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Netflixless"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilbertofilho/Documents/Cours/3e%CC%80me%20Anne%CC%81e/IOS%20swift/Projets/Netflixless/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
