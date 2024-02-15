@@ -33,7 +33,6 @@ class TMDBViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("finish")
                     break
                 case .failure(let error):
                     print("Error: \(error)")

@@ -7,11 +7,13 @@
 
 import SwiftUI
 import WebKit
+import FirebaseAuth
+import FirebaseFirestore
 
 struct TMDBDetailView: View {
+    @StateObject private var userViewModel = UserViewModel()
     @StateObject private var vm = YoutubeViewModel()
-    let show: TMDB
-    
+    var show: TMDB
     @State private var isFavorited = false
     
     var body: some View {
@@ -49,10 +51,15 @@ struct TMDBDetailView: View {
                     Spacer()
                     
                     Button(action: {
+                        if isInFavorites {
+                            userViewModel.removeFromFavorites(show)
+                        } else {
+                            userViewModel.addToFavorites(show)
+                        }
                         isFavorited.toggle()
                     }) {
-                        Image(systemName: isFavorited ? "heart.fill" : "heart")
-                            .foregroundColor(isFavorited ? .red : .gray)
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(isFavorited ? .red : .gray) // Change color based on isInFavorites
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
@@ -63,10 +70,17 @@ struct TMDBDetailView: View {
             .padding()
             .navigationBarTitle((show.originalTitle ?? show.name) ?? "", displayMode: .inline)
         }
-        .onAppear {
+        .task {
             vm.fetchTrailer(query: "\(show.originalTitle ?? show.name ?? show.originalName ?? "") trailer")
+            await userViewModel.fetchUser()
+            isFavorited = isInFavorites
         }
     }
+    private var isInFavorites: Bool {
+        guard let user = userViewModel.user else { return false }
+        return user.favorites.contains(show)
+    }
+    
 }
 
 struct TrailerView: View {
@@ -91,3 +105,4 @@ struct WebView: UIViewRepresentable {
     
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 }
+

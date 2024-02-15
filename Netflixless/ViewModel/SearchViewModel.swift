@@ -37,7 +37,6 @@ class SearchViewModel: ObservableObject {
             .sink (receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("done searching")
                     break
                 case .failure(let failure):
                     print("Failure: \(failure)")
