@@ -7,40 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B17EDB12B76B72400D159A4 /* YoutubeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDAC2B76B72300D159A4 /* YoutubeViewModel.swift */; };
-		7B17EDBB2B76B74D00D159A4 /* AiringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDB42B76B74C00D159A4 /* AiringView.swift */; };
-		7B17EDBE2B76B74D00D159A4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDB82B76B74C00D159A4 /* SearchBar.swift */; };
-		7B17EDC02B76B74D00D159A4 /* TMDBDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */; };
-		7B17EDD22B76B76A00D159A4 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDC82B76B76A00D159A4 /* Youtube.swift */; };
-		7B17EDD82B76B7A900D159A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDD72B76B7A900D159A4 /* User.swift */; };
-		7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7B17EDDC2B76B82500D159A4 /* Kingfisher */; };
-		7B17EDE52B77A00700D159A4 /* TMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE42B77A00700D159A4 /* TMDBResponse.swift */; };
-		7B17EDE72B77A2E400D159A4 /* TMDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE62B77A2E400D159A4 /* TMDBViewModel.swift */; };
-		7B17EDE92B77C77000D159A4 /* TMDBCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE82B77C77000D159A4 /* TMDBCard.swift */; };
-		7B34C3D52B790225006185EB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34C3D42B790225006185EB /* FavoritesView.swift */; };
-		7B34C3D72B79150C006185EB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34C3D62B79150C006185EB /* SearchViewModel.swift */; };
-		7B34C3D92B7917C6006185EB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34C3D82B7917C6006185EB /* SearchView.swift */; };
-		7B34C3DB2B793C6B006185EB /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34C3DA2B793C6B006185EB /* UpcomingView.swift */; };
-		7B34C3DD2B793C7C006185EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34C3DC2B793C7C006185EB /* HomeView.swift */; };
+
 		7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */; };
 		7B5FDAF52B5EC65500A4EBDE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF42B5EC65500A4EBDE /* Home.swift */; };
 		7B5FDAF72B5EC65800A4EBDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */; };
 		7B5FDAFA2B5EC65800A4EBDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */; };
-		7B5FDB042B5EC65900A4EBDE /* NetflixlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */; };
-		7B5FDB0E2B5EC65900A4EBDE /* NetflixlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */; };
-		7B5FDB102B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */; };
-		7B90C37D2B7A9DF6005ECFE3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */; };
-		7B90C37F2B7AD446005ECFE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C37E2B7AD446005ECFE3 /* MainView.swift */; };
-		7B90C3812B7AF353005ECFE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3802B7AF353005ECFE3 /* ProfileView.swift */; };
-		7B90C38F2B7CC331005ECFE3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */; };
-		7B90C3912B7CFE72005ECFE3 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3902B7CFE72005ECFE3 /* AuthViewModel.swift */; };
-		7B90C3932B7E138A005ECFE3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3922B7E138A005ECFE3 /* UserViewModel.swift */; };
-		7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC191E62B794484008AC4C1 /* UpcomingRow.swift */; };
-		7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */; };
-		7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */; };
-		7BC191EF2B7A9946008AC4C1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EE2B7A9946008AC4C1 /* FirebaseFirestore */; };
-		7BC191F12B7A9951008AC4C1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191F02B7A9951008AC4C1 /* FirebaseFirestoreSwift */; };
-		7BC191F32B7A99AF008AC4C1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191F22B7A99AF008AC4C1 /* FirebaseStorage */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,38 +32,15 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXFileReference section */
-		7B17EDAC2B76B72300D159A4 /* YoutubeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewModel.swift; sourceTree = "<group>"; };
-		7B17EDB42B76B74C00D159A4 /* AiringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AiringView.swift; sourceTree = "<group>"; };
-		7B17EDB82B76B74C00D159A4 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBDetailView.swift; sourceTree = "<group>"; };
-		7B17EDC82B76B76A00D159A4 /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
-		7B17EDD72B76B7A900D159A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7B17EDE42B77A00700D159A4 /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
-		7B17EDE62B77A2E400D159A4 /* TMDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewModel.swift; sourceTree = "<group>"; };
-		7B17EDE82B77C77000D159A4 /* TMDBCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCard.swift; sourceTree = "<group>"; };
-		7B34C3D42B790225006185EB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		7B34C3D62B79150C006185EB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		7B34C3D82B7917C6006185EB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		7B34C3DA2B793C6B006185EB /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
-		7B34C3DC2B793C7C006185EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+
 		7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflixless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5FDAF22B5EC65500A4EBDE /* NetflixlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessApp.swift; sourceTree = "<group>"; };
 		7B5FDAF42B5EC65500A4EBDE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7B5FDAF62B5EC65800A4EBDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B5FDAF92B5EC65800A4EBDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B5FDAFF2B5EC65900A4EBDE /* NetflixlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessTests.swift; sourceTree = "<group>"; };
 		7B5FDB092B5EC65900A4EBDE /* NetflixlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessUITests.swift; sourceTree = "<group>"; };
-		7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7B90C37C2B7A9DF6005ECFE3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		7B90C37E2B7AD446005ECFE3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		7B90C3802B7AF353005ECFE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		7B90C3902B7CFE72005ECFE3 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		7B90C3922B7E138A005ECFE3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		7BC191E62B794484008AC4C1 /* UpcomingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingRow.swift; sourceTree = "<group>"; };
-		7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				7B5FDAF12B5EC65500A4EBDE /* Netflixless */,
-				7B5FDB022B5EC65900A4EBDE /* NetflixlessTests */,
-				7B5FDB0C2B5EC65900A4EBDE /* NetflixlessUITests */,
 				7B5FDAF02B5EC65500A4EBDE /* Products */,
 				7BC191ED2B7A9946008AC4C1 /* Frameworks */,
 			);
@@ -218,21 +165,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		7B5FDB022B5EC65900A4EBDE /* NetflixlessTests */ = {
-			isa = PBXGroup;
-			children = (
-				7B5FDB032B5EC65900A4EBDE /* NetflixlessTests.swift */,
-			);
-			path = NetflixlessTests;
-			sourceTree = "<group>";
-		};
-		7B5FDB0C2B5EC65900A4EBDE /* NetflixlessUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7B5FDB0D2B5EC65900A4EBDE /* NetflixlessUITests.swift */,
-				7B5FDB0F2B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift */,
-			);
-			path = NetflixlessUITests;
+
 			sourceTree = "<group>";
 		};
 		7BC191ED2B7A9946008AC4C1 /* Frameworks */ = {
@@ -388,28 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B17EDBE2B76B74D00D159A4 /* SearchBar.swift in Sources */,
-				7B17EDE72B77A2E400D159A4 /* TMDBViewModel.swift in Sources */,
-				7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */,
-				7B34C3DB2B793C6B006185EB /* UpcomingView.swift in Sources */,
-				7B17EDC02B76B74D00D159A4 /* TMDBDetailView.swift in Sources */,
-				7B90C37F2B7AD446005ECFE3 /* MainView.swift in Sources */,
-				7B17EDE92B77C77000D159A4 /* TMDBCard.swift in Sources */,
-				7B5FDAF52B5EC65500A4EBDE /* Home.swift in Sources */,
-				7B34C3D72B79150C006185EB /* SearchViewModel.swift in Sources */,
-				7B17EDE52B77A00700D159A4 /* TMDBResponse.swift in Sources */,
-				7B90C3932B7E138A005ECFE3 /* UserViewModel.swift in Sources */,
-				7B17EDB12B76B72400D159A4 /* YoutubeViewModel.swift in Sources */,
-				7B17EDBB2B76B74D00D159A4 /* AiringView.swift in Sources */,
-				7B90C3812B7AF353005ECFE3 /* ProfileView.swift in Sources */,
-				7B34C3DD2B793C7C006185EB /* HomeView.swift in Sources */,
-				7B90C37D2B7A9DF6005ECFE3 /* LoginView.swift in Sources */,
-				7B34C3D52B790225006185EB /* FavoritesView.swift in Sources */,
-				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
-				7B34C3D92B7917C6006185EB /* SearchView.swift in Sources */,
-				7B90C3912B7CFE72005ECFE3 /* AuthViewModel.swift in Sources */,
-				7B17EDD22B76B76A00D159A4 /* Youtube.swift in Sources */,
-				7B17EDD82B76B7A900D159A4 /* User.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +329,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B5FDB042B5EC65900A4EBDE /* NetflixlessTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,8 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B5FDB102B5EC65900A4EBDE /* NetflixlessUITestsLaunchTests.swift in Sources */,
-				7B5FDB0E2B5EC65900A4EBDE /* NetflixlessUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
