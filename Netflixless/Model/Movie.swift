@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Trendings
 struct Trendings: Codable {
     let page: Int
-    let results: [Movie]
+    var results: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -23,7 +23,7 @@ struct Trendings: Codable {
 struct UpcomingMovies: Codable {
     let dates: Dates
     let page: Int
-    let results: [Movie]
+    var results: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -33,20 +33,33 @@ struct UpcomingMovies: Codable {
     }
 }
 
+struct MovieCollection: Codable {
+    let id: Int
+    let name, overview, posterPath, backdropPath: String?
+    let parts: [Movie]
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, overview
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case parts
+    }
+}
+
 struct Dates: Codable {
     let maximum, minimum: String
 }
 
 
 struct Movie: Media, Codable,Hashable,Identifiable {
-    let adult: Bool
+    let adult: Bool?
     let backdropPath: String?
     let id: Int
     let title: String?
     let originalLanguage: OriginalLanguage
     let originalTitle: String?
     let overview, posterPath: String
-    let mediaType: MediaType?
+    var mediaType: MediaType?
     let genreIDS: [Int]?
     let popularity: Double
     let releaseDate: String?
@@ -66,7 +79,10 @@ struct Movie: Media, Codable,Hashable,Identifiable {
     let revenue, runtime: Int?
     let spokenLanguages: [SpokenLanguage]?
     let status, tagline: String?
+    let credits: Credits?
      
+    var hasCollection: Bool?
+    
      enum CodingKeys: String, CodingKey {
          case adult
          case backdropPath = "backdrop_path"
@@ -93,6 +109,8 @@ struct Movie: Media, Codable,Hashable,Identifiable {
          case revenue, runtime
          case spokenLanguages = "spoken_languages"
          case status, tagline
+         case credits
+         case hasCollection = "true"
      }
      
      static func == (lhs: Movie, rhs: Movie) -> Bool {
@@ -156,6 +174,7 @@ struct Movie: Media, Codable,Hashable,Identifiable {
          hasher.combine(spokenLanguages)
          hasher.combine(status)
          hasher.combine(tagline)
+         
      }
 }
 
@@ -164,115 +183,20 @@ enum MediaType: String, Codable, Hashable {
     case tv = "tv"
 }
 
-enum OriginalLanguage: String, Codable,Hashable {
-    case en = "en"
-    case ja = "ja"
-    case ko = "ko"
-    case nl = "nl"
-    case es = "es"
-    case fr = "fr"
-    case de = "de"
-    case it = "it"
-    case pt = "pt"
-    case ru = "ru"
-    case zh = "zh"
-    case ar = "ar"
-    case af = "af"
-    case sq = "sq"
-    case am = "am"
-    case hy = "hy"
-    case az = "az"
-    case eu = "eu"
-    case be = "be"
-    case bn = "bn"
-    case bs = "bs"
-    case bg = "bg"
-    case my = "my"
-    case ca = "ca"
-    case ceb = "ceb"
-    case ny = "ny"
-    case co = "co"
-    case hr = "hr"
-    case cs = "cs"
-    case da = "da"
-    case eo = "eo"
-    case et = "et"
-    case fo = "fo"
-    case fil = "fil"
-    case fi = "fi"
-    case fy = "fy"
-    case gl = "gl"
-    case ka = "ka"
-    case el = "el"
-    case gu = "gu"
-    case ht = "ht"
-    case ha = "ha"
-    case haw = "haw"
-    case he = "he"
-    case hi = "hi"
-    case hmn = "hmn"
-    case hu = "hu"
-    case ig = "ig"
-    case id = "id"
-    case ga = "ga"
-    case jw = "jw"
-    case kn = "kn"
-    case kk = "kk"
-    case km = "km"
-    case rw = "rw"
-    case ky = "ky"
-    case ku = "ku"
-    case lo = "lo"
-    case la = "la"
-    case lv = "lv"
-    case lt = "lt"
-    case lb = "lb"
-    case mk = "mk"
-    case mg = "mg"
-    case ms = "ms"
-    case ml = "ml"
-    case mt = "mt"
-    case mi = "mi"
-    case mr = "mr"
-    case mn = "mn"
-    case ne = "ne"
-    case no = "no"
-    case or = "or"
-    case ps = "ps"
-    case fa = "fa"
-    case pl = "pl"
-    case pa = "pa"
-    case ro = "ro"
-    case sm = "sm"
-    case gd = "gd"
-    case sr = "sr"
-    case st = "st"
-    case sn = "sn"
-    case sd = "sd"
-    case si = "si"
-    case sk = "sk"
-    case sl = "sl"
-    case so = "so"
-    case su = "su"
-    case sw = "sw"
-    case sv = "sv"
-    case tg = "tg"
-    case ta = "ta"
-    case te = "te"
-    case th = "th"
-    case tr = "tr"
-    case uk = "uk"
-    case ur = "ur"
-    case uz = "uz"
-    case vi = "vi"
-    case cy = "cy"
-    case xh = "xh"
-    case yi = "yi"
-    case yo = "yo"
-    case zu = "zu"
-    
-}
+enum OriginalLanguage: String, Codable, Hashable {
+    case en, ja, ko, nl, es, fr, de, it, pt, ru, zh, ar, af, sq, am, hy, az, eu, be, bn, bs, bg, my, ca, ceb, ny, co, hr, cs, da, eo, et, fo, fil, fi, fy, gl, ka, el, gu, ht, ha, haw, he, hi, hmn, hu, ig, id, ga, jw, kn, kk, km, rw, ky, ku, lo, la, lv, lt, lb, mk, mg, ms, ml, mt, mi, mr, mn, ne, no, or, ps, fa, pl, pa, ro, sm, gd, sr, st, sn, sd, si, sk, sl, so, su, sw, sv, tg, ta, te, th,tl, tr, uk, ur, uz, vi, cy, xh, yi, yo, zu
 
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+
+        if let language = OriginalLanguage(rawValue: rawValue) {
+            self = language
+        } else {
+            self = .en
+        }
+    }
+}
 struct BelongsToCollection: Codable,Hashable {
     let id: Int
     let name, posterPath, backdropPath: String
@@ -286,7 +210,7 @@ struct BelongsToCollection: Codable,Hashable {
 
 struct ProductionCompany: Codable,Hashable {
     let id: Int
-    let logoPath, name, originCountry: String
+    let logoPath, name, originCountry: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -298,7 +222,7 @@ struct ProductionCompany: Codable,Hashable {
 
 
 struct ProductionCountry: Codable,Hashable {
-    let iso3166_1, name: String
+    let iso3166_1, name: String?
 
     enum CodingKeys: String, CodingKey {
         case iso3166_1 = "iso_3166_1"
@@ -315,4 +239,52 @@ struct SpokenLanguage: Codable,Hashable {
         case iso639_1 = "iso_639_1"
         case name
     }
+}
+
+struct Credits: Codable,Hashable {
+    let cast: [Cast]?
+    let crew: [Cast]?
+}
+
+struct Cast: Codable,Hashable, Identifiable {
+    let adult: Bool
+    let gender, id: Int
+    let knownForDepartment: Department?
+    let name, originalName: String
+    let popularity: Double
+    let profilePath: String?
+    let castID: Int?
+    let character: String?
+    let creditID: String
+    let order: Int?
+    let job: String?
+
+    enum CodingKeys: String, CodingKey {
+        case adult, gender, id
+        case knownForDepartment = "known_for_department"
+        case name
+        case originalName = "original_name"
+        case popularity
+        case profilePath = "profile_path"
+        case castID = "cast_id"
+        case character
+        case creditID = "credit_id"
+        case order, job
+    }
+}
+
+enum Department: String, Codable,Hashable{
+    case acting = "Acting"
+    case art = "Art"
+    case camera = "Camera"
+    case costumeMakeUp = "Costume & Make-Up"
+    case crew = "Crew"
+    case directing = "Directing"
+    case editing = "Editing"
+    case lighting = "Lighting"
+    case production = "Production"
+    case sound = "Sound"
+    case visualEffects = "Visual Effects"
+    case writing = "Writing"
+    
 }

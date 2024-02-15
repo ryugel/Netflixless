@@ -41,7 +41,9 @@ class GenreModel: ObservableObject {
     @Published var mediaGenres: [String] = []
     
     func getGenresForMedia(genresIds: [Int]) {
+        if genresIds.first != 1 {
             self.mediaGenres.removeAll()
+        }
             for id in genresIds {
                 for genre in genresArray {
                     if id == genre.id {
