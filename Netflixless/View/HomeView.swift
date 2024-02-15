@@ -41,7 +41,7 @@ struct HomeView: View {
                     .padding(.leading, 13)
                 Spacer()
                 NavigationLink {
-                    myProfile.map{ SearchView(user: $0)}
+                    SearchView()
                     
                 } label: {
                     Image(systemName: "magnifyingglass")

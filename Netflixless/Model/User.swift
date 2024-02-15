@@ -17,8 +17,7 @@ struct User: Identifiable, Codable {
     var email:String
     var pictureURL:URL
     var password:String
-    
-    var favorites: [TMDB]? = []
+    var favorites:[TMDB]
     
     enum CodingKeys: CodingKey {
     case id
@@ -29,4 +28,16 @@ struct User: Identifiable, Codable {
     case password
     case favorites
     }
+    
+    mutating func addToFavorites(_ item: TMDB) {
+            if !favorites.contains(item) {
+                favorites.append(item)
+            }
+        }
+
+        mutating func removeFromFavorites(_ item: TMDB) {
+            if let index = favorites.firstIndex(of: item) {
+                favorites.remove(at: index)
+            }
+        }
 }

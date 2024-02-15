@@ -6,26 +6,27 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
+import FirebaseFirestore
 struct FavoritesView: View {
-    @StateObject private var vm = FavoritesViewModel()
+    @StateObject private var userViewModel = UserViewModel()
+    
     var body: some View {
         VStack {
-            if vm.favs.isEmpty {
-                ContentUnavailableView("No Favorites", systemImage: "heart.slash", description: Text("You have no favorites shows or movies yet. Feel free to add some."))
-            } else {
+            if let favorites = userViewModel.user?.favorites, !favorites.isEmpty {
                 ScrollView {
-                    ForEach(vm.favs){tmdb in
-                            UpcomingRow(tmdb: tmdb)
-                            
+                    ForEach(favorites) { tmdb in
+                        UpcomingRow(tmdb: tmdb)
                     }
                     .padding()
                     Spacer()
                 }
-                
+            } else {
+                ContentUnavailableView("No Favorites", systemImage: "heart.slash", description: Text("You have no favorite shows or movies yet. Feel free to add some."))
             }
-        }.task{
-            vm.fetchFavorites()
+        }
+        .task {
+            await userViewModel.fetchUser()
         }
     }
 }

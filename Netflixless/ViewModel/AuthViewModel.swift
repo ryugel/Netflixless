@@ -126,7 +126,7 @@ class RegisterViewModel: ObservableObject {
                         return
                     }
                     
-                    let user = User(userUID: userID, username: self.userName, email: self.email, pictureURL: downloadUrl, password: self.password, favorites: nil)
+                    let user = User(userUID: userID, username: self.userName, email: self.email, pictureURL: downloadUrl, password: self.password, favorites: [])
                     
                     try? Firestore.firestore().collection("Users").document(userID).setData(from: user) { error in
                         if let error = error {

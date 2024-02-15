@@ -7,12 +7,13 @@
 
 import SwiftUI
 import WebKit
+import FirebaseAuth
+import FirebaseFirestore
 
 struct TMDBDetailView: View {
+    @StateObject private var userViewModel = UserViewModel()
     @StateObject private var vm = YoutubeViewModel()
-    @StateObject private var favoriteVM = FavoritesViewModel()
     var show: TMDB
-    @State var user:User?
     @State private var isFavorited = false
     
     var body: some View {
@@ -50,15 +51,15 @@ struct TMDBDetailView: View {
                     Spacer()
                     
                     Button(action: {
-                        isFavorited.toggle()
-                        if isFavorited {
-                            favoriteVM.addToFavorites(item: show)
+                        if isInFavorites {
+                            userViewModel.removeFromFavorites(show)
                         } else {
-                            favoriteVM.removeFromFavorites(item: show)
+                            userViewModel.addToFavorites(show)
                         }
+                        isFavorited.toggle()
                     }) {
                         Image(systemName: "heart.fill")
-                            .foregroundColor(favoriteVM.isFavorite(item: show) ? .red : .gray)
+                            .foregroundColor(isFavorited ? .red : .gray) // Change color based on isInFavorites
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
@@ -69,11 +70,17 @@ struct TMDBDetailView: View {
             .padding()
             .navigationBarTitle((show.originalTitle ?? show.name) ?? "", displayMode: .inline)
         }
-        .onAppear {
+        .task {
             vm.fetchTrailer(query: "\(show.originalTitle ?? show.name ?? show.originalName ?? "") trailer")
-            isFavorited = favoriteVM.isFavorite(item: show)
+            await userViewModel.fetchUser()
+            isFavorited = isInFavorites
         }
     }
+    private var isInFavorites: Bool {
+        guard let user = userViewModel.user else { return false }
+        return user.favorites.contains(show)
+    }
+    
 }
 
 struct TrailerView: View {

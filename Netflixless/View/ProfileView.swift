@@ -105,5 +105,5 @@ struct ProfileOptionButton: View {
 }
 
 #Preview {
-    ProfileView(myProfile: User(userUID: "aakla,", username: "Tyla", email: "Tyla@gmail.com", pictureURL: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/netflixless-df59e.appspot.com/o/Profile_Images%2FKDSFTTMz1NQ8exGelTUCLrQifn22?alt=media&token=a6c26bdc-fbf0-485f-8109-2c3940787b97")!, password: ""))
+    ProfileView(myProfile: User(userUID: "aakla,", username: "Tyla", email: "Tyla@gmail.com", pictureURL: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/netflixless-df59e.appspot.com/o/Profile_Images%2FKDSFTTMz1NQ8exGelTUCLrQifn22?alt=media&token=a6c26bdc-fbf0-485f-8109-2c3940787b97")!, password: "", favorites: []))
 }
