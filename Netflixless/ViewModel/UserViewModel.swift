@@ -30,16 +30,26 @@ class UserViewModel: ObservableObject {
     
     func addToFavorites(_ item: TMDB) {
         guard var currentUser = user else { return }
-        currentUser.addToFavorites(item)
-        updateUser(currentUser)
+        if !currentUser.favorites.contains(item) {
+            user?.favorites.append(item)
+        }
+        updateUser(user ?? currentUser)
     }
     
     func removeFromFavorites(_ item: TMDB) {
         guard var currentUser = user else { return }
-        currentUser.removeFromFavorites(item)
-        updateUser(currentUser)
+        if let index = currentUser.favorites.firstIndex(of: item) {
+            user?.favorites.remove(at: index)
+        }
+        updateUser(user ?? currentUser)
     }
     
+    func removeAllFavorites() {
+        guard var currentUser = user else { return }
+        user?.favorites.removeAll()
+        updateUser(user ?? currentUser)
+    }
+
     private func updateUser(_ user: User) {
         let userID = user.userUID 
         do {

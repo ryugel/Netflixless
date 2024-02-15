@@ -29,15 +29,5 @@ struct User: Identifiable, Codable {
     case favorites
     }
     
-    mutating func addToFavorites(_ item: TMDB) {
-            if !favorites.contains(item) {
-                favorites.append(item)
-            }
-        }
-
-        mutating func removeFromFavorites(_ item: TMDB) {
-            if let index = favorites.firstIndex(of: item) {
-                favorites.remove(at: index)
-            }
-        }
+    
 }

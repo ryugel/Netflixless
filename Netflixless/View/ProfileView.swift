@@ -16,6 +16,7 @@ struct ProfileView: View {
     @State var showError = false
     @State var errorMsg = ""
     @State var isLoading = false
+    @State var alert = false
     
     @AppStorage("is_logged") var isLogged = false
     var body: some View {
@@ -37,11 +38,9 @@ struct ProfileView: View {
             Spacer()
             
             VStack(spacing: 20) {
-                ProfileOptionButton(title: "Account", action: {
-                   
-                })
-                ProfileOptionButton(title: "App Settings", action: {
-                  
+               
+                ProfileOptionButton(title: "Reset Password", action: {
+                  resetPassword()
                 })
                 ProfileOptionButton(title: "Delete Account", action: {
                     deleteAccount()
@@ -57,6 +56,7 @@ struct ProfileView: View {
         .padding()
         .preferredColorScheme(.dark)
         .alert(errorMsg, isPresented: $showError){}
+        .alert("Link sent", isPresented: $alert){}
     }
     
     func logOut(){
@@ -75,6 +75,16 @@ struct ProfileView: View {
                 isLogged = false
             }catch {
                 await displayErrorMsg(error)
+            }
+        }
+    }
+    func resetPassword() {
+        Auth.auth().sendPasswordReset(withEmail: myProfile.email) { error in
+            if let error = error {
+                self.errorMsg = error.localizedDescription
+                self.showError = true
+            } else {
+                self.alert = true
             }
         }
     }

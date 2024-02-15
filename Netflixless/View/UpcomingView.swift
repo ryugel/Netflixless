@@ -14,10 +14,13 @@ struct UpcomingView: View {
             Divider()
             
             ScrollView {
-                Text("Upcoming")
-                    .bold()
-                    .font(.title)
-                    .padding(.leading)
+                HStack() {
+                    Text("Upcoming")
+                        .bold()
+                        .font(.headline)
+                        .padding()
+                    Spacer()
+                }
                 ForEach(vm.upcoming){upcoming in
                     UpcomingRow(tmdb: upcoming)
                 }

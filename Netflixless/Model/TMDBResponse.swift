@@ -34,9 +34,7 @@ struct TMDB: Codable, Hashable, Identifiable {
     let voteAverage: Double
     let voteCount: Int
     
-    func isFaved(_ isFavorite:Bool) -> Bool {
-         return isFavorite ? true:false
-    }
+   
     
     enum CodingKeys: String, CodingKey {
         case adult
