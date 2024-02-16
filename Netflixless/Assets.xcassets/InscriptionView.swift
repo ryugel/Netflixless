@@ -35,79 +35,19 @@ struct InscriptionView: View {
                     Text("Inscription")
                         .foregroundColor(Color.white)
                         .font(.bold(.largeTitle)())
-                    ZStack (alignment: .leading) {
-                        TextField("",text: $lastname)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(5.0)
-                            .padding(.bottom, 20)
-                            .foregroundStyle(Color.black)
-                            .onSubmit {
-                                
-                            }
-                        if (self.lastname.isEmpty) {
-                            Text("Nom")
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 16))
-                                .padding()
-                                .padding(.top, -20)
-                        }
-                    }
-                    ZStack (alignment: .leading) {
-                        TextField("",text: $firstname)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(5.0)
-                            .padding(.bottom, 20)
-                            .foregroundColor(Color.black)
-                        if (self.firstname.isEmpty) {
-                            Text("Prénom")
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 16))
-                                .padding()
-                                .padding(.top, -20)
-                        }
-                    }
-                    ZStack (alignment: .leading) {
-                        TextField("",text: $mail)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(5.0)
-                            .padding(.bottom, 20)
-                            .keyboardType(.emailAddress)
-                            .foregroundStyle(Color.black)
-                        if (self.mail.isEmpty) {
-                            Text("Mail")
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 16))
-                                .padding()
-                                .padding(.top, -20)
-                        }
-                    }
-                    ZStack (alignment: .leading) {
-                        SecureField("", text: $password)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(5.0)
-                            .padding(.bottom, 20)
-                            .foregroundColor(Color.black)
-                        if (self.password.isEmpty) {
-                            Text("Mot de passe")
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 16))
-                                .padding()
-                                .padding(.top, -20)
-                        }
-                    }
+                    LastNameTextField(lastname: $lastname)
+                    FirstNameTextField(firstname: $firstname)
+                    MailTextField(mail: $mail)
+                    PasswordTextField(password: $password)
                     DatePicker(
                         "Date de naissance", selection: $birthday, in: ...earliestDate,
                         displayedComponents: .date
                     )
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                    .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5.0)
+                        .padding(.bottom, 20)
+                        .foregroundColor(Color.black)
                     Button(action: {
                         self.LoginLogoutViewmodel.inscrire(
                             lastname: self.lastname,
