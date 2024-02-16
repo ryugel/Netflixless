@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-import Kingfisher
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore
+import NukeUI
+import Nuke
 
 struct ProfileView: View {
     @State  var myProfile: User
@@ -17,18 +18,27 @@ struct ProfileView: View {
     @State var errorMsg = ""
     @State var isLoading = false
     @State var alert = false
+    private let pipeline = ImagePipeline {
+        $0.dataCache = try? DataCache(name: "com.myapp.datacache")
+        $0.dataCachePolicy = .storeOriginalData
+    }
     
     @AppStorage("is_logged") var isLogged = false
     var body: some View {
         VStack {
-            KFImage(myProfile.pictureURL)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 125, height: 125)
-                .clipShape(Rectangle())
-                .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
-                .shadow(radius: 10)
-                .padding(.bottom, 20)
+            LazyImage(url: myProfile.pictureURL){image in
+                image.image?
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 125, height: 125)
+                    .clipShape(Rectangle())
+                    .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
+                    .shadow(radius: 10)
+                    .padding(.bottom, 20)
+                
+            }
+            .processors([.resize(size: .init(width: 125, height: 125))])
+            .pipeline(pipeline)
             
             Text(myProfile.username)
                 .font(.title)
@@ -38,15 +48,15 @@ struct ProfileView: View {
             Spacer()
             
             VStack(spacing: 20) {
-               
+                
                 ProfileOptionButton(title: "Reset Password", action: {
-                  resetPassword()
+                    resetPassword()
                 })
                 ProfileOptionButton(title: "Delete Account", action: {
                     deleteAccount()
                 })
                 ProfileOptionButton(title: "Log out", action: {
-                   logOut()
+                    logOut()
                 })
             }
         }
@@ -107,7 +117,7 @@ struct ProfileOptionButton: View {
                 .foregroundColor(title.contains("Delete") ? .red:.white)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(.ultraThinMaterial)  
+                .background(.ultraThinMaterial)
                 .cornerRadius(10)
                 .shadow(radius: 5)
         }
