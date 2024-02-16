@@ -14,7 +14,6 @@ import FirebaseAuth
 class UserViewModel: ObservableObject {
     @Published var user: User?
     private var db = Firestore.firestore()
-    
     func fetchUser() async {
         do {
             if let userUID = Auth.auth().currentUser?.uid {
@@ -31,25 +30,25 @@ class UserViewModel: ObservableObject {
     func addToFavorites(_ item: TMDB) {
         guard var currentUser = user else { return }
         if !currentUser.favorites.contains(item) {
-            user?.favorites.append(item)
+            currentUser.favorites.append(item)
         }
-        updateUser(user ?? currentUser)
+        updateUser(currentUser)
     }
     
     func removeFromFavorites(_ item: TMDB) {
         guard var currentUser = user else { return }
         if let index = currentUser.favorites.firstIndex(of: item) {
-            user?.favorites.remove(at: index)
+            currentUser.favorites.remove(at: index)
         }
-        updateUser(user ?? currentUser)
+        updateUser(currentUser)
     }
     
     func removeAllFavorites() {
-        guard var currentUser = user else { return }
+        guard let currentUser = user else { return }
         user?.favorites.removeAll()
         updateUser(user ?? currentUser)
     }
-
+    
     private func updateUser(_ user: User) {
         let userID = user.userUID 
         do {

@@ -14,6 +14,7 @@ struct TMDBDetailView: View {
     @StateObject private var userViewModel = UserViewModel()
     @StateObject private var vm = YoutubeViewModel()
     var show: TMDB
+    @State var myProfile: User?
     @State private var isFavorited = false
     
     var body: some View {
@@ -51,15 +52,15 @@ struct TMDBDetailView: View {
                     Spacer()
                     
                     Button(action: {
-                        if isInFavorites {
+                        if isFavorited  {
                             userViewModel.removeFromFavorites(show)
                         } else {
                             userViewModel.addToFavorites(show)
                         }
                         isFavorited.toggle()
                     }) {
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(isFavorited ? .red : .gray) // Change color based on isInFavorites
+                        Image(systemName: isFavorited ? "heart.fill":"heart")
+                            .foregroundColor(isFavorited ? .red : .gray)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
@@ -73,12 +74,20 @@ struct TMDBDetailView: View {
         .task {
             vm.fetchTrailer(query: "\(show.originalTitle ?? show.name ?? show.originalName ?? "") trailer")
             await userViewModel.fetchUser()
+            await getUser()
             isFavorited = isInFavorites
         }
     }
     private var isInFavorites: Bool {
         guard let user = userViewModel.user else { return false }
         return user.favorites.contains(show)
+    }
+    func getUser() async  {
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        guard let user = try? await Firestore.firestore().collection("Users").document(userUID).getDocument(as: User.self) else { return }
+        await MainActor.run {
+            myProfile = user
+        }
     }
     
 }

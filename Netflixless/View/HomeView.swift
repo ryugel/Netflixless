@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
-import Kingfisher
 import FirebaseAuth
 import FirebaseFirestore
+import NukeUI
+import Nuke
 
 struct HomeView: View {
     @State  var myProfile:User?
+    private let pipeline = ImagePipeline {
+        $0.dataCache = try? DataCache(name: "com.myapp.datacache")
+        $0.dataCachePolicy = .storeOriginalData
+    }
     var body: some View {
         NavigationStack {
             TabView {
@@ -51,18 +56,14 @@ struct HomeView: View {
                 NavigationLink {
                     myProfile.map { ProfileView(myProfile: $0) }
                 } label: {
-                    KFImage(myProfile?.pictureURL)
-                        .resizable()
-                        .placeholder({ _ in
-                            Image(.netflixUser)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 35, height: 35)
-                        })
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 35, height: 35)
-                        .clipShape(Rectangle())
-                        .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
+                    LazyImage(url: myProfile?.pictureURL){image in
+                        image.image?
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .clipShape(Rectangle())
+                            .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
+                    }
+                    .pipeline(pipeline)
                 }
             }
             )
@@ -77,3 +78,4 @@ struct HomeView: View {
         }
     }
 }
+

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
-import Kingfisher
-
-
+import NukeUI
+import Nuke
 struct AiringView: View {
     @StateObject private var vm = TMDBViewModel()
+    private let pipeline = ImagePipeline {
+        $0.dataCache = try? DataCache(name: "com.myapp.datacache")
+        $0.dataCachePolicy = .storeOriginalData
+    }
     var body: some View {
         VStack {
             VStack(spacing: 10) {
@@ -26,7 +29,7 @@ struct AiringView: View {
                     
                     ScrollView(.horizontal) {
                         HStack(spacing: 5) {
-                            ForEach(vm.airing, id:\.self) { airing in
+                            ForEach(vm.airing) { airing in
                                 GeometryReader { proxy in
                                     let cardSize = proxy.size
                                     
@@ -35,16 +38,31 @@ struct AiringView: View {
                                     NavigationLink {
                                         TMDBDetailView(show: airing)
                                     } label: {
-                                        KFImage(URL(string: airing.imageUrl + (airing.posterPath ?? "")))
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .offset(x: -minX)
-                                            .frame(width: cardSize.width, height: cardSize.height)
-                                           
-                                            .clipShape(.rect(cornerRadius: 15))
-                                            .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 10)
+                                        LazyImage(url: URL(string: airing.imageUrl + (airing.posterPath ?? ""))){ image in
+                                            if let image = image.image {
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .offset(x: -minX)
+                                                    .frame(width: cardSize.width, height: cardSize.height)
+                                                   
+                                                    .clipShape(.rect(cornerRadius: 15))
+                                                    .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 10)
+                                            }else {
+                                                Image(.placeholder)
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .offset(x: -minX)
+                                                    .frame(width: cardSize.width, height: cardSize.height)
+                                                   
+                                                    .clipShape(.rect(cornerRadius: 15))
+                                                    .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 10)
+                                            }
+                                        }
+                                        .processors([.resize(size: .init(width: cardSize.width, height: cardSize.height))])
+                                        .priority(.veryHigh)
+                                        .pipeline(pipeline)
                                     }
-
                                 }
                                 .frame(width: size.width - 60, height: size.height - 50)
                                 .scrollTransition(.animated, axis: .horizontal) { view, phase in

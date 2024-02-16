@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Kingfisher
+import NukeUI
+import Nuke
 
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
@@ -41,20 +42,30 @@ struct SearchView: View {
 
 struct MovieItemView: View {
     let movie: TMDB
-    
+    private let pipeline = ImagePipeline {
+        $0.dataCache = try? DataCache(name: "com.myapp.datacache")
+        $0.dataCachePolicy = .storeOriginalData
+    }
     var body: some View {
         VStack {
-            KFImage(URL(string: movie.imageUrl + (movie.posterPath ?? movie.backdropPath ?? "")))
-                .resizable()
-                .placeholder({
-                    Image(.placeholder)
-                        .aspectRatio(contentMode: .fit)
+            LazyImage(url: URL(string: movie.imageUrl + (movie.posterPath ?? movie.backdropPath ?? ""))){image in
+                
+                if let image = image.image {
+                image
+                        .resizable()
                         .frame(width: 100, height: 150)
                         .cornerRadius(10)
-                })
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 150)
-                .cornerRadius(10)
+            } else {
+                Image(.placeholder)
+                    .resizable()
+                    .frame(width: 100, height: 150)
+                    .cornerRadius(10)
+                }
+            }
+            .processors([.resize(size: .init(width: 100, height: 150))])
+            .priority(.veryHigh)
+            .pipeline(pipeline)
+            
         }
     }
 }

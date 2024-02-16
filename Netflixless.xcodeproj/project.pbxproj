@@ -13,7 +13,6 @@
 		7B17EDC02B76B74D00D159A4 /* TMDBDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDBA2B76B74C00D159A4 /* TMDBDetailView.swift */; };
 		7B17EDD22B76B76A00D159A4 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDC82B76B76A00D159A4 /* Youtube.swift */; };
 		7B17EDD82B76B7A900D159A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDD72B76B7A900D159A4 /* User.swift */; };
-		7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7B17EDDC2B76B82500D159A4 /* Kingfisher */; };
 		7B17EDE52B77A00700D159A4 /* TMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE42B77A00700D159A4 /* TMDBResponse.swift */; };
 		7B17EDE72B77A2E400D159A4 /* TMDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE62B77A2E400D159A4 /* TMDBViewModel.swift */; };
 		7B17EDE92B77C77000D159A4 /* TMDBCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17EDE82B77C77000D159A4 /* TMDBCard.swift */; };
@@ -35,6 +34,7 @@
 		7B90C38F2B7CC331005ECFE3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */; };
 		7B90C3912B7CFE72005ECFE3 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3902B7CFE72005ECFE3 /* AuthViewModel.swift */; };
 		7B90C3932B7E138A005ECFE3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C3922B7E138A005ECFE3 /* UserViewModel.swift */; };
+		7B90C3962B7EC158005ECFE3 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B90C3952B7EC158005ECFE3 /* NukeUI */; };
 		7BC191E72B794484008AC4C1 /* UpcomingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC191E62B794484008AC4C1 /* UpcomingRow.swift */; };
 		7BC191E92B7A97AB008AC4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC191E82B7A97AB008AC4C1 /* GoogleService-Info.plist */; };
 		7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */; };
@@ -100,7 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B90C38F2B7CC331005ECFE3 /* FirebaseDatabase in Frameworks */,
-				7B17EDDD2B76B82500D159A4 /* Kingfisher in Frameworks */,
+				7B90C3962B7EC158005ECFE3 /* NukeUI in Frameworks */,
 				7BC191EC2B7A9878008AC4C1 /* FirebaseAuth in Frameworks */,
 				7BC191EF2B7A9946008AC4C1 /* FirebaseFirestore in Frameworks */,
 				7BC191F32B7A99AF008AC4C1 /* FirebaseStorage in Frameworks */,
@@ -259,12 +259,12 @@
 			);
 			name = Netflixless;
 			packageProductDependencies = (
-				7B17EDDC2B76B82500D159A4 /* Kingfisher */,
 				7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */,
 				7BC191EE2B7A9946008AC4C1 /* FirebaseFirestore */,
 				7BC191F02B7A9951008AC4C1 /* FirebaseFirestoreSwift */,
 				7BC191F22B7A99AF008AC4C1 /* FirebaseStorage */,
 				7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */,
+				7B90C3952B7EC158005ECFE3 /* NukeUI */,
 			);
 			productName = Netflixless;
 			productReference = 7B5FDAEF2B5EC65500A4EBDE /* Netflixless.app */;
@@ -344,6 +344,7 @@
 			packageReferences = (
 				7B17EDDB2B76B82500D159A4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7B90C3942B7EC157005ECFE3 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 7B5FDAF02B5EC65500A4EBDE /* Products */;
 			projectDirPath = "";
@@ -751,6 +752,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		7B90C3942B7EC157005ECFE3 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.4.0;
+			};
+		};
 		7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -762,15 +771,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7B17EDDC2B76B82500D159A4 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7B17EDDB2B76B82500D159A4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		7B90C38E2B7CC331005ECFE3 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7BC191EA2B7A9877008AC4C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		7B90C3952B7EC158005ECFE3 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B90C3942B7EC157005ECFE3 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 		7BC191EB2B7A9878008AC4C1 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
