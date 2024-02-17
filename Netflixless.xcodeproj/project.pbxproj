@@ -192,7 +192,6 @@
 		7B5FDB1F2B5EC68A00A4EBDE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7B5FDB202B5EC69000A4EBDE /* Component */,
 				2B532FFD2B6BE2CD000E23BA /* FavoriteView.swift */,
 				2BD768A02B66F21600ACB3CF /* HomeView.swift */,
 				2B532FFB2B6BE15D000E23BA /* MainView.swift */,
@@ -203,13 +202,6 @@
 				2B5330032B6BF178000E23BA /* SearchView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		7B5FDB202B5EC69000A4EBDE /* Component */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

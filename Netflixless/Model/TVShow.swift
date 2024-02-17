@@ -63,21 +63,20 @@ struct TVShow: Media, Codable, Hashable, Identifiable {
 
         case title
         case name
-        case adult
-        case backdropPath = "backdrop_path"
-        case id
+        case adult = "adult"
+        case backdropPath
+        case id = "id"
         case originalLanguage = "original_language"
         case originalName = "original_name"
-        case overview
+        case overview   =  "overview"
         case posterPath = "poster_path"
-        case mediaType = "media_type"
-        case genreIDS = "genre_ids"
-        case popularity
-        case firstAirDate = "first_air_date"
+        case mediaType
+        case genreIDS
+        case popularity = "popularity"
+        case firstAirDate
         case voteAverage = "vote_average"
-        case voteCount = "vote_count"
+        case voteCount
         case originCountry = "origin_country"
-        case releaseDate = "release_date"
         case runtime
         case created_by
         case episode_run_time
@@ -115,6 +114,45 @@ struct TVShow: Media, Codable, Hashable, Identifiable {
         try container.encode(originCountry, forKey: .originCountry)
     }
     
+    init(id: Int, title: String?, name: String?, adult: Bool, backdropPath: String?, originalLanguage: OriginalLanguage, originalName: String, overview: String, posterPath: String, mediaType: MediaType?, genreIDS: [Int]?, popularity: Double, firstAirDate: String?, voteAverage: Double, voteCount: Int?, originCountry: [OriginCountry], runtime: Int?, created_by: [CreatedBy]?, episode_run_time: [Int]?, genres: [Genre]?, homepage: String?, in_production: Bool?, languages: [String]?, last_air_date: String?, last_episode_to_air: Episode?, next_episode_to_air: Episode?, networks: [Network]?, number_of_episodes: Int?, number_of_seasons: Int?, seasons: [Season]?, spoken_languages: [SpokenLanguage]?, status: String?, tagline: String?, type: String?, credits: Credits?) {
+            self.id = id
+            self.title = title
+            self.name = name
+            self.adult = adult
+            self.backdropPath = backdropPath
+            self.originalLanguage = originalLanguage
+            self.originalName = originalName
+            self.overview = overview
+            self.posterPath = posterPath
+            self.mediaType = mediaType
+            self.genreIDS = genreIDS
+            self.popularity = popularity
+            self.firstAirDate = firstAirDate
+            self.voteAverage = voteAverage
+            self.voteCount = voteCount
+            self.originCountry = originCountry
+            self.runtime = runtime
+            self.created_by = created_by
+            self.episode_run_time = episode_run_time
+            self.genres = genres
+            self.homepage = homepage
+            self.in_production = in_production
+            self.languages = languages
+            self.last_air_date = last_air_date
+            self.last_episode_to_air = last_episode_to_air
+            self.next_episode_to_air = next_episode_to_air
+            self.networks = networks
+            self.number_of_episodes = number_of_episodes
+            self.number_of_seasons = number_of_seasons
+            self.seasons = seasons
+            self.spoken_languages = spoken_languages
+            self.status = status
+            self.tagline = tagline
+            self.type = type
+            self.credits = credits
+        }
+
+    
 }
 
 
@@ -136,14 +174,17 @@ struct CreatedBy: Codable, Hashable {
 
 struct Episode: Codable, Hashable {
     let id: Int?
-    let name, overview: String?
+    let name: String?
+    let overview: String?
     let vote_average: Double?
     let vote_count: Int?
     let air_date: String?
     let episode_number: Int?
-    let episode_type, production_code: String?
+    let episode_type: String?
+    let production_code: String?
     let runtime: Int?
-    let season_number, show_id: Int?
+    let season_number: Int?
+    let show_id: Int?
     let still_path: String?
 
     enum CodingKeys: String, CodingKey {
@@ -161,7 +202,7 @@ struct Network: Codable, Hashable {
     }
 }
 
-struct Season: Codable, Hashable {
+struct Season: Codable, Hashable,Identifiable {
     let air_date: String?
     let episode_count, id: Int?
     let name, overview, poster_path: String?

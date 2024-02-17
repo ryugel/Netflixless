@@ -12,6 +12,7 @@ struct MediaDetailsView: View {
     @StateObject private var castModel: ImageModel = ImageModel()
     @StateObject private var directorModel: ImageModel = ImageModel()
     @StateObject private var imageModel: ImageModel = ImageModel()
+    @StateObject private var seasonImageModel: ImageModel = ImageModel()
     @StateObject private var genreModel: GenreModel = GenreModel()
     @StateObject private var movieModel: MovieModel = MovieModel()
     @StateObject private var tvModel: TVShowModel = TVShowModel()
@@ -442,7 +443,7 @@ struct MediaDetailsView: View {
                                                         .foregroundStyle(Color.white)
                                                         .padding(.trailing,10)
                                                 }else {
-                                                    Text("N/A")
+                                                    Text("Revenue: N/A")
                                                         .font(.callout)
                                                         .foregroundStyle(Color.white)
                                                 }
@@ -452,7 +453,7 @@ struct MediaDetailsView: View {
                                                         .foregroundStyle(Color.white)
                                                         .padding(.trailing,10)
                                                 }else {
-                                                    Text("N/A")
+                                                    Text("Budget: N/A")
                                                         .font(.callout)
                                                         .foregroundStyle(Color.white)
                                                 }
@@ -499,7 +500,8 @@ struct MediaDetailsView: View {
                                                     .font(.callout.bold())
                                                     .foregroundStyle(Color.white)
                                                     .padding(.trailing,10)
-                                                Text("Votes : \(tvModel.tvShow.voteCount)")
+                                                
+                                                Text("Votes : \(tvModel.tvShow.voteCount ?? 1000)")
                                                     .font(.callout.bold())
                                                     .foregroundStyle(Color.white)
                                             }
@@ -709,12 +711,97 @@ struct MediaDetailsView: View {
                                         
                                     }
                                 case .tv:
-                                    Text("")
+                                    Text("Director")
+                                        .font(.callout)
+                                        .foregroundStyle(Color.white)
+                                        .padding(.bottom, 10)
+                                        
+                                    if let imageData = directorModel.data, let uiImage = UIImage(data: imageData) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: geometry.size.width * 0.2, height: geometry.size.height * 0.2)
+                                            .padding(.bottom, 10)
+                                            .padding(.top, 10)
+                                    } else {
+                                        Image(systemName: "questionmark.circle")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: geometry.size.width, height: 100)
+                                            .padding(.bottom, 10)
+                                            .padding(.top, 50)
+                                            .onAppear {
+                                                if let director = movieModel.getDirector(Crew: tvModel.tvShow.credits?.crew ?? []) {
+                                                    print("Poulet")
+                                                    directorModel.fetchNormalImage(imgPath: director.profilePath ?? "")
+                                                }else {
+                                                    directorModel.fetchNormalImage(imgPath: tvModel.tvShow.credits?.crew?.first?.profilePath ?? "")
+                                                }
+                                            }
+                                        }
+                                    if let director = movieModel.getDirector(Crew: tvModel.tvShow.credits?.crew ?? []) {
+                                        Text(director.name)
+                                            .font(.callout)
+                                            .foregroundStyle(Color.white)
+                                            .padding(.bottom, 20)
+                                    }else {
+                                        Text(tvModel.tvShow.credits?.crew?.first?.name ?? "N/A")
+                                            .font(.callout)
+                                            .foregroundStyle(Color.white)
+                                            .padding(.bottom, 20)
+                                    }
+                                    Text("Cast")
+                                        .font(.callout)
+                                        .foregroundStyle(Color.white)
+                                        .padding(.bottom, 20)
+                                    
+                                    if let credits = tvModel.tvShow.credits {
+                                        VStack(alignment: .leading, spacing: 16) {
+                                            ForEach(credits.cast ?? []) { cast in
+                                                HStack {
+                                                    MediaCardView(media: tvModel.tvShow, isHuman: true, humanPath: cast.profilePath)
+                                                        .padding(.leading,10)
+                                                    VStack(alignment: .leading, spacing: 5) {
+                                                        Text(cast.name)
+                                                            .font(.callout)
+                                                            .foregroundColor(Color.white)
+                                                        
+                                                        Text(cast.character ?? "N/A")
+                                                            .font(.callout)
+                                                            .foregroundColor(Color.white)
+                                                    }
+                                                    .padding(.bottom, 10)
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             
                         }else { //seasons
-                            
+                            if let seasons = tvModel.tvShow.seasons {
+                                VStack {
+                                    ForEach(seasons) { season in
+                                        
+                                        VStack {
+                                            Text("Season number: \(season.season_number ?? 0)")
+                                                .font(.callout)
+                                                .foregroundColor(Color.white)
+                                                .padding(.bottom,20)
+                                                .padding(.top,20)
+                                            Text("Air date: \(season.air_date ?? "N/A")")
+                                                .font(.callout)
+                                                .foregroundColor(Color.white)
+                                            Text("Number of episodes: \(season.episode_count ?? 0)")
+                                                .font(.callout)
+                                                .foregroundColor(Color.white)
+                                            Text("Vote average: \(season.vote_average ?? 0.0)")
+                                                .font(.callout)
+                                                .foregroundColor(Color.white)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -753,347 +840,108 @@ struct MediaDetailsView: View {
     }
 }
 #Preview {
-    MediaDetailsView(media: Movie(
+    MediaDetailsView(media: TVShow(
+        id: 108978,
+        title: "Reacher",
+        name: "Reacher",
         adult: false,
-        backdropPath: "/4qCqAdHcNKeAHcK8tJ8wNJZa9cx.jpg",
-        id: 11,
-        title: "Star Wars",
+        backdropPath: "/m5CggjJuFc08QCuKz54znHP6spJ.jpg",
         originalLanguage: .en,
-        originalTitle: "Star Wars",
-        overview: "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
-        posterPath: "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
-        mediaType: .movie,
-        genreIDS: [12, 28, 878],
-        popularity: 96.777,
-        releaseDate: "1977-05-25",
-        video: false,
-        voteAverage: 8.205,
-        voteCount: 19649,
-        name: nil,
-        originalName: nil,
-        firstAirDate: nil,
-        originCountry: nil,
-        belongsToCollection: BelongsToCollection(
-            id: 10,
-            name: "Star Wars Collection",
-            posterPath: "/r8Ph5MYXL04Qzu4QBbq2KjqwtkQ.jpg",
-            backdropPath: "/d8duYyyC9J5T825Hg7grmaabfxQ.jpg"
-        ),
-        budget: 11000000,
-        genres: [
-            Genre(id: 12, name: "Adventure"),
-            Genre(id: 28, name: "Action"),
-            Genre(id: 878, name: "Science Fiction")
+        originalName: "Reacher",
+        overview: "Jack Reacher, a veteran military police investigator, has just recently entered civilian life...",
+        posterPath: "/jFuH0md41x5mB4qj5344mSmtHrO.jpg",
+        mediaType: .tv,
+        genreIDS: [10759, 80, 18],
+        popularity: 496.204,
+        firstAirDate: "2022-02-03",
+        voteAverage: 8.115,
+        voteCount: 1397,
+        originCountry: [.US],
+        runtime: nil,
+        created_by: [
+            CreatedBy(id: 78417, credit_id: "5f54f833713ed40036eed3e7", name: "Nick Santora", gender: 2, profile_path: "/iipP9fTQhRuPJHFMhbpMCceBiiu.jpg")
         ],
-        homepage: "http://www.starwars.com/films/star-wars-episode-iv-a-new-hope",
-        imdbID: "tt0076759",
-        productionCompanies: [
-            ProductionCompany(
-                id: 1,
-                logoPath: "/tlVSws0RvvtPBwViUyOFAO0vcQS.png",
-                name: "Lucasfilm Ltd.",
-                originCountry: "US"
+        episode_run_time: [],
+        genres: [
+            Genre(id: 10759, name: "Action & Adventure"),
+            Genre(id: 80, name: "Crime"),
+            Genre(id: 18, name: "Drama")
+        ],
+        homepage: "https://www.amazon.com/dp/B09ML1ZF3D",
+        in_production: true,
+        languages: ["en"],
+        last_air_date: "2024-01-18",
+        last_episode_to_air: Episode(
+            id: 4901216,
+            name: "Fly Boy",
+            overview: "Reacher and Neagley make a final desperate attempt to save O’Donnell and Dixon, stop A.M. and avenge their friends’ murder.",
+            vote_average: 7.2,
+            vote_count: 13,
+            air_date: "2024-01-18",
+            episode_number: 8,
+            episode_type: "finale",
+            production_code: "",
+            runtime: 42,
+            season_number: 2,
+            show_id: 108978,
+            still_path: "/7Jt8ghfYb2jx7hg1H5UbEUEH101.jpg"
+        ),
+        next_episode_to_air: nil,
+        networks: [
+            Network(id: 1024, logo_path: "/ifhbNuuVnlwYy5oXA5VIb2YR8AZ.png", name: "Prime Video", origin_country: "")
+        ],
+        number_of_episodes: 16,
+        number_of_seasons: 2,
+        seasons: [
+            Season(
+                air_date: "2022-02-03",
+                episode_count: 8,
+                id: 161571,
+                name: "Season 1",
+                overview: "Based on \"Killing Floor,\" when retired Military Police Officer Jack Reacher is arrested for a murder he did not commit, he finds himself in the middle of a deadly conspiracy full of dirty cops, shady businessmen and scheming politicians. With nothing but his wits, he must figure out what is happening in Margrave, Georgia.",
+                poster_path: "/bQnnKBe3VsvXKMoNCaYmRzs1Dup.jpg",
+                season_number: 1,
+                vote_average: 7.4
             ),
-            ProductionCompany(
-                id: 25,
-                logoPath: "/qZCc1lty5FzX30aOCVRBLzaVmcp.png",
-                name: "20th Century Fox",
-                originCountry: "US"
+            Season(
+                air_date: "2023-12-14",
+                episode_count: 8,
+                id: 364732,
+                name: "Season 2",
+                overview: "Based on\"Bad Luck and Trouble,\" when members of Reacher's old military unit start turning up dead, Reacher has just one thing on his mind—revenge.",
+                poster_path: "/oVw8KUQn1RSDd8KmknpvIc34JtY.jpg",
+                season_number: 2,
+                vote_average: 7.1
             )
         ],
-        productionCountries: [
-            ProductionCountry(iso3166_1: "US", name: "United States of America")
-        ],
-        revenue: 775398007,
-        runtime: 121,
-        spokenLanguages: [
+        spoken_languages: [
             SpokenLanguage(englishName: "English", iso639_1: "en", name: "English")
         ],
-        status: "Released",
-        tagline: "A long time ago in a galaxy far, far away...",
+        status: "Returning Series",
+        tagline: "Reacher's back.",
+        type: "Scripted",
         credits: Credits(
             cast: [
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 2,
-                    knownForDepartment: .acting,
-                    name: "Mark Hamill",
-                    originalName: "Mark Hamill",
-                    popularity: 47.919,
-                    profilePath: "/2ZulC2Ccq1yv3pemusks6Zlfy2s.jpg",
-                    castID: 3,
-                    character: "Luke Skywalker",
-                    creditID: "52fe420dc3a36847f8000441",
-                    order: 0, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 3,
-                    knownForDepartment: .acting,
-                    name: "Harrison Ford",
-                    originalName: "Harrison Ford",
-                    popularity: 57.309,
-                    profilePath: "/zVnHagUvXkR2StdOtquEwsiwSVt.jpg",
-                    castID: 4,
-                    character: "Han Solo",
-                    creditID: "52fe420dc3a36847f8000445",
-                    order: 1, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 1,
-                    id: 4,
-                    knownForDepartment: .acting,
-                    name: "Carrie Fisher",
-                    originalName: "Carrie Fisher",
-                    popularity: 17.589,
-                    profilePath: "/d60ZwPUoizvw1gdU6dXvKUOeoDK.jpg",
-                    castID: 5,
-                    character: "Princess Leia Organa",
-                    creditID: "52fe420dc3a36847f8000449",
-                    order: 2, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 5,
-                    knownForDepartment: .acting,
-                    name: "Peter Cushing",
-                    originalName: "Peter Cushing",
-                    popularity: 16.391,
-                    profilePath: "/if5g03wn6uvHx7F6FxXHLebKc0q.jpg",
-                    castID: 6,
-                    character: "Grand Moff Tarkin",
-                    creditID: "52fe420dc3a36847f800044d",
-                    order: 3, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 12248,
-                    knownForDepartment: .acting,
-                    name: "Alec Guinness",
-                    originalName: "Alec Guinness",
-                    popularity: 14.219,
-                    profilePath: "/gplGgl6XERpvYdluiwY8GlxSdpi.jpg",
-                    castID: 14,
-                    character: "Obi-Wan \"Ben\" Kenobi",
-                    creditID: "52fe420dc3a36847f8000477",
-                    order: 4, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 6,
-                    knownForDepartment: .acting,
-                    name: "Anthony Daniels",
-                    originalName: "Anthony Daniels",
-                    popularity: 11.452,
-                    profilePath: "/c876ZM5ObwYgXksrRWNNrL9KeZg.jpg",
-                    castID: 7,
-                    character: "C-3PO",
-                    creditID: "52fe420dc3a36847f8000451",
-                    order: 5, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 130,
-                    knownForDepartment: .acting,
-                    name: "Kenny Baker",
-                    originalName: "Kenny Baker",
-                    popularity: 7.251,
-                    profilePath: "/uo3RorCoGDWHecLtqjviwzFExxR.jpg",
-                    castID: 8,
-                    character: "R2-D2",
-                    creditID: "52fe420dc3a36847f8000455",
-                    order: 6, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 24343,
-                    knownForDepartment: .acting,
-                    name: "Peter Mayhew",
-                    originalName: "Peter Mayhew",
-                    popularity: 2.418,
-                    profilePath: "/bWv4RHLhjH6Ujrfhzm6ZC8ms3f2.jpg",
-                    castID: 15,
-                    character: "Chewbacca",
-                    creditID: "52fe420dc3a36847f800047b",
-                    order: 7, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 24342,
-                    knownForDepartment: .acting,
-                    name: "David Prowse",
-                    originalName: "David Prowse",
-                    popularity: 3.002,
-                    profilePath: "/xTocYiKHlRYN8tfh8vyQFsRXC0K.jpg",
-                    castID: 16,
-                    character: "Darth Vader (performer)",
-                    creditID: "52fe420dc3a36847f800047f",
-                    order: 8, job: nil
-                ),
-                Cast(
-                    adult: false,
-                    gender: 2,
-                    id: 15152,
-                    knownForDepartment: .acting,
-                    name: "James Earl Jones",
-                    originalName: "James Earl Jones",
-                    popularity: 26.812,
-                    profilePath: "/oqMPIsXrl9SZkRfIKN08eFROmH6.jpg",
-                    castID: 17,
-                    character: "Darth Vader (voice) (uncredited)",
-                    creditID: "52fe420dc3a36847f8000483",
-                    order: 9, job: nil
-                )
+                Cast(adult: false, gender: 2, id: 64295, knownForDepartment: Department(rawValue: "Acting"), name: "Alan Ritchson", originalName: "Alan Ritchson", popularity: 62.276, profilePath: "/wdmLUSPEC7dXuqnjTM4NgbjvTKk.jpg",castID: nil, character: "Jack Reacher", creditID: "5f54f95984f2490035f8e399", order: 0,job: nil),
+                Cast(adult: false, gender: 1, id: 2123496, knownForDepartment: Department(rawValue: "Acting"), name: "Maria Sten", originalName: "Maria Sten", popularity: 24.896, profilePath: "/7QlPWbZRH2ORMmAHKAj0rq54t4A.jpg",castID: nil, character: "Frances Neagley", creditID: "61a969cb9a64350044e918ba", order: 2,job: nil),
+                Cast(adult: false, gender: 1, id: 86268, knownForDepartment: Department(rawValue: "Acting"), name: "Serinda Swan", originalName: "Serinda Swan", popularity: 43.039, profilePath: "/mA4qtNZnn0A2oT1s4IIHseO8oiu.jpg",castID: nil, character: "Karla Dixon", creditID: "657c0646ec8a4300aa6e1522", order: 4,job: nil),
+                Cast(adult: false, gender: 2, id: 65772, knownForDepartment: Department(rawValue: "Acting"), name: "Shaun Sipos", originalName: "Shaun Sipos", popularity: 11.548, profilePath: "/vXsKlHCCwwipQJoklvJisSVj6Fc.jpg",castID: nil, character: "David O'Donnell", creditID: "657c05cf8e2ba600c4f16f3f", order: 6,job: nil),
+                Cast(adult: false, gender: 2, id: 1211873, knownForDepartment: Department(rawValue: "Acting"), name: "Ferdinand Kingsley", originalName: "Ferdinand Kingsley", popularity: 6.626, profilePath: "/arGWhGhfBl8CvNuUoKkUmfrDG0b.jpg",castID: nil, character: "A.M.", creditID: "657c401c7ecd280101d386c7", order: 8,job: nil),
+                Cast(adult: false, gender: 2, id: 418, knownForDepartment: Department(rawValue: "Acting"), name: "Robert Patrick", originalName: "Robert Patrick", popularity: 27.562, profilePath: "/qRv2Es9rZoloullTbzss3I5j1Mp.jpg",castID: nil, character: "Shane Langston", creditID: "657c06af63e6fb011edd8e23", order: 9,job: nil)
             ],
             crew: [
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 1,
-                        knownForDepartment: Department(rawValue: "directing" ),
-                        name: "George Lucas",
-                        originalName: "George Lucas",
-                        popularity: 14.496,
-                        profilePath: "/WCSZzWdtPmdRxH9LUCVi2JPCSJ.jpg",
-                        castID: 78,
-                        character: nil,
-                        creditID: "52fe431fc3a36847f803bea3",
-                        order: nil,
-                        job: "Screenplay"
-                        
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 1,
-                        knownForDepartment: Department(rawValue: "directing" ),
-                        name: "George Lucas",
-                        originalName: "George Lucas",
-                        popularity: 14.496,
-                        profilePath: "/WCSZzWdtPmdRxH9LUCVi2JPCSJ.jpg",
-                        castID: 78,
-                        character: nil,
-                        creditID: "52fe431fc3a36847f803be97",
-                        order: nil,
-                        job: "Director"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 1,
-                        knownForDepartment: Department(rawValue: "directing" ),
-                        name: "George Lucas",
-                        originalName: "George Lucas",
-                        popularity: 14.496,
-                        profilePath: "/WCSZzWdtPmdRxH9LUCVi2JPCSJ.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "52fe431fc3a36847f803bec1",
-                        order: nil,
-                        job: "Executive Producer"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 19801,
-                        knownForDepartment: Department(rawValue: "production" ),
-                        name: "Rick McCallum",
-                        originalName: "Rick McCallum",
-                        popularity: 2.176,
-                        profilePath: "/moMu1b9MzEbpJ4dnz4zfKPkgRxE.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "52fe431fc3a36847f803be9d",
-                        order: nil,
-                        job: "Producer"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 491,
-                        knownForDepartment: Department(rawValue: "sound" ),
-                        name: "John Williams",
-                        originalName: "John Williams",
-                        popularity: 5.773,
-                        profilePath: "/KFyMqUWeiBdP9tJcZyGWOqnrgK.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "52fe431fc3a36847f803bec7",
-                        order: nil,
-                        job: "Original Music Composer"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 670,
-                        knownForDepartment: Department(rawValue: "sound" ),
-                        name: "Ben Burtt",
-                        originalName: "Ben Burtt",
-                        popularity: 7.231,
-                        profilePath: "/16OhOb7WngOi4WOnGpRpbDSzYnd.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "52fe431fc3a36847f803beb5",
-                        order: nil,
-                        job: "Editor"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 670,
-                        knownForDepartment: Department(rawValue: "Sound"),
-                        name: "Ben Burtt",
-                        originalName: "Ben Burtt",
-                        popularity: 7.231,
-                        profilePath: "/16OhOb7WngOi4WOnGpRpbDSzYnd.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "5aa9c38d9251410564003085",
-                        order: nil,
-                        job: "Sound Designer"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 670,
-                        knownForDepartment: Department(rawValue: "sound"),
-                        name: "Ben Burtt",
-                        originalName: "Ben Burtt",
-                        popularity: 7.231,
-                        profilePath: "/16OhOb7WngOi4WOnGpRpbDSzYnd.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "62397e127a1bd6001ceeb32f",
-                        order: nil,
-                        job: "Supervising Sound Editor"
-                    ),
-                Cast(
-                        adult: false,
-                        gender: 2,
-                        id: 6800,
-                        knownForDepartment:Department(rawValue: "camera"),
-                        name: "David Tattersall",
-                        originalName: "David Tattersall",
-                        popularity: 1.409,
-                        profilePath: "/5Gnvt1M0of6qN1NMoVHvROz86QG.jpg",
-                        castID: nil,
-                        character: nil,
-                        creditID: "5f9647a838e5100039ddc8c6",
-                        order: nil,
-                        job: "Director of Photography"
-                    )
+                Cast(adult: false, gender: 2, id: 1703771, knownForDepartment: Department(rawValue: "Writing"), name: "Adam Higgs", originalName: "Adam Higgs", popularity: 3.839, profilePath: nil,castID: nil,character: nil, creditID: "657c468a7ecd28011ef2aed4",order: nil, job: "Executive Producer"),
+                Cast(adult: false, gender: 0, id: 4431386, knownForDepartment: Department(rawValue: "Production"), name: "Matt Thunell", originalName: "Matt Thunell", popularity: 0.6, profilePath: nil,castID: nil,character: nil, creditID: "657c46d3564ec7011b21dccf",order: nil, job: "Executive Producer"),
+                Cast(adult: false, gender: 1, id: 1611446, knownForDepartment: Department(rawValue: "Writing"), name: "Penny Cox", originalName: "Penny Cox", popularity: 1.757, profilePath: nil,castID: nil,character: nil, creditID: "657c470c8e2ba600e1fd41da",order: nil, job: "Producer"),
+                Cast(adult: false, gender: 0, id: 1084756, knownForDepartment: Department(rawValue: "Art"), name: "Nazgol Goshtasbpour", originalName: "Nazgol Goshtasbpour", popularity: 1.955, profilePath: nil,castID: nil,character: nil, creditID: "657c472eea3949011b3cf89d",order: nil, job: "Production Design"),
+                Cast(adult: false, gender: 0, id: 1525195, knownForDepartment: Department(rawValue: "Costume & Make-Up"), name: "Abram Waterhouse", originalName: "Abram Waterhouse", popularity: 0.6, profilePath: nil,castID: nil,character: nil, creditID: "657c473a564ec700acd67c95",order: nil, job: "Costume Design"),
+                Cast(adult: false, gender: 0, id: 378260, knownForDepartment: Department(rawValue: "Production"), name: "Derek Rappaport", originalName: "Derek Rappaport", popularity: 3.791, profilePath: nil,castID: nil,character: nil, creditID: "657cae5addd52d011b69d105",order: nil, job: "Producer"),
+                Cast(adult: false, gender: 0, id: 2414790, knownForDepartment: Department(rawValue: "Production"), name: "Lisa Kussner", originalName: "Lisa Kussner", popularity: 0.6, profilePath: nil,castID: nil,character: nil, creditID: "657cae937ecd28013b3f2efe",order: nil, job: "Consulting Producer"),
+                Cast(adult: false, gender: 0, id: 4071653, knownForDepartment: Department(rawValue: "Directing"), name: "David Carruthers", originalName: "David Carruthers", popularity: 0.695, profilePath: nil,castID: nil,character: nil, creditID: "657caf0263e6fb0100c6dd39",order: nil, job: "Production Manager"),
+                Cast(adult: false, gender: 0, id: 1772710, knownForDepartment: Department(rawValue: "Writing"), name: "Cait Duffy", originalName: "Cait Duffy", popularity: 1.715, profilePath: nil,castID: nil,character: nil, creditID: "657caf1b176a941730623b83",order: nil, job: "Story Editor"),
+                Cast(adult: false, gender: 1, id: 4079766, knownForDepartment: Department(rawValue: "Writing"), name: "Lillian Wang", originalName: "Lillian Wang", popularity: 1.669, profilePath: nil,castID: nil,character: nil, creditID: "657cb13d176a941733d6c2ec",order: nil, job: "Staff Writer")
             ]
-        ),
-        hasCollection: false
+        )
     ))
 }
 
@@ -1134,54 +982,106 @@ struct MediaDetailsView: View {
  )
  
  TVShow(
- title: "Untitled Show",
- name: "Unnamed Show",
- adult: false,
- backdropPath: "/defaultBackdropPath.jpg",
- id: 1,
- originalLanguage: .en,
- originalName: "Untitled Original Name",
- overview: "No overview available.",
- posterPath: "/defaultPosterPath.jpg",
- mediaType: .tv,
- genreIDS: [0],
- popularity: 0.0,
- firstAirDate: "1970-01-01",
- voteAverage: 0.0,
- voteCount: 0,
- originCountry: [.US],
- runtime: 30,
- created_by: [CreatedBy(id: 1, credit_id: "defaultCreditID", name: "Default Creator", gender: 0, profile_path: "/defaultProfilePath.jpg")],
- episode_run_time: [30],
- genres: [Genre(id: 0, name: "Undefined Genre")],
- homepage: "https://example.com",
- in_production: true,
- languages: ["en"],
- last_air_date: "1970-01-01",
- last_episode_to_air: Episode(
- id: 1,
- name: "Default Episode",
- overview: "No overview available.",
- vote_average: 0.0,
- vote_count: 0,
- air_date: "1970-01-01",
- episode_number: 1,
- episode_type: "Undefined",
- production_code: "",
- runtime: 30,
- season_number: 1,
- show_id: 1,
- still_path: "/defaultEpisodeStillPath.jpg"
- ),
- next_episode_to_air: nil,
- networks: [Network(id: 1, logo_path: "/defaultLogoPath.jpg", name: "Default Network", origin_country: "US")],
- number_of_episodes: 1,
- number_of_seasons: 1,
- seasons: [Season(air_date: "1970-01-01", episode_count: 1, id: 1, name: "Default Season", overview: "No overview available.", poster_path: "/defaultSeasonPosterPath.jpg", season_number: 1, vote_average: 0.0)],
- spoken_languages: [SpokenLanguage(englishName: "English", iso639_1: "en", name: "English")],
- status: "Unknown",
- tagline: "No tagline available.",
- type: "Unknown",
- vote_count: 0
+     id: 108978,
+     title: "Reacher",
+     name: "Reacher",
+     adult: false,
+     backdropPath: "/m5CggjJuFc08QCuKz54znHP6spJ.jpg",
+     originalLanguage: .en,
+     originalName: "Reacher",
+     overview: "Jack Reacher, a veteran military police investigator, has just recently entered civilian life...",
+     posterPath: "/jFuH0md41x5mB4qj5344mSmtHrO.jpg",
+     mediaType: nil,
+     genreIDS: [10759, 80, 18],
+     popularity: 496.204,
+     firstAirDate: "2022-02-03",
+     voteAverage: 8.115,
+     voteCount: 1397,
+     originCountry: [.US],
+     runtime: nil,
+     created_by: [
+         CreatedBy(id: 78417, credit_id: "5f54f833713ed40036eed3e7", name: "Nick Santora", gender: 2, profile_path: "/iipP9fTQhRuPJHFMhbpMCceBiiu.jpg")
+     ],
+     episode_run_time: [],
+     genres: [
+         Genre(id: 10759, name: "Action & Adventure"),
+         Genre(id: 80, name: "Crime"),
+         Genre(id: 18, name: "Drama")
+     ],
+     homepage: "https://www.amazon.com/dp/B09ML1ZF3D",
+     in_production: true,
+     languages: ["en"],
+     last_air_date: "2024-01-18",
+     last_episode_to_air: Episode(
+         id: 4901216,
+         name: "Fly Boy",
+         overview: "Reacher and Neagley make a final desperate attempt to save O’Donnell and Dixon, stop A.M. and avenge their friends’ murder.",
+         vote_average: 7.2,
+         vote_count: 13,
+         air_date: "2024-01-18",
+         episode_number: 8,
+         episode_type: "finale",
+         production_code: "",
+         runtime: 42,
+         season_number: 2,
+         show_id: 108978,
+         still_path: "/7Jt8ghfYb2jx7hg1H5UbEUEH101.jpg"
+     ),
+     next_episode_to_air: nil,
+     networks: [
+         Network(id: 1024, logo_path: "/ifhbNuuVnlwYy5oXA5VIb2YR8AZ.png", name: "Prime Video", origin_country: "")
+     ],
+     number_of_episodes: 16,
+     number_of_seasons: 2,
+     seasons: [
+         Season(
+             air_date: "2022-02-03",
+             episode_count: 8,
+             id: 161571,
+             name: "Season 1",
+             overview: "Based on \"Killing Floor,\" when retired Military Police Officer Jack Reacher is arrested for a murder he did not commit, he finds himself in the middle of a deadly conspiracy full of dirty cops, shady businessmen and scheming politicians. With nothing but his wits, he must figure out what is happening in Margrave, Georgia.",
+             poster_path: "/bQnnKBe3VsvXKMoNCaYmRzs1Dup.jpg",
+             season_number: 1,
+             vote_average: 7.4
+         ),
+         Season(
+             air_date: "2023-12-14",
+             episode_count: 8,
+             id: 364732,
+             name: "Season 2",
+             overview: "Based on\"Bad Luck and Trouble,\" when members of Reacher's old military unit start turning up dead, Reacher has just one thing on his mind—revenge.",
+             poster_path: "/oVw8KUQn1RSDd8KmknpvIc34JtY.jpg",
+             season_number: 2,
+             vote_average: 7.1
+         )
+     ],
+     spoken_languages: [
+         SpokenLanguage(englishName: "English", iso639_1: "en", name: "English")
+     ],
+     status: "Returning Series",
+     tagline: "Reacher's back.",
+     type: "Scripted",
+     credits: Credits(
+         cast: [
+             Cast(adult: false, gender: 2, id: 64295, knownForDepartment: Department(rawValue: "Acting"), name: "Alan Ritchson", originalName: "Alan Ritchson", popularity: 62.276, profilePath: "/wdmLUSPEC7dXuqnjTM4NgbjvTKk.jpg",castID: nil, character: "Jack Reacher", creditID: "5f54f95984f2490035f8e399", order: 0,job: nil),
+             Cast(adult: false, gender: 1, id: 2123496, knownForDepartment: Department(rawValue: "Acting"), name: "Maria Sten", originalName: "Maria Sten", popularity: 24.896, profilePath: "/7QlPWbZRH2ORMmAHKAj0rq54t4A.jpg",castID: nil, character: "Frances Neagley", creditID: "61a969cb9a64350044e918ba", order: 2,job: nil),
+             Cast(adult: false, gender: 1, id: 86268, knownForDepartment: Department(rawValue: "Acting"), name: "Serinda Swan", originalName: "Serinda Swan", popularity: 43.039, profilePath: "/mA4qtNZnn0A2oT1s4IIHseO8oiu.jpg",castID: nil, character: "Karla Dixon", creditID: "657c0646ec8a4300aa6e1522", order: 4,job: nil),
+             Cast(adult: false, gender: 2, id: 65772, knownForDepartment: Department(rawValue: "Acting"), name: "Shaun Sipos", originalName: "Shaun Sipos", popularity: 11.548, profilePath: "/vXsKlHCCwwipQJoklvJisSVj6Fc.jpg",castID: nil, character: "David O'Donnell", creditID: "657c05cf8e2ba600c4f16f3f", order: 6,job: nil),
+             Cast(adult: false, gender: 2, id: 1211873, knownForDepartment: Department(rawValue: "Acting"), name: "Ferdinand Kingsley", originalName: "Ferdinand Kingsley", popularity: 6.626, profilePath: "/arGWhGhfBl8CvNuUoKkUmfrDG0b.jpg",castID: nil, character: "A.M.", creditID: "657c401c7ecd280101d386c7", order: 8,job: nil),
+             Cast(adult: false, gender: 2, id: 418, knownForDepartment: Department(rawValue: "Acting"), name: "Robert Patrick", originalName: "Robert Patrick", popularity: 27.562, profilePath: "/qRv2Es9rZoloullTbzss3I5j1Mp.jpg",castID: nil, character: "Shane Langston", creditID: "657c06af63e6fb011edd8e23", order: 9,job: nil)
+         ],
+         crew: [
+             Cast(adult: false, gender: 2, id: 1703771, knownForDepartment: Department(rawValue: "Writing"), name: "Adam Higgs", originalName: "Adam Higgs", popularity: 3.839, profilePath: nil,castID: nil,character: nil, creditID: "657c468a7ecd28011ef2aed4",order: nil, job: "Executive Producer"),
+             Cast(adult: false, gender: 0, id: 4431386, knownForDepartment: Department(rawValue: "Production"), name: "Matt Thunell", originalName: "Matt Thunell", popularity: 0.6, profilePath: nil,castID: nil,character: nil, creditID: "657c46d3564ec7011b21dccf",order: nil, job: "Executive Producer"),
+             Cast(adult: false, gender: 1, id: 1611446, knownForDepartment: Department(rawValue: "Writing"), name: "Penny Cox", originalName: "Penny Cox", popularity: 1.757, profilePath: nil,castID: nil,character: nil, creditID: "657c470c8e2ba600e1fd41da",order: nil, job: "Producer"),
+             Cast(adult: false, gender: 0, id: 1084756, knownForDepartment: Department(rawValue: "Art"), name: "Nazgol Goshtasbpour", originalName: "Nazgol Goshtasbpour", popularity: 1.955, profilePath: nil,castID: nil,character: nil, creditID: "657c472eea3949011b3cf89d",order: nil, job: "Production Design"),
+             Cast(adult: false, gender: 0, id: 1525195, knownForDepartment: Department(rawValue: "Costume & Make-Up"), name: "Abram Waterhouse", originalName: "Abram Waterhouse", popularity: 0.6, profilePath: nil,castID: nil,character: nil, creditID: "657c473a564ec700acd67c95",order: nil, job: "Costume Design"),
+             Cast(adult: false, gender: 0, id: 378260, knownForDepartment: Department(rawValue: "Production"), name: "Derek Rappaport", originalName: "Derek Rappaport", popularity: 3.791, profilePath: nil,castID: nil,character: nil, creditID: "657cae5addd52d011b69d105",order: nil, job: "Producer"),
+             Cast(adult: false, gender: 0, id: 2414790, knownForDepartment: Department(rawValue: "Production"), name: "Lisa Kussner", originalName: "Lisa Kussner", popularity: 0.6, profilePath: nil,castID: nil,character: nil, creditID: "657cae937ecd28013b3f2efe",order: nil, job: "Consulting Producer"),
+             Cast(adult: false, gender: 0, id: 4071653, knownForDepartment: Department(rawValue: "Directing"), name: "David Carruthers", originalName: "David Carruthers", popularity: 0.695, profilePath: nil,castID: nil,character: nil, creditID: "657caf0263e6fb0100c6dd39",order: nil, job: "Production Manager"),
+             Cast(adult: false, gender: 0, id: 1772710, knownForDepartment: Department(rawValue: "Writing"), name: "Cait Duffy", originalName: "Cait Duffy", popularity: 1.715, profilePath: nil,castID: nil,character: nil, creditID: "657caf1b176a941730623b83",order: nil, job: "Story Editor"),
+             Cast(adult: false, gender: 1, id: 4079766, knownForDepartment: Department(rawValue: "Writing"), name: "Lillian Wang", originalName: "Lillian Wang", popularity: 1.669, profilePath: nil,castID: nil,character: nil, creditID: "657cb13d176a941733d6c2ec",order: nil, job: "Staff Writer")
+         ]
+     )
  )
  */
