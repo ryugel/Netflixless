@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct User: Identifiable {
+struct User: Identifiable, Codable {
     var id: UUID
     var username: String
     var password: String
     var lastName: String
-    var firstName:String
-    var birthdate:Date
+    var firstName: String
+    var birthdate: Date
     
     var age: Int {
         let calendar = Calendar.current

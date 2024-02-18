@@ -23,6 +23,13 @@
 		2BDAE11B2B714ED8007A774B /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE11A2B714ED8007A774B /* ImageModel.swift */; };
 		2BFAB3D02B75A85B008F58CE /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFAB3CF2B75A85A008F58CE /* Genre.swift */; };
 		2BFAB3D22B75A9A8008F58CE /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFAB3D12B75A9A8008F58CE /* GenreModel.swift */; };
+		366539E92B6D104D0040B98A /* TrendingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366539E82B6D104D0040B98A /* TrendingsViewModel.swift */; };
+		366539EB2B6D11BA0040B98A /* InscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366539EA2B6D11BA0040B98A /* InscriptionView.swift */; };
+		3694D9DD2B70382000891AE2 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3694D9DC2B70382000891AE2 /* ConnectionView.swift */; };
+		3694D9E12B703B0F00891AE2 /* Login_LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3694D9E02B703B0F00891AE2 /* Login_LogoutViewModel.swift */; };
+		36BA5FF22B7F50850044353E /* InscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BA5FF12B7F50850044353E /* InscriptionViewModel.swift */; };
+		36BA5FF42B7F50E10044353E /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BA5FF32B7F50E10044353E /* ConnectionViewModel.swift */; };
+		36BA601A2B7F6AEF0044353E /* PageChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BA60192B7F6AEF0044353E /* PageChoice.swift */; };
 		7B35DF442B5ECA750015E038 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF432B5ECA750015E038 /* User.swift */; };
 		7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF492B5FA83D0015E038 /* Bundle.swift */; };
 		7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B35DF4B2B5FA93E0015E038 /* ApiError.swift */; };
@@ -65,6 +72,13 @@
 		2BDAE11A2B714ED8007A774B /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		2BFAB3CF2B75A85A008F58CE /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		2BFAB3D12B75A9A8008F58CE /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		366539E82B6D104D0040B98A /* TrendingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingsViewModel.swift; sourceTree = "<group>"; };
+		366539EA2B6D11BA0040B98A /* InscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InscriptionView.swift; path = Netflixless/Assets.xcassets/InscriptionView.swift; sourceTree = SOURCE_ROOT; };
+		3694D9DC2B70382000891AE2 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectionView.swift; path = Netflixless/Assets.xcassets/ConnectionView.swift; sourceTree = SOURCE_ROOT; };
+		3694D9E02B703B0F00891AE2 /* Login_LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_LogoutViewModel.swift; sourceTree = "<group>"; };
+		36BA5FF12B7F50850044353E /* InscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewModel.swift; sourceTree = "<group>"; };
+		36BA5FF32B7F50E10044353E /* ConnectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
+		36BA60192B7F6AEF0044353E /* PageChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageChoice.swift; path = Netflixless/Assets.xcassets/PageChoice.swift; sourceTree = SOURCE_ROOT; };
 		7B35DF432B5ECA750015E038 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B35DF492B5FA83D0015E038 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7B35DF4B2B5FA93E0015E038 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -101,6 +115,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		366539E72B6D10070040B98A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				366539E82B6D104D0040B98A /* TrendingsViewModel.swift */,
+				3694D9E02B703B0F00891AE2 /* Login_LogoutViewModel.swift */,
+				36BA5FF12B7F50850044353E /* InscriptionViewModel.swift */,
+				36BA5FF32B7F50E10044353E /* ConnectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2B8AD3602B7036EB00A6E446 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +164,7 @@
 			children = (
 				2BA180C02B7467E700D65BFC /* Protocol */,
 				2B8AD3602B7036EB00A6E446 /* ViewModel */,
+				366539E72B6D10070040B98A /* ViewModel */,
 				7B5FDB1F2B5EC68A00A4EBDE /* View */,
 				7B5FDB1E2B5EC68300A4EBDE /* Model */,
 				7B5FDB1D2B5EC67A00A4EBDE /* Extension */,
@@ -200,6 +226,9 @@
 				2B532FFF2B6BE4B2000E23BA /* ProfileView.swift */,
 				2BDAE1162B7146E0007A774B /* RecommendedTrendingView.swift */,
 				2B5330032B6BF178000E23BA /* SearchView.swift */,
+				366539EA2B6D11BA0040B98A /* InscriptionView.swift */,
+				3694D9DC2B70382000891AE2 /* ConnectionView.swift */,
+				36BA60192B7F6AEF0044353E /* PageChoice.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +366,9 @@
 				2BA180BB2B7459ED00D65BFC /* Movie.swift in Sources */,
 				2BFAB3D22B75A9A8008F58CE /* GenreModel.swift in Sources */,
 				2B5330042B6BF178000E23BA /* SearchView.swift in Sources */,
+				36BA5FF42B7F50E10044353E /* ConnectionViewModel.swift in Sources */,
+				3694D9E12B703B0F00891AE2 /* Login_LogoutViewModel.swift in Sources */,
+				366539E92B6D104D0040B98A /* TrendingsViewModel.swift in Sources */,
 				7B35DF442B5ECA750015E038 /* User.swift in Sources */,
 				2B532FFC2B6BE15D000E23BA /* MainView.swift in Sources */,
 				2B5330002B6BE4B2000E23BA /* ProfileView.swift in Sources */,
@@ -349,9 +381,15 @@
 				2BA180C62B75218800D65BFC /* MediaDetailsView.swift in Sources */,
 				2BA180BD2B745A0D00D65BFC /* TVShow.swift in Sources */,
 				2B8AD3622B70386E00A6E446 /* MovieModel.swift in Sources */,
+				36BA601A2B7F6AEF0044353E /* PageChoice.swift in Sources */,
+				366539EB2B6D11BA0040B98A /* InscriptionView.swift in Sources */,
+				36BA5FF22B7F50850044353E /* InscriptionViewModel.swift in Sources */,
+				7B5FDB222B5EC88C00A4EBDE /* Model.swift in Sources */,
+				7B5FDAF52B5EC65500A4EBDE /* ContentView.swift in Sources */,
 				7B35DF4A2B5FA83D0015E038 /* Bundle.swift in Sources */,
 				7B5FDAF32B5EC65500A4EBDE /* NetflixlessApp.swift in Sources */,
 				2B532FFE2B6BE2CD000E23BA /* FavoriteView.swift in Sources */,
+				3694D9DD2B70382000891AE2 /* ConnectionView.swift in Sources */,
 				7B35DF4C2B5FA93E0015E038 /* ApiError.swift in Sources */,
 				2BDAE11B2B714ED8007A774B /* ImageModel.swift in Sources */,
 			);
@@ -515,6 +553,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
 				DEVELOPMENT_TEAM = WA55KD5NGL;
+				DEVELOPMENT_TEAM = 7FXGCCT42C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -528,7 +567,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.Netflixless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esgi.uitest.Netflixless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -545,6 +584,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Netflixless/Preview Content\"";
 				DEVELOPMENT_TEAM = WA55KD5NGL;
+				DEVELOPMENT_TEAM = 7FXGCCT42C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -558,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.booh.uitest.Netflixless;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esgi.uitest.Netflixless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

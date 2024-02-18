@@ -8,29 +8,32 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @ObservedObject var loginLogoutViewModel = Login_LogoutViewModel()
+    
     var body: some View {
-        
-        TabView{
-            HomeView()
-                .tabItem() {
-                    Image(systemName: "house")
-                    Text("Home")
+        NavigationView {
+            GeometryReader { geometry in
+                TabView {
+                    HomeView()
+                        .tabItem {
+                            Image(systemName: "house")
+                            Text("Home")
+                        }
+                    FavoriteView()
+                        .tabItem {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(Color.white)
+                            Text("Favorites")
+                        }
+                    ProfileView()
+                        .tabItem {
+                            Image(systemName: "person.fill")
+                            Text("Profile")
+                        }
                 }
-            SearchView()
-                .tabItem() {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
-            FavoriteView()
-                .tabItem() {
-                    Image(systemName: "star.fill")
-                    Text("Favorites")
-                }
-            ProfileView()
-                .tabItem () {
-                    Image(systemName: "person.fill")
-                    Text("Profile")
-                }
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
