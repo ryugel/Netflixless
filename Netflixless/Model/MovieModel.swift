@@ -9,7 +9,7 @@ class MovieModel: ObservableObject {
         originalLanguage: .en,
         originalTitle: nil,
         overview: "This is an example movie overview.",
-        posterPath: "/2RcBuU8cdxFxCJibbiYCGNLApfz.jpg",
+        posterPath: "/ex.jpg",
         mediaType: .movie,
         genreIDS: [1, 2, 3],
         popularity: 7.5,
