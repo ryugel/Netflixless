@@ -784,7 +784,7 @@ struct MediaDetailsView: View {
                                     ForEach(seasons) { season in
                                         
                                         VStack {
-                                            Text("Season number: \(season.season_number ?? 0)")
+                                            Text("Season \(season.season_number ?? 0):")
                                                 .font(.callout)
                                                 .foregroundColor(Color.white)
                                                 .padding(.bottom,20)
@@ -795,7 +795,8 @@ struct MediaDetailsView: View {
                                             Text("Number of episodes: \(season.episode_count ?? 0)")
                                                 .font(.callout)
                                                 .foregroundColor(Color.white)
-                                            Text("Vote average: \(season.vote_average ?? 0.0)")
+                                            let formattedVoteAverage = String(format: "Vote average : %.2f", season.vote_average ?? "N/A")
+                                            Text("Vote average: \(formattedVoteAverage)")
                                                 .font(.callout)
                                                 .foregroundColor(Color.white)
                                         }
