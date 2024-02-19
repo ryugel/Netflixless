@@ -38,7 +38,10 @@ Netflixless is a mobile application that allows you to browse and discover movie
 
 Make sure you have set up Firebase in your Xcode project. You will need to add the configuration files provided by Firebase to your project.
 
-## Screenshots
+## ScreenRecord
+
+https://github.com/ryugel/Netflixless/assets/69274926/99d2bdfb-ed65-486d-9195-989a9882c941
+
 ## Screenshots
 
 | Screenshot | Screenshot | Screenshot | Screenshot |
