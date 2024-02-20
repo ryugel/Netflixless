@@ -9,8 +9,10 @@ import SwiftUI
 
 struct UpcomingView: View {
     @EnvironmentObject private var vm: TMDBViewModel
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     var body: some View {
-        VStack{
+        VStack {
             Divider()
             
             ScrollView {
@@ -21,8 +23,16 @@ struct UpcomingView: View {
                         .padding()
                     Spacer()
                 }
-                ForEach(vm.upcoming){upcoming in
-                    UpcomingRow(tmdb: upcoming)
+                if sizeClass == .regular {
+                    LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing: 20), count: 3), spacing: 20) {
+                        ForEach(vm.upcoming) { upcoming in
+                            UpcomingRow(tmdb: upcoming)
+                        }
+                    }
+                } else {
+                    ForEach(vm.upcoming) { upcoming in
+                        UpcomingRow(tmdb: upcoming)
+                    }
                 }
             }
             .task {
@@ -30,10 +40,10 @@ struct UpcomingView: View {
             }
             .navigationTitle("Upcoming")
             .scrollIndicators(.hidden)
-        }.padding(.bottom)
+        }
+        .padding(.bottom)
     }
 }
-
 #Preview {
     UpcomingView()
 }

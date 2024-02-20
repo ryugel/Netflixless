@@ -24,50 +24,49 @@ struct ProfileView: View {
     }
     
     @AppStorage("is_logged") var isLogged = false
+    @Environment(\.horizontalSizeClass) var sizeClass
     var body: some View {
-        VStack {
-            LazyImage(url: myProfile.pictureURL){image in
-                image.image?
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 125, height: 125)
-                    .clipShape(Rectangle())
-                    .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
-                    .shadow(radius: 10)
-                    .padding(.bottom, 20)
-                
-            }
-            .processors([.resize(size: .init(width: 125, height: 125))])
-            .pipeline(pipeline)
-            
-            Text(myProfile.username)
-                .font(.title)
-                .bold()
-                .padding(.bottom, 30)
-            
-            Spacer()
-            
-            VStack(spacing: 20) {
-                
-                ProfileOptionButton(title: "Reset Password", action: {
-                    resetPassword()
-                })
-                ProfileOptionButton(title: "Delete Account", action: {
-                    deleteAccount()
-                })
-                ProfileOptionButton(title: "Log out", action: {
-                    logOut()
-                })
-            }
-        }
-        .overlay{
-            LoadingView(showing: $isLoading)
-        }
-        .padding()
-        .preferredColorScheme(.dark)
-        .alert(errorMsg, isPresented: $showError){}
-        .alert("Link sent", isPresented: $alert){}
-    }
+           VStack {
+               LazyImage(url: myProfile.pictureURL){ image in
+                   image.image?
+                       .resizable()
+                       .aspectRatio(contentMode: .fill)
+                       .frame(width: sizeClass == .regular ? 200 : 125, height: sizeClass == .regular ? 200 : 125) 
+                       .clipShape(Circle())
+                       .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                       .shadow(radius: 10)
+                       .padding(.bottom, sizeClass == .regular ? 40 : 20)
+               }
+               .processors([.resize(size: .init(width: sizeClass == .regular ? 200 : 125, height: sizeClass == .regular ? 200 : 125))])
+               .pipeline(pipeline)
+               
+               Text(myProfile.username)
+                   .font(.title)
+                   .bold()
+                   .padding(.bottom, sizeClass == .regular ? 60 : 30)
+               
+               Spacer()
+               
+               VStack(spacing: sizeClass == .regular ? 40 : 20) {
+                   ProfileOptionButton(title: "Reset Password", action: {
+                       resetPassword()
+                   })
+                   ProfileOptionButton(title: "Delete Account", action: {
+                       deleteAccount()
+                   })
+                   ProfileOptionButton(title: "Log out", action: {
+                       logOut()
+                   })
+               }
+           }
+           .overlay{
+               LoadingView(showing: $isLoading)
+           }
+           .padding()
+           .preferredColorScheme(.dark)
+           .alert(errorMsg, isPresented: $showError){}
+           .alert("Link sent", isPresented: $alert){}
+       }
     
     func logOut(){
         try? Auth.auth().signOut()

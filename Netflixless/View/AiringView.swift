@@ -8,20 +8,23 @@
 import SwiftUI
 import NukeUI
 import Nuke
+
 struct AiringView: View {
-    @EnvironmentObject private var vm:TMDBViewModel
+    @EnvironmentObject private var vm: TMDBViewModel
     private let pipeline = ImagePipeline {
         $0.dataCache = try? DataCache(name: "com.myapp.datacache")
         $0.dataCachePolicy = .storeOriginalData
     }
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     var body: some View {
         VStack {
             VStack(spacing: 10) {
                 HStack(spacing: 0) {
-                       Text("On The Air")
-                    .padding(.horizontal, 15)
-                    .padding(.vertical, 10)
-                    .background(.ultraThinMaterial, in: .buttonBorder)
+                    Text("On The Air")
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 10)
+                        .background(.ultraThinMaterial, in: .buttonBorder)
                 }
                 
                 GeometryReader { geo in
@@ -33,29 +36,27 @@ struct AiringView: View {
                                 GeometryReader { proxy in
                                     let cardSize = proxy.size
                                     
-                                    let minX = min((proxy.frame(in: .scrollView).minX - 30) * 1.4, size.width * 1.4)
+                                    let minX = min((proxy.frame(in: .global).minX - 30) * 1.4, size.width * 1.4)
                                     
                                     NavigationLink {
                                         TMDBDetailView(show: airing)
                                     } label: {
-                                        LazyImage(url: URL(string: airing.imageUrl + (airing.posterPath ?? ""))){ image in
+                                        LazyImage(url: URL(string: airing.imageUrl + (airing.backdropPath ?? ""))) { image in
                                             if let image = image.image {
                                                 image
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fill)
                                                     .offset(x: -minX)
                                                     .frame(width: cardSize.width, height: cardSize.height)
-                                                   
-                                                    .clipShape(.rect(cornerRadius: 15))
+                                                    .clipShape(Rectangle())
                                                     .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 10)
-                                            }else {
+                                            } else {
                                                 Image(.placeholder)
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fill)
                                                     .offset(x: -minX)
                                                     .frame(width: cardSize.width, height: cardSize.height)
-                                                   
-                                                    .clipShape(.rect(cornerRadius: 15))
+                                                    .clipShape(Rectangle())
                                                     .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 10)
                                             }
                                         }
@@ -74,27 +75,23 @@ struct AiringView: View {
                         .padding(.horizontal, 30)
                         .scrollTargetLayout()
                         .frame(height: size.height, alignment: .top)
-                       
                     }
                     .scrollTargetBehavior(.viewAligned)
                     .scrollIndicators(.hidden)
-                    
                 }
-                .frame(height: 500)
+                .frame(height: sizeClass == .regular ? 666 : 500)
                 .padding(.horizontal, -15)
                 .padding(.top, 20)
             }
             .padding(15)
-            
-            
         }
         .scrollIndicators(.hidden)
-        .onAppear{
+        .onAppear {
             vm.fetchTMDBData(tmdbUrl: .airing)
         }
-        
     }
 }
+
 
 #Preview {
     AiringView()

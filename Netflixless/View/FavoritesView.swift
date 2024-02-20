@@ -8,8 +8,11 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
+
 struct FavoritesView: View {
     @StateObject private var userViewModel = UserViewModel()
+    @Environment(\.horizontalSizeClass) var sizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
         VStack {
@@ -28,10 +31,19 @@ struct FavoritesView: View {
                         }
 
                     }
-                    ForEach(favorites) { tmdb in
-                        UpcomingRow(tmdb: tmdb)
+                    if sizeClass == .regular && verticalSizeClass == .regular {
+                        LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing: 20), count: 3), spacing: 20) {
+                            ForEach(favorites) { tmdb in
+                                UpcomingRow(tmdb: tmdb)
+                            }
+                        }
+                    } else {
+                        LazyVStack {
+                            ForEach(favorites) { tmdb in
+                                UpcomingRow(tmdb: tmdb)
+                            }
+                        }
                     }
-                    Spacer()
                 }
             } else {
                 ContentUnavailableView("No Favorites", systemImage: "heart.slash", description: Text("You have no favorite shows or movies yet. Feel free to add some."))
@@ -42,6 +54,7 @@ struct FavoritesView: View {
         }
     }
 }
+
 
 #Preview {
     FavoritesView()

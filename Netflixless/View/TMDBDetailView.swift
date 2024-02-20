@@ -16,14 +16,14 @@ struct TMDBDetailView: View {
     var show: TMDB
     @State var myProfile: User?
     @State private var isFavorited = false
-    
+    @Environment(\.horizontalSizeClass) var sizeClass
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 VStack(alignment: .center, spacing: 10) {
                     ForEach(vm.trailers, id: \.id) { item in
                         TrailerView(videoID: item.id?.videoID ?? "")
-                            .frame(height: 200)
+                            .frame(height: sizeClass == .regular ? 600:200)
                     }
                 }
                 
