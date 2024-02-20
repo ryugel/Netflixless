@@ -54,7 +54,7 @@ struct TMDB: Codable, Hashable, Identifiable {
         case voteCount = "vote_count"
     }
     var imageUrl: String {
-        return "https://image.tmdb.org/t/p/original"
+        return "https://image.tmdb.org/t/p/w300"
     }
 }
 

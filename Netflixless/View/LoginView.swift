@@ -139,7 +139,7 @@ struct SignView: View {
             LoadingView(showing: $viewModel.isLoading)
         }
         .photosPicker(isPresented: $viewModel.showImagePicker, selection: $viewModel.photoItem)
-        .onChange(of: viewModel.photoItem) { newValue in
+        .onChange(of: viewModel.photoItem, { _, newValue in
             if let newValue = newValue {
                 Task {
                     do {
@@ -150,7 +150,7 @@ struct SignView: View {
                     }
                 }
             }
-        }
+        })
         .alert(viewModel.errorMsg, isPresented: $viewModel.showError) {}
     }
     

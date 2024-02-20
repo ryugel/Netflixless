@@ -18,8 +18,8 @@ class UserViewModel: ObservableObject {
         do {
             if let userUID = Auth.auth().currentUser?.uid {
                 let documentSnapshot = try await db.collection("Users").document(userUID).getDocument()
-                try await MainActor.run {
-                    self.user = try documentSnapshot.data(as: User.self)
+                try await MainActor.run { [weak self] in
+                    self?.user = try documentSnapshot.data(as: User.self)
                 }
             }
         } catch {

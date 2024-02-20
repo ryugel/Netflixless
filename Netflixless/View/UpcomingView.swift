@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UpcomingView: View {
-    @StateObject private var vm = TMDBViewModel()
+    @EnvironmentObject private var vm: TMDBViewModel
     var body: some View {
         VStack{
             Divider()

@@ -11,7 +11,6 @@ import Nuke
 
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
-   // @State var user:User
     var body: some View {
         VStack {
             
@@ -26,7 +25,6 @@ struct SearchView: View {
                             } label: {
                                 MovieItemView(movie: movie)
                             }
-                            
                         }
                     }
                     .padding()
@@ -63,8 +61,6 @@ struct MovieItemView: View {
                 }
             }
             .processors([.resize(size: .init(width: 100, height: 150))])
-            .priority(.veryHigh)
-            .pipeline(pipeline)
             
         }
     }

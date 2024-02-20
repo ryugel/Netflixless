@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct Home:View {
-    @StateObject private var vm = TMDBViewModel()
+    @EnvironmentObject private var vm:TMDBViewModel
     var body: some View {
         VStack {
             ScrollView {
                 AiringView()
+                    .environmentObject(vm)
                 VStack(alignment: .leading) {
                     Text("Popular")
                         .bold()

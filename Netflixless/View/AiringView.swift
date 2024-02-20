@@ -9,7 +9,7 @@ import SwiftUI
 import NukeUI
 import Nuke
 struct AiringView: View {
-    @StateObject private var vm = TMDBViewModel()
+    @EnvironmentObject private var vm:TMDBViewModel
     private let pipeline = ImagePipeline {
         $0.dataCache = try? DataCache(name: "com.myapp.datacache")
         $0.dataCachePolicy = .storeOriginalData
