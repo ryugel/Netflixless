@@ -27,22 +27,23 @@ class UserViewModel: ObservableObject {
         }
     }
     
+    
+    
     func addToFavorites(_ item: TMDB) {
         guard var currentUser = user else { return }
-        if !currentUser.favorites.contains(item) {
+        if !currentUser.favorites.contains(where: { $0.id == item.id }) {
             currentUser.favorites.append(item)
+            updateUser(currentUser)
         }
-        updateUser(currentUser)
     }
-    
+
     func removeFromFavorites(_ item: TMDB) {
         guard var currentUser = user else { return }
-        if let index = currentUser.favorites.firstIndex(of: item) {
+        if let index = currentUser.favorites.firstIndex(where: { $0.id == item.id }) {
             currentUser.favorites.remove(at: index)
+            updateUser(currentUser)
         }
-        updateUser(currentUser)
     }
-    
     func removeAllFavorites() {
         guard let currentUser = user else { return }
         user?.favorites.removeAll()

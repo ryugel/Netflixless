@@ -52,12 +52,14 @@ struct TMDBDetailView: View {
                     Spacer()
                     
                     Button(action: {
-                        if isFavorited  {
+                        
+                        if isInFavorites {
                             userViewModel.removeFromFavorites(show)
+                            isFavorited = false
                         } else {
                             userViewModel.addToFavorites(show)
+                            isFavorited = true
                         }
-                        isFavorited.toggle()
                     }) {
                         Image(systemName: isFavorited ? "heart.fill":"heart")
                             .foregroundColor(isFavorited ? .red : .gray)
@@ -80,7 +82,7 @@ struct TMDBDetailView: View {
     }
     private var isInFavorites: Bool {
         guard let user = userViewModel.user else { return false }
-        return user.favorites.contains(show)
+        return user.favorites.contains { $0.id == show.id }
     }
     func getUser() async  {
         guard let userUID = Auth.auth().currentUser?.uid else { return }

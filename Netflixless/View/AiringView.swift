@@ -41,7 +41,7 @@ struct AiringView: View {
                                     NavigationLink {
                                         TMDBDetailView(show: airing)
                                     } label: {
-                                        LazyImage(url: URL(string: airing.imageUrl + (airing.backdropPath ?? ""))) { image in
+                                        LazyImage(url: URL(string: airing.imageUrl + (airing.posterPath ?? ""))) { image in
                                             if let image = image.image {
                                                 image
                                                     .resizable()
